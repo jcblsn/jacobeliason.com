@@ -60,6 +60,13 @@ slugs <- stringr::str_sub(gsub("^.*_", "", posts), 12, -1)
 # lines to insert to a netlify _redirect file
 redirects <- paste0("/", slugs, " ", "/posts/", posts)
 
+# add cv
+redirects <- c(
+  redirects, 
+  paste0("/cv /files/cv.pdf"),
+  paste0("/resume /files/cv.pdf")
+)
+
 # write the _redirect file
 writeLines(redirects, here::here("_site", "_redirects"))
 ```
