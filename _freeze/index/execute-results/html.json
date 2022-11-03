@@ -1,7 +1,7 @@
 {
-  "hash": "09b20b480aa4cd89443d6f87b65a0041",
+  "hash": "199524e7abdcd066b9277ba42610f349",
   "result": {
-    "markdown": "---\ntitle: \"Jacob Eliason\"\nimage: profile.png\nabout:\n  template: trestles\n  links:\n    - icon: twitter\n      text: Twitter\n      href: https://twitter.com/jaco_bel\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com/jacobzeliason\n    - icon: github\n      text: Github\n      href: https://github.com/eliason-j\n    - icon: envelope\n      text: Email\n      href: mailto:jacobeliason+site@gmail.com\n    - icon: code\n      text: Site Code\n      href: https://github.com/eliason-j/jacobeliason.com\n---\n\n\n## Bio\n\nI am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\n\nI’ve previously worked in survey research, including at the U.S. Census Bureau.\n\nI enjoy running, cycling, and film photography.\n\n\n::: {.cell}\n\n:::",
+    "markdown": "---\ntitle: \"Jacob Eliason\"\nimage: profile.png\nabout:\n  template: trestles\n  links:\n    - icon: twitter\n      text: Twitter\n      href: https://twitter.com/jaco_bel\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com/jacobzeliason\n    - icon: github\n      text: Github\n      href: https://github.com/eliason-j\n    - icon: envelope\n      text: Email\n      href: mailto:jacobeliason+site@gmail.com\n    - icon: code\n      text: Site Code\n      href: https://github.com/eliason-j/jacobeliason.com\n---\n\n\n## Bio\n\nI am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\n\nI’ve previously worked in survey research, including at the U.S. Census Bureau.\n\nI enjoy running, cycling, and film photography.\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
