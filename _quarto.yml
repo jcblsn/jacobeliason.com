@@ -1,0 +1,47 @@
+project:
+  type: website 
+
+website:
+  title: "Jacob Eliason"
+  navbar:
+    right:
+      - blog.qmd 
+      - text: Resume
+        href: files/cv.pdf
+      #- icon: twitter
+      #  href: https://www.twitter.com/jaco_bel
+    # logo: files/favicon.png
+  favicon: files/favicon-bw.png
+  # site-url: "https://jacobeliason.com"
+  google-analytics: "G-W5T2MB639Z"
+  twitter-card: true # automatically generate a title, description, and preview image for the content when linked from Twitter
+  open-graph: true
+format:
+  html:
+    theme: 
+      light: [sandstone-light, variables.scss]
+    header-includes: |
+      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css"/>
+      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css"/>
+      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css"/>
+    
+    
+    mainfont: RobotoRegular
+    monofont: FiraCodeRegular
+    fontcolor: "black"
+    linkcolor: "#ff1924"
+    #"#7f7f7f"
+    code-line-numbers: true
+    code-copy: hover
+    fig-responsive: true # ?
+    search: false # excludes site from search engines
+    # email-obfuscation: references
+    # html-math-method: webtex
+    css: styles.css
+    execute:
+      freeze: auto
+
+editor: visual
+comments:
+  utterances:
+    repo: eliason-j/quarto-blog

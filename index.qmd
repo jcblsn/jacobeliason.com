@@ -1,0 +1,40 @@
+---
+title: "Jacob Eliason"
+image: profile.png
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/jaco_bel
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/jacobzeliason
+    - icon: github
+      text: Github
+      href: https://github.com/eliason-j
+    - icon: envelope
+      text: Email
+      href: mailto:jacobeliason+site@gmail.com
+    - icon: code
+      text: Site Code
+      href: https://github.com/eliason-j/jacobeliason.com
+---
+
+## Bio
+
+I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.
+
+I’ve previously worked in survey research, including at the U.S. Census Bureau.
+
+I enjoy running, cycling, and film photography.
+
+```{r}
+#| echo: false
+#| eval: false
+# <br>
+# <br>
+# <br>
+# 
+# <p><small>Last updated `r lubridate::today()`</small></p>
+```

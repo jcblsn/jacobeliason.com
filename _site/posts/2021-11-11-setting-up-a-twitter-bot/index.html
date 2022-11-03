@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacob Eliason">
+<meta name="dcterms.date" content="2021-11-11">
+<meta name="description" content="Last month, I made a Twitter bot using RStudio and Github Actions.">
+
+<title>Jacob Eliason - Deploying a Twitter bot from RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/favicon-bw.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W5T2MB639Z"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
+</script>
+<script src="../../site_libs/twitter-widget-0.0.1/widgets.js"></script>
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jacob Eliason - Deploying a Twitter bot from RStudio">
+<meta property="og:description" content="Last month, I made a Twitter bot using RStudio and Github Actions.">
+<meta property="og:site-name" content="Jacob Eliason">
+<meta name="twitter:title" content="Jacob Eliason - Deploying a Twitter bot from RStudio">
+<meta name="twitter:description" content="Last month, I made a Twitter bot using RStudio and Github Actions.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jacob Eliason</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../files/cv.pdf">Resume</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Deploying a Twitter bot from RStudio</h1>
+                  <div>
+        <div class="description">
+          Last month, I made a Twitter bot using RStudio and Github Actions.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Twitter</div>
+                <div class="quarto-category">Github Actions</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jacob Eliason </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 11, 2021</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="what" class="level2">
+<h2 class="anchored" data-anchor-id="what">What</h2>
+<ul>
+<li>Last month, I made a <a href="https://twitter.com/texturesofut">Twitter bot</a> using RStudio. Every few hours, the bot posts a satellite image and a Wikipedia reference for a given pair of coordinates from my home state of Utah. The bot is inspired by <a href="https://twitter.com/mattdray">@mattdray</a>’s <a href="https://twitter.com/londonmapbot">@londonmapbot</a>.</li>
+</ul>
+</section>
+<section id="how" class="level2">
+<h2 class="anchored" data-anchor-id="how">How</h2>
+<ul>
+<li>I started by forking Matt’s <a href="https://github.com/matt-dray/londonmapbot">repository</a> and following his instructions <a href="https://www.rostrum.blog/2020/09/21/londonmapbot/">here</a>.</li>
+<li>I made the following changes to his workflow:
+<ul>
+<li>Instead of sampling from the greater London area, I sample from a rectangle that contains Utah state boundaries.</li>
+<li>I found a <a href="https://en.wikipedia.org/wiki/Shapefile"><code>.shp</code> file</a> from <a href="https://gis.utah.gov/data/boundaries/citycountystate/">gis.utah.gov</a> and use that file and the <a href="https://r-spatial.github.io/sf/"><code>sf</code></a> package to test if the coordinate pair is inside or outside state boundaries. If necessary, I draw new pairs until I find one within state boundaries.</li>
+<li>I request larger (1280x1280) images from Mapbox.</li>
+<li>Wikipedia has a <a href="https://en.wikipedia.org/wiki/Special:Nearby">feature</a> that shows all pages within 10 km of a given point (such as your current location). <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Geographical_coordinates#Usage_guidelines">Apparently</a>, Wikipedia pages for any “location, structure, or geographic feature that is more or less fixed in one place” have latitude and longitude coordinates encoded. Who knew? It’s possible, then, to paste any coordinate pair into a URL and see what’s nearby. I do that, and add <a href="https://github.com/ropensci/RSelenium"><code>RSelenium</code></a> functions to my script to return the text from the first hit on the resultant page. This text is appended to the body of the tweet as a “Nearby point of interest.”</li>
+<li>I add a hashtag to the body of the tweet to make the account a little more discoverable. The hashtag is randomly selected from a list of a dozen or so that I thought were relevant to the account’s content.</li>
+<li>I use <a href="https://twitter.com/hadleywickham">@hadleywickham</a>’s <a href="https://github.com/hadley/emo"><code>emo</code></a> package to add emoji to brighten up the final result.</li>
+</ul></li>
+</ul>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why</h2>
+<ul>
+<li>I wanted to learn more about Github Actions. It’s a surprisingly powerful feature; I definitely will be experimenting more.</li>
+<li>I’ve been feeling like I should focus on live projects. I’ve done a fair number of personal projects in the last year, but nearly all of them are static and live on my hard drive. This felt like an easy way to get something more dynamic off the ground.</li>
+<li>I’m still interested in expanding the project by adding an image classification component. When I first started, I was struck by how many of the satellite images showed completely empty space, and I thought it would be interesting to quantify just how many of them are (say, “contain buildings/roads/farms” vs “don’t contain”). I ran out of time and energy for now for this portion, but this kind of satellite data still feels like a good canvas for demonstrating that kind of model. I might come back to it around the holidays when I have a little more time.</li>
+<li>Twitter is fun, simple as.</li>
+</ul>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ul>
+<li>My repository’s action has started to fail intermittently—looking through the run history, it probably only succeeded a third of the time this week. Why? It looks like an issue with the webscraping component (I’m seeing a lot of “HTTP Error 303”), but I can’t figure out why this would happen at some times and not others.</li>
+</ul>
+</section>
+<section id="some-of-my-favorite-recent-textures" class="level2">
+<h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
+<div class="cell">
+<div class="cell-output-display">
+<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">📍 40.1263, -113.3602<br><br>ℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away<br><br>🔗 <a href="https://t.co/ODI4FztxYa">https://t.co/ODI4FztxYa</a><br><br>🗺 <a href="https://t.co/REpGX3zh9r">https://t.co/REpGX3zh9r</a><a href="https://twitter.com/hashtag/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw">#lifeelevated</a> <a href="https://t.co/AsoAtB6B9R">pic.twitter.com/AsoAtB6B9R</a></p>— Textures of Utah 🤖 (@texturesofut) <a href="https://twitter.com/texturesofut/status/1456781196319330307?ref_src=twsrc%5Etfw">November 6, 2021</a></blockquote>
+
+</div>
+<div class="cell-output-display">
+<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">📍 37.7156, -113.5968<br><br>ℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away<br><br>🔗 <a href="https://t.co/mNY9WmBO6x">https://t.co/mNY9WmBO6x</a><br><br>🗺 <a href="https://t.co/nTrmgILMGx">https://t.co/nTrmgILMGx</a><a href="https://twitter.com/hashtag/landsat?src=hash&amp;ref_src=twsrc%5Etfw">#landsat</a> <a href="https://t.co/vh0hNixHUC">pic.twitter.com/vh0hNixHUC</a></p>— Textures of Utah 🤖 (@texturesofut) <a href="https://twitter.com/texturesofut/status/1455780540586496007?ref_src=twsrc%5Etfw">November 3, 2021</a></blockquote>
+
+</div>
+<div class="cell-output-display">
+<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">📍 37.1025, -111.5024<br><br>ℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away<br><br>🔗 <a href="https://t.co/6SGKTMUyTz">https://t.co/6SGKTMUyTz</a><br><br>🗺 <a href="https://t.co/nV93hvWAUc">https://t.co/nV93hvWAUc</a><a href="https://twitter.com/hashtag/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw">#wikipedia</a> <a href="https://t.co/QXNeXUc92d">pic.twitter.com/QXNeXUc92d</a></p>— Textures of Utah 🤖 (@texturesofut) <a href="https://twitter.com/texturesofut/status/1455607736255746052?ref_src=twsrc%5Etfw">November 2, 2021</a></blockquote>
+
+</div>
+<div class="cell-output-display">
+<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">📍 40.0148, -111.6805<br><br>ℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away<br><br>🔗 <a href="https://t.co/nOf3QawMd7">https://t.co/nOf3QawMd7</a><br><br>🗺 <a href="https://t.co/qsASwKWtsp">https://t.co/qsASwKWtsp</a><a href="https://twitter.com/hashtag/mapbox?src=hash&amp;ref_src=twsrc%5Etfw">#mapbox</a> <a href="https://t.co/sSPuDb9C1b">pic.twitter.com/sSPuDb9C1b</a></p>— Textures of Utah 🤖 (@texturesofut) <a href="https://twitter.com/texturesofut/status/1452382882765238275?ref_src=twsrc%5Etfw">October 24, 2021</a></blockquote>
+
+</div>
+<div class="cell-output-display">
+<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">📍 37.4306, -113.1841<br><br>ℹ️ Nearby point of interest: Timber Top Mountain - 860 m away<br><br>🔗 <a href="https://t.co/I8wCZNOXf5">https://t.co/I8wCZNOXf5</a><br><br>🗺 <a href="https://t.co/i0i1jgtFMC">https://t.co/i0i1jgtFMC</a><a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://t.co/wbVGaEVv3B">pic.twitter.com/wbVGaEVv3B</a></p>— Textures of Utah 🤖 (@texturesofut) <a href="https://twitter.com/texturesofut/status/1450825427593924610?ref_src=twsrc%5Etfw">October 20, 2021</a></blockquote>
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="eliason-j/quarto-blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

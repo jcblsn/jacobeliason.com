@@ -1,0 +1,195 @@
+---
+title: "Preparing data from Strava for analysis"
+author: 'Jacob Eliason' 
+date: '2021-04-30'
+categories: [R, Sports]
+description: "A process description of how I clean data collected from my runs."
+---
+
+```{r echo = F}
+set.seed(5)
+```
+
+When I run, I use [Strava](https://www.strava.com/) to log my activity. In honor of recently running my one-thousandth mile on Strava, I thought I'd do a write up for the steps I use to process my user data in R. The data Strava makes available is granular and can be used for all kinds of fun things after the steps detailed here.
+
+![](2021-04-30-processing-strava-data-nyc.png)
+
+## 1. Export your data {#s1}
+
+Per the [instructions](https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export) on their website, you can export your Strava activity data by navigating to your profile in a web browser and following *Settings* \> *My Account* \> *Download or Delete your Account - Get Started* \> *Request Your Archive*. From that point, it takes me about 10 minutes to see a download link in my inbox.
+
+The download apparently includes a lot of different kinds of data but the most salient (for my account, anyway) are contained in `activities.csv` and the `activities/` directory. The former contains summary information for each of my Strava activities and the latter contains individual files, each of which have second-to-second position data for an individual run, hike, or bike ride. The activity files appear to be some kind of custom or proprietary exercise file type--the two extensions I notice are `.gpx` and `.fit.gz`. At first glance, I don't recognize either.
+
+Fortunately, as usual I find that someone else has already done the heavy lifting for the most important part of this process. The Github packages [`FITfileR`](https://github.com/grimbough/FITfileR) and [`trackeR`](https://github.com/trackerproject/trackeR) can be used to convert these file types into something more legible. Special thanks to [Mike Smith](https://github.com/grimbough) for his excellent work on the former.
+
+## 2. Unpacking `.gpx` and `.fit.gz` files {#s2}
+
+I start by installing the Github packages and loading those along with the `tidyverse`.
+
+```{r, message = F}
+# devtools::install_github("grimbough/FITfileR")
+# devtools::install_github("trackerproject/trackeR")
+
+library(FITfileR)
+library(trackeR)
+library(tidyverse)
+```
+
+A few more lines help with setup and prepare for reading the activity files.
+
+```{r, eval = T}
+PATH <- str_c(str_remove(getwd(),"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"),"/personal-projects/strava")
+export_date <- "2021-04-29"
+PATH_ACTIVITIES <- str_c(PATH, "/DATA/",export_date,"/activities/")
+activity_names <- list.files(PATH_ACTIVITIES)
+sample(activity_names, 3) # check to make sure I got the correct file path
+```
+
+As I look at the file names, the first thing that becomes apparent is that I have some extra work to do as a result of my alternately using my phone and a Garmin watch to record activities. Those two devices produce the two different file extensions I observe and require different steps for unpacking.
+
+### Uncompressing and reading files from my fitness watch (`.fit.gz`) {#s2-read-fit}
+
+The `.fit.gz` files are [compressed](https://en.wikipedia.org/wiki/Gzip) and need to be uncompressed to `.fit` before I can use the `FITfileR` package.
+
+```{r, eval = F}
+compressed_record_names <- activity_names[str_sub(activity_names,-6,-1) == "fit.gz"]
+
+for(i in 1:length(compressed_record_names)){
+  R.utils::gunzip(
+    str_c(PATH_ACTIVITIES, compressed_record_names[i]),
+    remove = F
+  )
+}
+```
+
+Having unzipped the files, I again collect names.
+
+```{r, eval = F}
+activity_names <- list.files(PATH_ACTIVITIES)
+uncompressed_fit_names <- activity_names[str_sub(activity_names,-3,-1) == "fit"] # want exact match to .fit only, no .fit.gz
+```
+
+Now, using `FITfileR::records()`, I transform the files into tidy, rectangular datasets.
+
+```{r, eval = F}
+list.fit <- list()
+for(i in 1:length(uncompressed_fit_names)) {
+  record <- FITfileR::readFitFile(
+    str_c(PATH_ACTIVITIES, uncompressed_record_names[i])
+  ) %>% FITfileR::records()
+  
+  if(length(record) > 1) {
+    record <- record %>% bind_rows() %>% mutate(activity_id = i, filename = uncompressed_fit_names[i])
+  }
+  
+  list.fit[[i]] <- record
+}
+fit_records <- list.fit %>% bind_rows() %>% arrange(timestamp)
+```
+
+### Reading files recorded from my iPhone (`.gpx`) {#s2-read-gpx}
+
+I turn my attention back to the `.gpx` files. Fortunately, these files don't require much beyond a simple pass from the `trackeR` function. I do some additional housekeeping along the way, but this part is pretty straightforward.
+
+```{r, eval = F}
+gpx_names <- activity_names[str_sub(activity_names,-3,-1) == "gpx"]
+
+list.gpx <- list()
+for(i in 1:length(gpx_names)) {
+  record <- trackeR::readGPX(str_c(PATH_ACTIVITIES, gpx_names[i])) %>% 
+    as_tibble() %>% 
+    rename(
+      timestamp = time, 
+      position_lat = latitude, 
+      position_long = longitude, 
+      cadence = cadence_running
+    )
+  list.gpx[[i]] <- record
+}
+```
+
+### Combine both record types {#s2-combine}
+
+I add my two datasets together and with that, I'm ready to Learn Things.
+
+```{r, eval = F}
+records <- bind_rows(
+  fit_records,
+  list.gpx %>% bind_rows()
+) %>% arrange(timestamp)
+
+# colnames(records)
+# nrow(records)
+```
+
+### Straightening out the summary information in `activities.csv` {#s2-summary}
+
+One last thing I'll do before I finish up is make some tweaks to the `activities.csv` file I got in my original download. There's a surprising number of columns; it's kind of unwieldy when you first open it up. Here's a taste of what's in there.
+
+```{r warning = F, message = F}
+activities <- read_csv(str_c(PATH, "/DATA/",export_date,"/","activities.csv"))
+
+dim(activities)
+activities %>% colnames() %>% sample(., 10, F) 
+```
+
+I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.
+
+```{r, echo = T, message = F, warning = F}
+record_key_raw <- 
+  activities %>% 
+  janitor::clean_names() %>% # helper function for column names
+  janitor::remove_empty() %>% # drop empty rows
+  select(filename, everything()) %>% # reorder columns
+  filter(!is.na(filename)) # drop rows with empty file names
+```
+
+I also make a variety of mostly trivial changes for my own convenience and then I'm good to go!
+
+```{r, eval = F}
+KM_TO_MI <- 0.621371
+M_TO_FT <- 3.28084
+
+record_key <- record_key_raw %>% 
+  
+  # change units for elevation variables
+  mutate_at(vars(contains("elevation")), function(x){x <- x*M_TO_FT}) %>% 
+  mutate(
+    
+  # units #
+    distance = distance*KM_TO_MI,
+    duration = elapsed_time/60,
+    duration_moving = moving_time/60,
+    pace = (duration/distance) %>% round(2),
+    pace_moving = (duration_moving/distance) %>% round(2),
+    
+  # ids #
+    filename = filename %>% str_remove(., "activities/") %>% str_replace(., "fit.gz", "fit"),
+    activity_id = as.character(activity_id),
+    activity_type = tolower(activity_type),
+    
+  # incorrectly coded activities #
+    activity_type = ifelse(filename == "1812636545.gpx", "hike", activity_type), 
+    activity_type = ifelse(filename == "3324264305.fit", "walk", activity_type), 
+    
+    
+  # dates #
+    rdatetime_utc = lubridate::as_datetime(activity_date, format = "%b %d, %Y, %I:%M:%S %p", tz = "UTC"),
+    rdatetime_et = lubridate::as_datetime(rdatetime_utc, tz = "America/New_York"),
+    rdate_et = lubridate::as_date(rdatetime_et), 
+    
+    rday = lubridate::day(rdate_et),
+    rmonth = lubridate::month(rdate_et),
+    ryear = lubridate::year(rdate_et),
+    rhour_et = lubridate::hour(rdatetime_et),
+    rminute_et = lubridate::minute(rdatetime_et)
+
+  ) %>% 
+  select( # drop empty variables
+    -contains("weather"), -contains("precipitation"), -contains("wind"),
+    -apparent_temperature, -sunrise_time, -sunset_time, -dewpoint, -humidity, -cloud_cover, -uv_index
+  ) %>% 
+  mutate_if(is.numeric, ~round(.x, 2)) # round numeric variables
+```
+
+Now, for each run, I have information on granular location data and summary information in datasets `records` and `record_key` respectively. The interesting stuff pretty much all comes after this point, but I'll save that for another post.

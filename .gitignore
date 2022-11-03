@@ -37,3 +37,10 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+/.quarto/
+
+.DS_Store
+
+posts/2021-02-11-why-i-made-a-website
+posts/2021-06-25-how-many-young-mormons-are-queer
