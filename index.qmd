@@ -19,6 +19,7 @@ about:
     - icon: code
       text: Site Code
       href: https://github.com/eliason-j/jacobeliason.com
+comments: false
 ---
 
 ## Bio
