@@ -16,6 +16,9 @@ website:
   google-analytics: "G-W5T2MB639Z"
   twitter-card: true # automatically generate a title, description, and preview image for the content when linked from Twitter
   open-graph: true
+  comments:
+    utterances:
+      repo: eliason-j/jacobeliason.com
 format:
   html:
     theme: 
@@ -42,6 +45,3 @@ format:
       freeze: auto
 
 editor: visual
-comments:
-  utterances:
-    repo: eliason-j/jacobeliason.com
