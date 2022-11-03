@@ -9,7 +9,7 @@ about:
       href: https://twitter.com/jaco_bel
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com/jacobzeliason
+      href: https://www.linkedin.com/in/jacobzeliason/
     - icon: github
       text: Github
       href: https://github.com/eliason-j
