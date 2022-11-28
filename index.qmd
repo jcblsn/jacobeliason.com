@@ -12,21 +12,21 @@ about:
       href: https://www.linkedin.com/in/jacobzeliason/
     - icon: github
       text: Github
-      href: https://github.com/eliason-j
+      href: https://github.com/jcblsn
     - icon: envelope
       text: Email
       href: mailto:jacobeliason+site@gmail.com
     - icon: code
       text: Site Code
-      href: https://github.com/eliason-j/jacobeliason.com
+      href: https://github.com/jcblsn/jacobeliason.com
 comments: false
 ---
 
 ## Bio
 
-I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.
+I am a data scientist currently working towards a master's degree in statistics at the London School of Economics.
 
-I’ve previously worked in survey research, including at the U.S. Census Bureau.
+I've previously worked in survey research, including at the U.S. Census Bureau.
 
 I enjoy running, cycling, and film photography.
 
@@ -63,11 +63,10 @@ redirects <- paste0("/", slugs, " ", "/posts/", posts)
 # add cv
 redirects <- c(
   redirects, 
-  paste0("/cv /files/cv.pdf"),
-  paste0("/resume /files/cv.pdf")
+  paste0("/cv /files/jacob-eliason-cv.pdf"),
+  paste0("/resume /files/jacob-eliason-cv.pdf")
 )
 
 # write the _redirect file
 writeLines(redirects, here::here("_site", "_redirects"))
 ```
-
