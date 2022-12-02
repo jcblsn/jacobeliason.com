@@ -1,0 +1,67 @@
+---
+title: "Writing an R wrapper for a prediction market's API"
+description: 'How to "bet on anything with play money" from your console'
+categories: [R, R Packages, Forecasting]
+author: "Jacob Eliason"
+date: "2022-11-27"
+draft: false
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+I recently wrote an ([?](https://www.r-bloggers.com/2011/03/“an-r-package”-or-“a-r-package”/)) R wrapper for an online prediction market's API. 
+
+#### Why?
+
+- After stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically
+- It had been a while since I'd written code for an R package and I wanted to refresh my memory
+
+#### The platform
+
+The prediction market is called [Manifold Markets](https://manifold.markets/home). Manifold has been described as a "[play-money prediction market platform where you can bet on anything](https://help.manifold.markets/#block-fe58c63c18e04014b7ae47c8b5de53de)," an "[experiment for enabling effective forecasters to direct altruistic donations](https://ftxfuturefund.org/all-grants/?_organization_name=manifold-markets)," and "[like Wikipedia for things that nobody knows yet but will be observable later](https://twitter.com/ESYudkowsky/status/1592040000652455938)." It's something like [PredictIt](https://www.predictit.org) without real money. The platform is still pretty new and the community is still pretty small, but it's worth checking out.
+
+![](uncut-gems.png)
+
+#### My contribution
+
+The wrapper is called [`manifoldr`](https://github.com/jcblsn/manifoldr). It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is `manifold_api()`, from which all of the API endpoints can be accessed successfully as of November 2022.
+
+For example, we can retrieve user information by their unique username (in this case, the official account `@ManifoldMarkets`).
+
+```{r}
+#| eval: false
+# devtools::install_github("jcblsn/manifoldr")
+
+manifoldr::manifold_api(
+  endpoint = "/v0/user/ManifoldMarkets", 
+  request_type = "GET"
+)
+```
+
+A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as `clean_manifold_content()`, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using `manifoldr::get_manifold_api_key()`.
+
+```{r}
+#| eval: false
+manifoldr::get_market(market_id_or_slug = "will-the-los-angeles-lakers-make-th-8cbc520d8ca6") |> 
+  manifoldr::clean_manifold_content()
+```
+
+The package includes implementations of standard unit testing and code coverage tools using [`covr`](https://covr.r-lib.org), [`testthat`](https://testthat.r-lib.org), and [Github Actions](https://github.com/r-lib/actions).
+
+#### Illustration
+
+To demonstrate the package tools, I made a new account on the platform called "Manifold NBA" and programmatically set up prediction markets for all 30 American professional basketball teams' playoff odds. Feel free to check those out [here](https://manifold.markets/NBA?tab=markets).
+
+![](manifold-nba.png)
+
+#### Feedback
+
+The API is still in alpha, so I haven't built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an [issue inside the package repository](https://github.com/jcblsn/manifoldr/issues).
+
+#### Resources
+
+Finally, here is a short list of resources that were helpful to me while I worked on this:
+
+- A [vignette](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) on "Best practices for API packages" found in the [`httr`](https://cran.r-project.org/web/packages/httr/) package documentation
+- Hadley Wickham and Jenny Bryan's comprehensive "[R Packages](https://r-pkgs.org)"
+- Another [vignette](https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management) from [`httr`](https://cran.r-project.org/web/packages/httr/) on secret management, which was necessary in order to implement unit testing for endpoints that require authentication

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jacob Eliason">
+<meta name="dcterms.date" content="2022-11-27">
+<meta name="description" content="How to “bet on anything with play money” from your console">
+
+<title>Jacob Eliason - Writing an R wrapper for a prediction market’s API</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/favicon-bw.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W5T2MB639Z"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
+</script>
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jacob Eliason - Writing an R wrapper for a prediction market’s API">
+<meta property="og:description" content="How to “bet on anything with play money” from your console">
+<meta property="og:site-name" content="Jacob Eliason">
+<meta name="twitter:title" content="Jacob Eliason - Writing an R wrapper for a prediction market’s API">
+<meta name="twitter:description" content="How to “bet on anything with play money” from your console">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Jacob Eliason</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../files/jacob-eliason-cv.pdf">Resume</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Writing an R wrapper for a prediction market’s API</h1>
+                  <div>
+        <div class="description">
+          How to “bet on anything with play money” from your console
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">R Packages</div>
+                <div class="quarto-category">Forecasting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jacob Eliason </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 27, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>I recently wrote an (<a href="https://www.r-bloggers.com/2011/03/“an-r-package”-or-“a-r-package”/">?</a>) R wrapper for an online prediction market’s API.</p>
+<section id="why" class="level4">
+<h4 class="anchored" data-anchor-id="why">Why?</h4>
+<ul>
+<li>After stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically</li>
+<li>It had been a while since I’d written code for an R package and I wanted to refresh my memory</li>
+</ul>
+</section>
+<section id="the-platform" class="level4">
+<h4 class="anchored" data-anchor-id="the-platform">The platform</h4>
+<p>The prediction market is called <a href="https://manifold.markets/home">Manifold Markets</a>. Manifold has been described as a “<a href="https://help.manifold.markets/#block-fe58c63c18e04014b7ae47c8b5de53de">play-money prediction market platform where you can bet on anything</a>,” an “<a href="https://ftxfuturefund.org/all-grants/?_organization_name=manifold-markets">experiment for enabling effective forecasters to direct altruistic donations</a>,” and “<a href="https://twitter.com/ESYudkowsky/status/1592040000652455938">like Wikipedia for things that nobody knows yet but will be observable later</a>.” It’s something like <a href="https://www.predictit.org">PredictIt</a> without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.</p>
+<p><img src="uncut-gems.png" class="img-fluid"></p>
+</section>
+<section id="my-contribution" class="level4">
+<h4 class="anchored" data-anchor-id="my-contribution">My contribution</h4>
+<p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
+<p>For example, we can retrieve user information by their unique username (in this case, the official account <code>@ManifoldMarkets</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># devtools::install_github("jcblsn/manifoldr")</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>manifoldr<span class="sc">::</span><span class="fu">manifold_api</span>(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">endpoint =</span> <span class="st">"/v0/user/ManifoldMarkets"</span>, </span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">request_type =</span> <span class="st">"GET"</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as <code>clean_manifold_content()</code>, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using <code>manifoldr::get_manifold_api_key()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>manifoldr<span class="sc">::</span><span class="fu">get_market</span>(<span class="at">market_id_or_slug =</span> <span class="st">"will-the-los-angeles-lakers-make-th-8cbc520d8ca6"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  manifoldr<span class="sc">::</span><span class="fu">clean_manifold_content</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The package includes implementations of standard unit testing and code coverage tools using <a href="https://covr.r-lib.org"><code>covr</code></a>, <a href="https://testthat.r-lib.org"><code>testthat</code></a>, and <a href="https://github.com/r-lib/actions">Github Actions</a>.</p>
+</section>
+<section id="illustration" class="level4">
+<h4 class="anchored" data-anchor-id="illustration">Illustration</h4>
+<p>To demonstrate the package tools, I made a new account on the platform called “Manifold NBA” and programmatically set up prediction markets for all 30 American professional basketball teams’ playoff odds. Feel free to check those out <a href="https://manifold.markets/NBA?tab=markets">here</a>.</p>
+<p><img src="manifold-nba.png" class="img-fluid"></p>
+</section>
+<section id="feedback" class="level4">
+<h4 class="anchored" data-anchor-id="feedback">Feedback</h4>
+<p>The API is still in alpha, so I haven’t built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an <a href="https://github.com/jcblsn/manifoldr/issues">issue inside the package repository</a>.</p>
+</section>
+<section id="resources" class="level4">
+<h4 class="anchored" data-anchor-id="resources">Resources</h4>
+<p>Finally, here is a short list of resources that were helpful to me while I worked on this:</p>
+<ul>
+<li>A <a href="https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html">vignette</a> on “Best practices for API packages” found in the <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> package documentation</li>
+<li>Hadley Wickham and Jenny Bryan’s comprehensive “<a href="https://r-pkgs.org">R Packages</a>”</li>
+<li>Another <a href="https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management">vignette</a> from <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> on secret management, which was necessary in order to implement unit testing for endpoints that require authentication</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="jcblsn/jacobeliason.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
