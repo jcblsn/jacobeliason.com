@@ -1,23 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/posts.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/2022-11-27-writing-manifoldr-wrapper/index.html",

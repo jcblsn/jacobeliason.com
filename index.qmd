@@ -64,7 +64,7 @@ redirects <- paste0("/", slugs, " ", "/posts/", posts)
 redirects <- c(
   redirects, 
   paste0("/cv /files/jacob-eliason-cv.pdf"),
-  paste0("/resume /files/jacob-eliason-cv.pdf")
+  paste0("/resume /files/jacob-eliason-resume.pdf")
 )
 
 # write the _redirect file
