@@ -26,7 +26,7 @@ comments: false
 
 I am a data scientist currently working towards a master's degree in statistics at the London School of Economics.
 
-I've previously worked in survey research, including at the U.S. Census Bureau.
+I have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.
 
 I enjoy running, cycling, and film photography.
 

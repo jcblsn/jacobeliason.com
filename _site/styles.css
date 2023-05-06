@@ -12,9 +12,31 @@
 
 .navbar-dark .navbar-toggler {
     color: #fff;
-    border-color: #fff;
+/*    border-color: #fff; */
 }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+body {
+  font-size: 0.925em; /* 1 increment smaller than the default (1em) */
+}
+
+/* space out contents on home page */
+.about-entity {
+  margin-right: 2rem; /* Adjust the value as desired */
+}
+
+.level2 {
+  margin-left: 1.5rem; /* Adjust the value as desired */
+}
+
+.description {
+  color: #fff;
+}
+
+h1 {
+  color: #fff;
 }

@@ -11,7 +11,7 @@ website:
       #- icon: twitter
       #  href: https://www.twitter.com/jaco_bel
     # logo: files/favicon.png
-  favicon: files/favicon-bw.png
+  favicon: files/favicon-sun.png
   # site-url: "https://jacobeliason.com"
   google-analytics: "G-W5T2MB639Z"
   twitter-card: true # automatically generate a title, description, and preview image for the content when linked from Twitter
@@ -29,7 +29,6 @@ format:
       <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css"/>
       <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css"/>
       <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css"/>
-    
     
     mainfont: RobotoRegular
     monofont: FiraCodeRegular
