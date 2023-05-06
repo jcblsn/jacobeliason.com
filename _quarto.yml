@@ -1,5 +1,12 @@
 project:
   type: website 
+  # 'render' controls what does and doesn't get rendered when i build (https://quarto.org/docs/websites/)
+  render:
+    - "*.qmd"
+    # - "!posts/2021*/index.qmd"
+    # - "!posts/2022*/index.qmd"
+    - "!ignored.qmd"
+    - "!ignored-dir/"
 
 website:
   title: "Jacob Eliason"

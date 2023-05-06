@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "posts/2022-11-27-writing-manifoldr-wrapper/index.html",
-    "href": "posts/2022-11-27-writing-manifoldr-wrapper/index.html",
-    "title": "Writing an R wrapper for a prediction market’s API",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "I recently wrote an (?) R wrapper for an online prediction market’s API.\n\nWhy?\n\nAfter stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically\nIt had been a while since I’d written code for an R package and I wanted to refresh my memory\n\n\n\nThe platform\nThe prediction market is called Manifold Markets. Manifold has been described as a “play-money prediction market platform where you can bet on anything,” an “experiment for enabling effective forecasters to direct altruistic donations,” and “like Wikipedia for things that nobody knows yet but will be observable later.” It’s something like PredictIt without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.\n\n\n\nMy contribution\nThe wrapper is called manifoldr. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is manifold_api(), from which all of the API endpoints can be accessed successfully as of November 2022.\nFor example, we can retrieve user information by their unique username (in this case, the official account @ManifoldMarkets).\n\n# devtools::install_github(\"jcblsn/manifoldr\")\n\nmanifoldr::manifold_api(\n  endpoint = \"/v0/user/ManifoldMarkets\", \n  request_type = \"GET\"\n)\n\nA number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as clean_manifold_content(), which will return output as a data frame with clean variable names. Users can also authenticate with the platform using manifoldr::get_manifold_api_key().\n\nmanifoldr::get_market(market_id_or_slug = \"will-the-los-angeles-lakers-make-th-8cbc520d8ca6\") |&gt; \n  manifoldr::clean_manifold_content()\n\nThe package includes implementations of standard unit testing and code coverage tools using covr, testthat, and Github Actions.\n\n\nIllustration\nTo demonstrate the package tools, I made a new account on the platform called “Manifold NBA” and programmatically set up prediction markets for all 30 American professional basketball teams’ playoff odds. Feel free to check those out here.\n\n\n\nFeedback\nThe API is still in alpha, so I haven’t built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an issue inside the package repository.\n\n\nResources\nFinally, here is a short list of resources that were helpful to me while I worked on this:\n\nA vignette on “Best practices for API packages” found in the httr package documentation\nHadley Wickham and Jenny Bryan’s comprehensive “R Packages”\nAnother vignette from httr on secret management, which was necessary in order to implement unit testing for endpoints that require authentication"
+    "text": "Writing an R wrapper for a prediction market’s API\n\n\n\n\n\n\n\nR\n\n\nR Packages\n\n\nForecasting\n\n\n\n\nHow to “bet on anything with play money” from your console\n\n\n\n\n\n\nNov 27, 2022\n\n\nJacob Eliason\n\n\n\n\n\n\n  \n\n\n\n\nDeploying a Twitter bot from RStudio\n\n\n\n\n\n\n\nR\n\n\nTwitter\n\n\nGithub Actions\n\n\n\n\nLast month, I made a Twitter bot using RStudio and Github Actions.\n\n\n\n\n\n\nNov 11, 2021\n\n\nJacob Eliason\n\n\n\n\n\n\n  \n\n\n\n\nPreparing data from Strava for analysis\n\n\n\n\n\n\n\nR\n\n\nSports\n\n\n\n\nA process description of how I clean data collected from my runs.\n\n\n\n\n\n\nApr 30, 2021\n\n\nJacob Eliason\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jacob Eliason",
+    "section": "",
+    "text": "I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\nI have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.\nI enjoy running, cycling, and film photography."
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Jacob Eliason",
+    "section": "",
+    "text": "I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\nI have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.\nI enjoy running, cycling, and film photography."
   },
   {
     "objectID": "posts/2021-04-30-processing-data-from-strava/index.html",
@@ -70,24 +84,10 @@
     "text": "Some of my favorite recent textures\n\n\n📍 40.1263, -113.3602ℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away🔗 https://t.co/ODI4FztxYa🗺 https://t.co/REpGX3zh9r#lifeelevated pic.twitter.com/AsoAtB6B9R— Textures of Utah 🤖 (@texturesofut) November 6, 2021\n\n\n\n📍 37.7156, -113.5968ℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away🔗 https://t.co/mNY9WmBO6x🗺 https://t.co/nTrmgILMGx#landsat pic.twitter.com/vh0hNixHUC— Textures of Utah 🤖 (@texturesofut) November 3, 2021\n\n\n\n📍 37.1025, -111.5024ℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away🔗 https://t.co/6SGKTMUyTz🗺 https://t.co/nV93hvWAUc#wikipedia pic.twitter.com/QXNeXUc92d— Textures of Utah 🤖 (@texturesofut) November 2, 2021\n\n\n\n📍 40.0148, -111.6805ℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away🔗 https://t.co/nOf3QawMd7🗺 https://t.co/qsASwKWtsp#mapbox pic.twitter.com/sSPuDb9C1b— Textures of Utah 🤖 (@texturesofut) October 24, 2021\n\n\n\n📍 37.4306, -113.1841ℹ️ Nearby point of interest: Timber Top Mountain - 860 m away🔗 https://t.co/I8wCZNOXf5🗺 https://t.co/i0i1jgtFMC#tidyverse pic.twitter.com/wbVGaEVv3B— Textures of Utah 🤖 (@texturesofut) October 20, 2021"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Jacob Eliason",
+    "objectID": "posts/2022-11-27-writing-manifoldr-wrapper/index.html",
+    "href": "posts/2022-11-27-writing-manifoldr-wrapper/index.html",
+    "title": "Writing an R wrapper for a prediction market’s API",
     "section": "",
-    "text": "I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\nI have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.\nI enjoy running, cycling, and film photography."
-  },
-  {
-    "objectID": "index.html#bio",
-    "href": "index.html#bio",
-    "title": "Jacob Eliason",
-    "section": "",
-    "text": "I am a data scientist currently working towards a master’s degree in statistics at the London School of Economics.\nI have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.\nI enjoy running, cycling, and film photography."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Writing an R wrapper for a prediction market’s API\n\n\n\n\n\n\n\nR\n\n\nR Packages\n\n\nForecasting\n\n\n\n\nHow to “bet on anything with play money” from your console\n\n\n\n\n\n\nNov 27, 2022\n\n\nJacob Eliason\n\n\n\n\n\n\n  \n\n\n\n\nDeploying a Twitter bot from RStudio\n\n\n\n\n\n\n\nR\n\n\nTwitter\n\n\nGithub Actions\n\n\n\n\nLast month, I made a Twitter bot using RStudio and Github Actions.\n\n\n\n\n\n\nNov 11, 2021\n\n\nJacob Eliason\n\n\n\n\n\n\n  \n\n\n\n\nPreparing data from Strava for analysis\n\n\n\n\n\n\n\nR\n\n\nSports\n\n\n\n\nA process description of how I clean data collected from my runs.\n\n\n\n\n\n\nApr 30, 2021\n\n\nJacob Eliason\n\n\n\n\n\n\nNo matching items"
+    "text": "I recently wrote an (?) R wrapper for an online prediction market’s API.\n\nWhy?\n\nAfter stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically\nIt had been a while since I’d written code for an R package and I wanted to refresh my memory\n\n\n\nThe platform\nThe prediction market is called Manifold Markets. Manifold has been described as a “play-money prediction market platform where you can bet on anything,” an “experiment for enabling effective forecasters to direct altruistic donations,” and “like Wikipedia for things that nobody knows yet but will be observable later.” It’s something like PredictIt without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.\n\n\n\nMy contribution\nThe wrapper is called manifoldr. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is manifold_api(), from which all of the API endpoints can be accessed successfully as of November 2022.\nFor example, we can retrieve user information by their unique username (in this case, the official account @ManifoldMarkets).\n\n# devtools::install_github(\"jcblsn/manifoldr\")\n\nmanifoldr::manifold_api(\n  endpoint = \"/v0/user/ManifoldMarkets\", \n  request_type = \"GET\"\n)\n\nA number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as clean_manifold_content(), which will return output as a data frame with clean variable names. Users can also authenticate with the platform using manifoldr::get_manifold_api_key().\n\nmanifoldr::get_market(market_id_or_slug = \"will-the-los-angeles-lakers-make-th-8cbc520d8ca6\") |&gt; \n  manifoldr::clean_manifold_content()\n\nThe package includes implementations of standard unit testing and code coverage tools using covr, testthat, and Github Actions.\n\n\nIllustration\nTo demonstrate the package tools, I made a new account on the platform called “Manifold NBA” and programmatically set up prediction markets for all 30 American professional basketball teams’ playoff odds. Feel free to check those out here.\n\n\n\nFeedback\nThe API is still in alpha, so I haven’t built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an issue inside the package repository.\n\n\nResources\nFinally, here is a short list of resources that were helpful to me while I worked on this:\n\nA vignette on “Best practices for API packages” found in the httr package documentation\nHadley Wickham and Jenny Bryan’s comprehensive “R Packages”\nAnother vignette from httr on secret management, which was necessary in order to implement unit testing for endpoints that require authentication"
   }
 ]

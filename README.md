@@ -13,5 +13,3 @@ Netlify Status
 This is the source code for my personal website, [jacobeliason.com](https://jacobeliason.com).
 
 It was made using [Quarto](https://quarto.org/).
-
-## Usage
