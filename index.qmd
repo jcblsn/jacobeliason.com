@@ -28,7 +28,7 @@ I am a data scientist currently working towards a master's degree in statistics 
 
 I have experience in statistical modeling, deep learning, and survey research. I like working on hard problems.
 
-I enjoy running, cycling, and film photography.
+I also enjoy running, hiking, and film photography.
 
 ```{r}
 #| echo: false
