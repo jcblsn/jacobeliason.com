@@ -1,7 +1,7 @@
 ---
 title: "Setting up TensorFlow with GPU support on a M1 Macbook Pro"
 description: 'For training small neural networks locally.'
-categories: [deep learning, process write-up]
+categories: [deep learning, python, process write-up]
 author: "Jacob Eliason"
 date: "2023-05-08"
 draft: false
@@ -16,6 +16,8 @@ As has been noted by [many](https://twitter.com/williamrblack/status/14299627330
 This was especially true for me last fall after I upgraded my laptop to a M1 Macbook Pro. Setting up a Python environment for TensorFlow with GPU support was surprisingly hard to do despite no shortage of helpful-sounding search results. 
 
 After getting things up and running and subsequently having helped a couple of my classmates walk through the same process on their computers, I thought I'd write down the steps that worked with my machine.
+
+
 
 ## Why?
 
@@ -83,3 +85,5 @@ And that should be it! After completing those steps, the following code should y
 import tensorflow as tf
 tf.config.list_physical_devices()
 ```
+
+![](mac-stock-photo.jpg)

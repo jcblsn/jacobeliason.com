@@ -113,10 +113,12 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
 <meta property="og:description" content="For training small neural networks locally.">
+<meta property="og:image" content="mac-stock-photo.jpg">
 <meta property="og:site-name" content="Jacob Eliason">
 <meta name="twitter:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
 <meta name="twitter:description" content="For training small neural networks locally.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="mac-stock-photo.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -163,6 +165,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">deep learning</div>
+                <div class="quarto-category">python</div>
                 <div class="quarto-category">process write-up</div>
               </div>
                   </div>
@@ -254,11 +257,12 @@ tensorflow-metal          0.6.0                    pypi_0    pypi</code></pre>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb6-2"><a href="#cb6-2"></a>tf.config.list_physical_devices()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'),
  PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</code></pre>
 </div>
 </div>
+<p><img src="mac-stock-photo.jpg" class="img-fluid"></p>
 
 
 </section>

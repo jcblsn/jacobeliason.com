@@ -164,9 +164,9 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">R</div>
-                <div class="quarto-category">R Packages</div>
-                <div class="quarto-category">Forecasting</div>
+                <div class="quarto-category">r</div>
+                <div class="quarto-category">r packages</div>
+                <div class="quarto-category">forecasting</div>
               </div>
                   </div>
   </div>
@@ -202,7 +202,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
-<p>I recently wrote an (<a href="https://www.r-bloggers.com/2011/03/“an-r-package”-or-“a-r-package”/">?</a>) R wrapper for an online prediction market’s API.</p>
+<p>I recently wrote an R wrapper for an online prediction market’s API.</p>
 <section id="why" class="level4">
 <h4 class="anchored" data-anchor-id="why">Why?</h4>
 <ul>
@@ -210,14 +210,14 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <li>It had been a while since I’d written code for an R package and I wanted to refresh my memory</li>
 </ul>
 </section>
-<section id="the-platform" class="level4">
-<h4 class="anchored" data-anchor-id="the-platform">The platform</h4>
+<section id="manifold-markets" class="level4">
+<h4 class="anchored" data-anchor-id="manifold-markets">Manifold Markets</h4>
 <p>The prediction market is called <a href="https://manifold.markets/home">Manifold Markets</a>. Manifold has been described as a “<a href="https://help.manifold.markets/#block-fe58c63c18e04014b7ae47c8b5de53de">play-money prediction market platform where you can bet on anything</a>,” an “<a href="https://ftxfuturefund.org/all-grants/?_organization_name=manifold-markets">experiment for enabling effective forecasters to direct altruistic donations</a>,” and “<a href="https://twitter.com/ESYudkowsky/status/1592040000652455938">like Wikipedia for things that nobody knows yet but will be observable later</a>.” It’s something like <a href="https://www.predictit.org">PredictIt</a> without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.</p>
 <p><img src="uncut-gems.png" class="img-fluid"></p>
 </section>
 <section id="my-contribution" class="level4">
 <h4 class="anchored" data-anchor-id="my-contribution">My contribution</h4>
-<p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
+<p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. Building the wrapper involved mapping the API’s HTTP-based interface into R functions. It required careful parsing of the API’s responses and ensuring that each function performed its corresponding API request effectively. This involved considerable error checking and handling to ensure robustness. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
 <p>For example, we can retrieve user information by their unique username (in this case, the official account <code>@ManifoldMarkets</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># devtools::install_github("jcblsn/manifoldr")</span></span>
@@ -245,7 +245,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 </section>
 <section id="resources" class="level4">
 <h4 class="anchored" data-anchor-id="resources">Resources</h4>
-<p>Finally, here is a short list of resources that were helpful to me while I worked on this:</p>
+<p>Finally, I’ve made a short list of resources that were helpful to me while I worked on this.</p>
 <ul>
 <li>A <a href="https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html">vignette</a> on “Best practices for API packages” found in the <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> package documentation</li>
 <li>Hadley Wickham and Jenny Bryan’s comprehensive “<a href="https://r-pkgs.org">R Packages</a>”</li>

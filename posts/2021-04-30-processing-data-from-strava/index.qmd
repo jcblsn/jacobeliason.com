@@ -1,9 +1,9 @@
 ---
 title: "Preparing data from Strava for analysis"
+description: "How I clean my workout data."
 author: 'Jacob Eliason' 
 date: '2021-04-30'
-categories: [R, Sports]
-description: "A process description of how I clean data collected from my runs."
+categories: [r, sports, process write-up]
 ---
 
 ```{r echo = F}
@@ -26,7 +26,8 @@ Fortunately, as usual I find that someone else has already done the heavy liftin
 
 I start by installing the Github packages and loading those along with the `tidyverse`.
 
-```{r, message = F}
+```{r}
+#| eval: false
 # devtools::install_github("grimbough/FITfileR")
 # devtools::install_github("trackerproject/trackeR")
 
@@ -37,7 +38,8 @@ library(tidyverse)
 
 A few more lines help with setup and prepare for reading the activity files.
 
-```{r, eval = T}
+```{r}
+#| eval: false
 PATH <- str_c(str_remove(getwd(),"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"),"/personal-projects/strava")
 export_date <- "2021-04-29"
 PATH_ACTIVITIES <- str_c(PATH, "/DATA/",export_date,"/activities/")
@@ -51,7 +53,8 @@ As I look at the file names, the first thing that becomes apparent is that I hav
 
 The `.fit.gz` files are [compressed](https://en.wikipedia.org/wiki/Gzip) and need to be uncompressed to `.fit` before I can use the `FITfileR` package.
 
-```{r, eval = F}
+```{r}
+#| eval: false
 compressed_record_names <- activity_names[str_sub(activity_names,-6,-1) == "fit.gz"]
 
 for(i in 1:length(compressed_record_names)){
@@ -64,14 +67,16 @@ for(i in 1:length(compressed_record_names)){
 
 Having unzipped the files, I again collect names.
 
-```{r, eval = F}
+```{r}
+#| eval: false
 activity_names <- list.files(PATH_ACTIVITIES)
 uncompressed_fit_names <- activity_names[str_sub(activity_names,-3,-1) == "fit"] # want exact match to .fit only, no .fit.gz
 ```
 
 Now, using `FITfileR::records()`, I transform the files into tidy, rectangular datasets.
 
-```{r, eval = F}
+```{r}
+#| eval: false
 list.fit <- list()
 for(i in 1:length(uncompressed_fit_names)) {
   record <- FITfileR::readFitFile(
@@ -91,7 +96,8 @@ fit_records <- list.fit %>% bind_rows() %>% arrange(timestamp)
 
 I turn my attention back to the `.gpx` files. Fortunately, these files don't require much beyond a simple pass from the `trackeR` function. I do some additional housekeeping along the way, but this part is pretty straightforward.
 
-```{r, eval = F}
+```{r}
+#| eval: false
 gpx_names <- activity_names[str_sub(activity_names,-3,-1) == "gpx"]
 
 list.gpx <- list()
@@ -112,7 +118,8 @@ for(i in 1:length(gpx_names)) {
 
 I add my two datasets together and with that, I'm ready to Learn Things.
 
-```{r, eval = F}
+```{r}
+#| eval: false
 records <- bind_rows(
   fit_records,
   list.gpx %>% bind_rows()
@@ -124,18 +131,10 @@ records <- bind_rows(
 
 ### Straightening out the summary information in `activities.csv` {#s2-summary}
 
-One last thing I'll do before I finish up is make some tweaks to the `activities.csv` file I got in my original download. There's a surprising number of columns; it's kind of unwieldy when you first open it up. Here's a taste of what's in there.
+One last thing I'll do before I finish up is make some tweaks to the `activities.csv` file I got in my original download. I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.
 
-```{r warning = F, message = F}
-activities <- read_csv(str_c(PATH, "/DATA/",export_date,"/","activities.csv"))
-
-dim(activities)
-activities %>% colnames() %>% sample(., 10, F) 
-```
-
-I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.
-
-```{r, echo = T, message = F, warning = F}
+```{r}
+#| eval: false
 record_key_raw <- 
   activities %>% 
   janitor::clean_names() %>% # helper function for column names
@@ -146,7 +145,8 @@ record_key_raw <-
 
 I also make a variety of mostly trivial changes for my own convenience and then I'm good to go!
 
-```{r, eval = F}
+```{r}
+#| eval: false
 KM_TO_MI <- 0.621371
 M_TO_FT <- 3.28084
 

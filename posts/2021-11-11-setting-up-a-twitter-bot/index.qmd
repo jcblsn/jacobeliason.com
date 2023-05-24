@@ -1,27 +1,27 @@
 ---
 title: "Deploying a Twitter bot from RStudio"
+description: "Into the mapbotverse."
 author: 'Jacob Eliason' 
 date: '2021-11-11'
-categories: [R, Twitter, Github Actions]
-description: "Last month, I made a Twitter bot using RStudio and Github Actions."
+categories: [r, twitter, github actions]
 execute:
   freeze: auto  # re-render only when source changes
 ---
 
 ## What
 
--   Last month, I made a [Twitter bot](https://twitter.com/texturesofut) using RStudio. Every few hours, the bot posts a satellite image and a Wikipedia reference for a given pair of coordinates from my home state of Utah. The bot is inspired by [\@mattdray](https://twitter.com/mattdray)'s [\@londonmapbot](https://twitter.com/londonmapbot).
+- Last month, I made a [Twitter bot](https://twitter.com/texturesofut) using RStudio. Every few hours, the bot posts a satellite image and a Wikipedia reference for a given pair of coordinates from my home state of Utah. The bot is inspired by [\@mattdray](https://twitter.com/mattdray)'s [\@londonmapbot](https://twitter.com/londonmapbot).
 
 ## How
 
--   I started by forking Matt's [repository](https://github.com/matt-dray/londonmapbot) and following his instructions [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
--   I made the following changes to his workflow:
-    -   Instead of sampling from the greater London area, I sample from a rectangle that contains Utah state boundaries.
-    -   I found a [`.shp` file](https://en.wikipedia.org/wiki/Shapefile) from [gis.utah.gov](https://gis.utah.gov/data/boundaries/citycountystate/) and use that file and the [`sf`](https://r-spatial.github.io/sf/) package to test if the coordinate pair is inside or outside state boundaries. If necessary, I draw new pairs until I find one within state boundaries.
-    -   I request larger (1280x1280) images from Mapbox.
-    -   Wikipedia has a [feature](https://en.wikipedia.org/wiki/Special:Nearby) that shows all pages within 10 km of a given point (such as your current location). [Apparently](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Geographical_coordinates#Usage_guidelines), Wikipedia pages for any "location, structure, or geographic feature that is more or less fixed in one place" have latitude and longitude coordinates encoded. Who knew? It's possible, then, to paste any coordinate pair into a URL and see what's nearby. I do that, and add [`RSelenium`](https://github.com/ropensci/RSelenium) functions to my script to return the text from the first hit on the resultant page. This text is appended to the body of the tweet as a "Nearby point of interest."
-    -   I add a hashtag to the body of the tweet to make the account a little more discoverable. The hashtag is randomly selected from a list of a dozen or so that I thought were relevant to the account's content.
-    -   I use [\@hadleywickham](https://twitter.com/hadleywickham)'s [`emo`](https://github.com/hadley/emo) package to add emoji to brighten up the final result.
+- I started by forking Matt's [repository](https://github.com/matt-dray/londonmapbot) and following his instructions [here](https://www.rostrum.blog/2020/09/21/londonmapbot/).
+- I made the following changes to his workflow:
+    - Instead of sampling from the greater London area, I sample from a rectangle that contains Utah state boundaries.
+    - I found a [`.shp` file](https://en.wikipedia.org/wiki/Shapefile) from [gis.utah.gov](https://gis.utah.gov/data/boundaries/citycountystate/) and use that file and the [`sf`](https://r-spatial.github.io/sf/) package to test if the coordinate pair is inside or outside state boundaries. If necessary, I draw new pairs until I find one within state boundaries.
+    - I request larger (1280x1280) images from Mapbox.
+    - Wikipedia has a [feature](https://en.wikipedia.org/wiki/Special:Nearby) that shows all pages within 10 km of a given point (such as your current location). [Apparently](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Geographical_coordinates#Usage_guidelines), Wikipedia pages for any "location, structure, or geographic feature that is more or less fixed in one place" have latitude and longitude coordinates encoded. Who knew? It's possible, then, to paste any coordinate pair into a URL and see what's nearby. I do that, and add [`RSelenium`](https://github.com/ropensci/RSelenium) functions to my script to return the text from the first hit on the resultant page. This text is appended to the body of the tweet as a "Nearby point of interest."
+    - I add a hashtag to the body of the tweet to make the account a little more discoverable. The hashtag is randomly selected from a list of a dozen or so that I thought were relevant to the account's content.
+    - I use [\@hadleywickham](https://twitter.com/hadleywickham)'s [`emo`](https://github.com/hadley/emo) package to add emoji to brighten up the final result.
 
 \ \ 
 
@@ -29,18 +29,32 @@ execute:
 
 ## Why
 
--   I wanted to learn more about Github Actions. It's a surprisingly powerful feature; I definitely will be experimenting more.
--   I've been feeling like I should focus on live projects. I've done a fair number of personal projects in the last year, but nearly all of them are static and live on my hard drive. This felt like an easy way to get something more dynamic off the ground.
--   I'm still interested in expanding the project by adding an image classification component. When I first started, I was struck by how many of the satellite images showed completely empty space, and I thought it would be interesting to quantify just how many of them are (say, "contain buildings/roads/farms" vs "don't contain"). I ran out of time and energy for now for this portion, but this kind of satellite data still feels like a good canvas for demonstrating that kind of model. I might come back to it around the holidays when I have a little more time.
--   Twitter is fun, simple as.
+- I wanted to learn more about Github Actions. It's a surprisingly powerful feature; I definitely will be experimenting more.
+- I've been feeling like I should focus on live projects. I've done a fair number of personal projects in the last year, but nearly all of them are static and live on my hard drive. This felt like an easy way to get something more dynamic off the ground.
+- I'm still interested in expanding the project by adding an image classification component. When I first started, I was struck by how many of the satellite images showed completely empty space, and I thought it would be interesting to quantify just how many of them are (say, "contain buildings/roads/farms" vs "don't contain"). I ran out of time and energy for now for this portion, but this kind of satellite data still feels like a good canvas for demonstrating that kind of model. I might come back to it around the holidays when I have a little more time.
+- I think Twitter is fun.
 
 ## Questions
 
--   My repository's action has started to fail intermittently---looking through the run history, it probably only succeeded a third of the time this week. Why? It looks like an issue with the webscraping component (I'm seeing a lot of "HTTP Error 303"), but I can't figure out why this would happen at some times and not others.
+- My repository's action has started to fail intermittently---looking through the run history, it probably only succeeded a third of the time this week. Why? It looks like an issue with the webscraping component (I'm seeing a lot of "HTTP Error 303"), but I can't figure out why this would happen at some times and not others.
 
 ## Some of my favorite recent textures
 
-```{r, echo = F}
+Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.
+
+{{< tweet texturesofut 1456781196319330307 >}}
+
+{{< tweet texturesofut 1455780540586496007 >}}
+
+{{< tweet texturesofut 1455607736255746052 >}}
+
+{{< tweet texturesofut 1452382882765238275 >}}
+
+{{< tweet texturesofut 1450825427593924610 >}}
+
+```{r}
+#| eval: false
+#| echo: false
 # devtools::install_github("gadenbuie/tweetrmd")
 tweetrmd::include_tweet("https://twitter.com/texturesofut/status/1456781196319330307")
 tweetrmd::include_tweet("https://twitter.com/texturesofut/status/1455780540586496007")
