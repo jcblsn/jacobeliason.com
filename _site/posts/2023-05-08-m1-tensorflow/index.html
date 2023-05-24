@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jacob Eliason">
+<meta name="dcterms.date" content="2023-05-08">
+<meta name="description" content="For training small neural networks locally.">
 
-<title>Jacob Eliason - Blog</title>
+<title>Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +23,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./files/favicon-sun.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../files/favicon-sun.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,35 +96,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W5T2MB639Z"></script>
 
 <script type="text/javascript">
@@ -103,24 +109,24 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css">
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Jacob Eliason - Blog">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
+<meta property="og:description" content="For training small neural networks locally.">
 <meta property="og:site-name" content="Jacob Eliason">
-<meta name="twitter:title" content="Jacob Eliason - Blog">
+<meta name="twitter:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
+<meta name="twitter:description" content="For training small neural networks locally.">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jacob Eliason</span>
     </a>
   </div>
@@ -131,11 +137,11 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./files/jacob-eliason-resume.pdf" rel="" target="">
+    <a class="nav-link" href="../../files/jacob-eliason-resume.pdf" rel="" target="">
  <span class="menu-text">Resume</span></a>
   </li>  
 </ul>
@@ -146,201 +152,119 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Setting up TensorFlow with GPU support on a M1 Macbook Pro</h1>
+                  <div>
+        <div class="description">
+          For training small neural networks locally.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">deep learning</div>
+                <div class="quarto-category">process write-up</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jacob Eliason </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Forecasting">Forecasting <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Github Actions">Github Actions <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R Packages">R Packages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sports">Sports <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Twitter">Twitter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="deep learning">deep learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="process write-up">process write-up <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>As has been noted by <a href="https://twitter.com/williamrblack/status/1429962733055881218?s=20">many</a> <a href="https://twitter.com/MLE_Online/status/1584794484134805504?s=20">others</a>, Google search results seem to have meaningfully degraded in quality in the last couple of years. Whether this is due to AI content farms or more widespread use of SEO techniques, I sometimes find myself searching through what feels like ever-larger haystacks for increasingly well-disguised needles.</p>
+<p>This was especially true for me last fall after I upgraded my laptop to a M1 Macbook Pro. Setting up a Python environment for TensorFlow with GPU support was surprisingly hard to do despite no shortage of helpful-sounding search results.</p>
+<p>After getting things up and running and subsequently having helped a couple of my classmates walk through the same process on their computers, I thought I’d write down the steps that worked with my machine.</p>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why?</h2>
+<p>Training neural networks locally with GPU support is many times faster than training them with a CPU alone.</p>
+<p>For me, this was nice to have last semester while I was taking a deep learning class. I prefer writing code in VS Code over other environments and GPU acceleration made it feasible for me to do most of my coursework there instead of in Google Colab.</p>
+</section>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<section id="install-miniforge-or-miniconda" class="level3">
+<h3 class="anchored" data-anchor-id="install-miniforge-or-miniconda">1. Install miniforge or miniconda</h3>
+<p>I had issues when I tried these steps using Anaconda. I used <a href="https://docs.conda.io/en/latest/miniconda.html#macos-installers">miniconda</a> in the end.</p>
+</section>
+<section id="create-a-osx-arm64-native-conda-environment" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-osx-arm64-native-conda-environment">2. Create a <code>osx-arm64</code>-native Conda environment</h3>
+<p>Per this Stack Overflow <a href="https://stackoverflow.com/a/65432861">answer</a>, we’ll create a new Conda environment with the <code>osx-arm64</code> channel as the default.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>CONDA_SUBDIR=osx-arm64 conda create -n native numpy -c conda-forge</span>
+<span id="cb1-2"><a href="#cb1-2"></a>conda activate native </span>
+<span id="cb1-3"><a href="#cb1-3"></a>conda config --env --set subdir osx-arm64</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Subsequent steps come from “Fix #2” in the following <a href="https://stackoverflow.com/a/75198379">answer</a>.</p>
+</section>
+<section id="designate-the-use-of-the-conda-forge-channel-for-package-installation" class="level3">
+<h3 class="anchored" data-anchor-id="designate-the-use-of-the-conda-forge-channel-for-package-installation">3. Designate the use of the conda-forge channel for package installation</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>conda config --add channels conda-forge</span>
+<span id="cb2-2"><a href="#cb2-2"></a>conda config --set channel_priority strict </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="install-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-packages">4. Install packages</h3>
+<p>Here we will install the TensorFlow dependencies and TensorFlow itself with versions as shown below.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>conda install -y -c apple tensorflow-deps==2.10.0</span>
+<span id="cb3-2"><a href="#cb3-2"></a>python -m pip install tensorflow-macos==2.10.0</span>
+<span id="cb3-3"><a href="#cb3-3"></a>python -m pip install tensorflow-metal==0.6.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="verify-proper-installation" class="level3">
+<h3 class="anchored" data-anchor-id="verify-proper-installation">5. Verify proper installation</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>python --version</span>
+<span id="cb4-2"><a href="#cb4-2"></a>conda list|grep -E '(tensorflow|numpy)'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This portion should yield the following:</p>
+<pre><code>Python 3.10.8
+numpy                     1.23.2          py310h127c7cf_0    conda-forge
+tensorflow-deps           2.10.0                        0    apple
+tensorflow-estimator      2.10.0                   pypi_0    pypi
+tensorflow-macos          2.10.0                   pypi_0    pypi
+tensorflow-metal          0.6.0                    pypi_0    pypi</code></pre>
+</section>
+<section id="test" class="level3">
+<h3 class="anchored" data-anchor-id="test">6. Test</h3>
+<p>And that should be it! After completing those steps, the following code should yield a list that includes both a CPU and a GPU.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb6-2"><a href="#cb6-2"></a>tf.config.list_physical_devices()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'),
+ PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</code></pre>
+</div>
+</div>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="deep learning,process write-up" data-listing-date-sort="1683500400000" data-listing-file-modified-sort="1684958662243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2023-05-08-m1-tensorflow/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-05-08-m1-tensorflow/index.html">
-<h3 class="no-anchor listing-title">
-Setting up TensorFlow with GPU support on a M1 Macbook Pro
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('deep learning'); return false;">
-deep learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('process write-up'); return false;">
-process write-up
-</div>
-</div>
-<a href="./posts/2023-05-08-m1-tensorflow/index.html">
-<div class="listing-description">
-<p>For training small neural networks locally.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-05-08-m1-tensorflow/index.html">
-<div class="listing-date">
-May 8, 2023
-</div>
-<div class="listing-author">
-Jacob Eliason
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,R Packages,Forecasting" data-listing-date-sort="1669507200000" data-listing-file-modified-sort="1670003224606" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2022-11-27-writing-manifoldr-wrapper/index.html"> <p class="card-img-top"><img src="posts/2022-11-27-writing-manifoldr-wrapper/uncut-gems.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2022-11-27-writing-manifoldr-wrapper/index.html">
-<h3 class="no-anchor listing-title">
-Writing an R wrapper for a prediction market’s API
-</h3>
-<div class="listing-subtitle">
+</section>
+</section>
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R Packages'); return false;">
-R Packages
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Forecasting'); return false;">
-Forecasting
-</div>
-</div>
-<a href="./posts/2022-11-27-writing-manifoldr-wrapper/index.html">
-<div class="listing-description">
-<p>How to “bet on anything with play money” from your console</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2022-11-27-writing-manifoldr-wrapper/index.html">
-<div class="listing-date">
-Nov 27, 2022
-</div>
-<div class="listing-author">
-Jacob Eliason
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,Twitter,Github Actions" data-listing-date-sort="1636588800000" data-listing-file-modified-sort="1670002814647" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2021-11-11-setting-up-a-twitter-bot/index.html"> <p class="card-img-top"><img src="posts/2021-11-11-setting-up-a-twitter-bot/satellite-sample.jpeg"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2021-11-11-setting-up-a-twitter-bot/index.html">
-<h3 class="no-anchor listing-title">
-Deploying a Twitter bot from RStudio
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Twitter'); return false;">
-Twitter
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Github Actions'); return false;">
-Github Actions
-</div>
-</div>
-<a href="./posts/2021-11-11-setting-up-a-twitter-bot/index.html">
-<div class="listing-description">
-<p>Last month, I made a Twitter bot using RStudio and Github Actions.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2021-11-11-setting-up-a-twitter-bot/index.html">
-<div class="listing-date">
-Nov 11, 2021
-</div>
-<div class="listing-author">
-Jacob Eliason
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,Sports" data-listing-date-sort="1619737200000" data-listing-file-modified-sort="1667488301912" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
-<div class="thumbnail">
-<p><a href="./posts/2021-04-30-processing-data-from-strava/index.html"> <p class="card-img-top"><img src="posts/2021-04-30-processing-data-from-strava/2021-04-30-processing-strava-data-nyc.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2021-04-30-processing-data-from-strava/index.html">
-<h3 class="no-anchor listing-title">
-Preparing data from Strava for analysis
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Sports'); return false;">
-Sports
-</div>
-</div>
-<a href="./posts/2021-04-30-processing-data-from-strava/index.html">
-<div class="listing-description">
-<p>A process description of how I clean data collected from my runs.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2021-04-30-processing-data-from-strava/index.html">
-<div class="listing-date">
-Apr 30, 2021
-</div>
-<div class="listing-author">
-Jacob Eliason
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -573,6 +497,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="jcblsn/jacobeliason.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

@@ -1,0 +1,25 @@
+---
+title: "Generalized Linear Models"
+description: ''
+categories: [statistics]
+author: "Jacob Eliason"
+date: "2023-05-08"
+draft: true
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+## Introduction
+- Reference to previous post on statistics pedagogy
+
+## Generalized Linear Model
+- How is a generalized linear model defined?
+
+## Theory
+- What is the exponential family of distributions?
+
+## Strengths and limitations
+- Scope of problems to solve with a GLM
+
+## Proposed role in modern toolbox
+- Consider the role for GLMs and all of classical statistics in a world with neural networks
