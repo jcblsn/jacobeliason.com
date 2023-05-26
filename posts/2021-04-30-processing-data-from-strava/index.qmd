@@ -3,7 +3,7 @@ title: "Preparing data from Strava for analysis"
 description: "How I clean my workout data."
 author: 'Jacob Eliason' 
 date: '2021-04-30'
-categories: [r, sports, process write-up]
+categories: [r, sports, process write-up] 
 ---
 
 ```{r echo = F}
@@ -12,7 +12,8 @@ set.seed(5)
 
 When I run, I use [Strava](https://www.strava.com/) to log my activity. In honor of recently running my one-thousandth mile on Strava, I thought I'd do a write up for the steps I use to process my user data in R. The data Strava makes available is granular and can be used for all kinds of fun things after the steps detailed here.
 
-![](2021-04-30-processing-strava-data-nyc.png)
+<!-- ![](2021-04-30-processing-strava-data-nyc.png) -->
+![](000109170030.jpeg)
 
 ## 1. Export your data {#s1}
 
