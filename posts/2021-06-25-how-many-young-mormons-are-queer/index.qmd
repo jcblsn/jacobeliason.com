@@ -1,0 +1,400 @@
+---
+title: "Re-weighting to estimate population characteristics within a subset of a survey sample"
+description: "Exploring a surprising claim about demographic change."
+author: "Jacob Eliason"
+categories: [surveys, demography]
+date: "2021-06-25"
+draft: false
+---
+
+```{r, include = F, message = F, warning = F}
+library(tidyverse)
+# source("/Users/jacobeliason/Files/Code/Repos/toolshed/R/add_better_type.R")
+# import_better_type()
+```
+
+## Context
+
+-   On Monday, [Jana Riess](https://twitter.com/janariess) (who I've admired for some time since reading her fascinating [book](https://www.amazon.com/Next-Mormons-Millennials-Changing-Church/dp/0190885203)) published a [surprising finding](https://religionnews.com/2021/06/21/rising-number-of-adult-mormons-in-the-us-are-gay-lesbian-or-bisexual/) in Religious News Service showing that 18% of Gen Z Mormons are lesbian, gay, or bisexual.
+-   Jana's findings were picked up by several local and national news sources, including the [Salt Lake Tribune](https://www.sltrib.com/religion/2021/06/21/jana-riess-there-are-more/) and the [Washington Post](https://www.washingtonpost.com/religion/1-in-5-young-adult-mormons-in-the-us-are-gay-lesbian-or-bisexual/2021/06/22/607d764e-d388-11eb-b39f-05a2d776b1f4_story.html). They also generated [some](https://twitter.com/BenjaminEPark/status/1407055962402439168?s=20) [lively](https://twitter.com/patrickqmason/status/1407046811727040512?s=20) [discussion](https://twitter.com/religiongal/status/1407070094488850438?s=20) on social media.
+-   Today, she posted an update explaining how the true number was probably lower than 18% due to a misunderstanding regarding the Nationscape project's weighting scheme.
+-   After exploring the [Nationscape dataset](https://www.voterstudygroup.org/publication/nationscape-data-set), I believe we can produce a better estimate for that true number by applying a new weighting scheme to just the Mormon respondents in the Nationscape study.
+
+## The problem
+
+According to the Nationscape Representativeness Assessment (included with data download), survey responses are weighted to be representative of the US population. The assessment demonstrates through various comparisons to external sources that "the methodology employed in Nationscape generates estimates of *general population characteristics* \[emphasis added\] that are...closely aligned with government survey benchmarks."
+
+As Jana explains in the update to her original post, the problem is that while the weighted responses from the Nationscape dataset as a whole do a reasonably good job at describing the "general population," there's no reason to expect that a subset of the data will do the same for a corresponding smaller population.
+
+In this case, the subset of the data is the 3,881 respondents (about 1% of the total) who selected "Mormon" in response to the question, "What is your present religion, if any?" Based on these respondents, we'd like to make inferences about the population of all adults in the United States who describe themselves as Mormon. However, these 3,881 individuals are different from that population of interest in some important ways. How do we know that? We don't know precisely, since the Mormon church doesn't publish exact figures for its membership, but there exist some resources that can help paint an approximate picture. Pew Research, in particular, has produced a number of resources for Mormon population demographics that seem to me a reasonable baseline for comparison (as I'll mention later, this is among the decisions I'd be happy to replace with something better-informed.)
+
+To give a couple of examples: Pew's Religious Landscape Study [estimated](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#party-affiliation) that in 2014, 70% of US Mormons identified as Republican or leaned Republican. In the Nationscape dataset, only 60% of Mormons identified as Republican or leaned Republican. In 2009, Pew [estimated](https://assets.pewresearch.org/wp-content/uploads/sites/11/2012/07/Mormons2revised.gif) using Census-defined regions that 76% of US Mormons lived in the West---however, in fact only 64% of Nationscape Mormons were from the West.
+
+The problem is if Republican Mormons or Mormons from the West are likely to answer the question of interest differently than other Mormons. If we don't do anything about that, we're not going to get a very good estimate of the true population figure.
+
+## Proposed solution
+
+The good news is this: the Nationscape sample (like nearly every nationwide survey project) is different from its target population too, and their solution to that problem is pretty accessible. From the Representativeness Assessment:
+
+> The survey data are...weighted to be representative of the American population. Our weights are generated using a simple raking technique, as there is little benefit to more complicated approaches (Mercer et al. 2018). One set of weights is generated for each week's survey. The targets to which Nationscape is weighted are derived from the adult population of the 2017 American Community Survey of the U.S. Census Bureau. The one exception is the 2016 vote, which is derived from the official election results released by the Federal Election Commission.
+
+On reading that, I wondered if there was any reason a new weighting scheme couldn't be devised for application to the Mormon subset alone. All we'd need are new targets that describe characteristics of, instead of the adult population of the US, the adult population of Mormons in the US.
+
+I picked some variables that seemed relevant and had reasonable population estimates readily available.
+
+-   Census region ([Pew, 2009](https://assets.pewresearch.org/wp-content/uploads/sites/11/2012/07/Mormons2revised.gif))
+-   Age ([Pew RLS, 2014](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#age-distribution))
+-   Gender ([Pew RLS, 2014](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#gender-composition))
+-   Race ([Pew RLS, 2014](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#racial-and-ethnic-composition))
+-   Education ([Pew RLS, 2014](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#educational-distribution))
+-   Party ID ([Pew RLS, 2014](https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#party-affiliation))
+
+If anybody reading this has thoughts about what variables or sources might be better than those shown here, please drop a comment below. All of these---`Region` in particular---are somewhat dated and I'm actually quite sure better sources exist. I tried to limit myself with how long I spent on this post because I wanted to get feedback before too much time passes.
+
+Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.
+
+```{r, echo = F, message = F}
+target_summary <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/mormon_weight_summary.csv")
+
+# table_out <- 
+target_summary %>% 
+  filter(!is.na(level)) %>% 
+  mutate(
+    variable = case_when(
+      variable == "age_pew" ~ "Age",
+      variable == "census_region_pew" ~ "Region",
+      variable == "education_pew" ~ "Education",
+      variable == "gender_pew" ~ "Gender",
+      variable == "pid_pew" ~ "Party",
+      variable == "race_pew" ~ "Race",
+      T ~ NA_character_
+    )
+  ) %>%
+  select(Variable = variable, Level = level, `Unweighted estimate` = unweighted, `Population target` = population_target, `With original weights` = nationscape_wt) %>% 
+  mutate_at(.vars = 3:5, function(x) str_c(round(x*100,0), c("%", rep(NULL, nrow(target_summary)-1)))) %>% 
+  knitr::kable(align = 'c')
+
+# kableExtra::scroll_box(
+#   table_out,
+#   height = "300px",
+#   width = "200px",
+#   fixed_thead = T
+#   # box_css = "border: 1px solid #ddd; padding: 5px; ",
+#   # extra_css = NULL, 
+# )
+```
+
+Some of the differences between the unweighted estimates and the population targets are within the margin of error or simply unimportant to the question at hand. However, if nothing else there's clear evidence that applying the original Nationscape weights provides no systematic improvement to the unweighted estimates in terms of what we understand "Mormons in the United States" to really look like. Both the unweighted estimates and the estimates produced using the original Nationscape weights will almost certainly generate estimates for Mormonism that are, for example, too Southern, too Democrat, and too male.
+
+We can produce much more accurate estimates by using new weights for the Mormon respondents that are based on these population targets. Using a "simple raking technique" (in my case, using the `survey` package in R), I [bring](https://github.com/jcblsn/jacobeliason-dot-com/blob/main/content/post/2021-06-25-how-many-young-mormons-are-queer/produce-mormon-weights-for-nationscape.R) the sample characteristics of the Mormon survey respondents more or less into alignment with what we understand the population characteristics of Mormons to really be. Here's what the new weighted estimates and the population targets look like side by side.
+
+```{r, echo = F, message = F}
+# table_out <- 
+target_summary %>% 
+  filter(!is.na(level)) %>% 
+  mutate(
+    variable = case_when(
+      variable == "age_pew" ~ "Age",
+      variable == "census_region_pew" ~ "Region",
+      variable == "education_pew" ~ "Education",
+      variable == "gender_pew" ~ "Gender",
+      variable == "pid_pew" ~ "Party",
+      variable == "race_pew" ~ "Race",
+      T ~ NA_character_
+    )
+  ) %>%
+  select(Variable = variable, Level = level, `With new weights` = mormon_wt, `Population target` = population_target) %>% 
+  mutate_at(.vars = 3:4, function(x) str_c(round(x*100,0), c("%", rep(NULL, nrow(target_summary)-1)))) %>% 
+  knitr::kable(align = 'c')
+```
+
+These obviously are a much closer match. Going one step further, I highlight the "performance" of these different schemes by taking the difference between each set of estimates and the population targets. Using those differences, I compute the [root-mean-square error](https://en.wikipedia.org/wiki/Root-mean-square_deviation) for each scheme overall (where a higher number is more error and "worse").[^1]
+
+[^1]: I've used RMSE for validating predictions before but I have no idea if this is a thing w.r.t. weighting schemes. Feel free to chime in. The point here was just to somehow describe the differences between those three methods in a single metric.
+
+```{r echo = F, message = F}
+target_performance <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/mormon_weight_performance.csv")
+
+target_performance %>% 
+  mutate(
+    method = case_when(
+      method == "mormon_wt" ~ "New weights",
+      method == "nationscape_wt" ~ "Nationscape weights",
+      method == "no wt" ~ "Unweighted",
+      T ~ NA_character_
+    ),
+    rmse = round(rmse, 4)
+  ) %>% 
+  select(Method = method, RMSE = rmse) %>% 
+  knitr::kable(align ='l')
+```
+
+Interestingly, the Nationscape weights actually make Mormon estimates *less* like the Mormon population targets than using no weights at all would.
+
+## New results
+
+That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for "Do you identify as \[straight/gay/lesbian/bisexual/other\]" by generation.
+
+```{r echo = F, message = F}
+new_estimate <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/new_est_orientation_by_gen.csv")
+
+new_estimate %>% 
+  mutate(
+    group_var = case_when(
+      group_var == "Boomer_Silent" ~ "Boomer+Silent",
+      group_var == "Gen_X" ~ "Gen X",
+      group_var == "Gen_Z" ~ "Gen Z",
+      T ~ group_var
+    )
+  ) %>% 
+  select(Generation = group_var, Straight = straight, LGB = lgb, Other = other, `Prefer not to say` = prefer_not_to_say, Refused = refused) %>% 
+  mutate_at(.vars = 2:6, function(x) str_c(round(x*100,0), c("%", rep(NULL, nrow(target_summary)-1)))) %>% 
+  knitr::kable(align ='l')
+```
+
+Furthermore, I produce confidence intervals, incorporating the adjustment recommended in the Nationscape User Guide:
+
+> Researchers should take care in calculating margins of error or standard errors due to the non-random nature of the sample. Standard calculations based on random sampling will underestimate the true magnitude of random error in our sample . As a starting place, we recommend the adjustment proposed by Rivers and Bailey (2009).
+
+[Rivers and Bailey](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.212.2388&rep=rep1&type=pdf) give the following to estimate variance:
+
+$V(\hat{\theta}) = (1 + {s^2}_{w})\hat{\theta}(1-\hat{\theta})$ where $s_w$ is the standard deviation of the weights
+
+My interpretation of Rivers and Bailey follows code like this. I include it here because I'd love to hear feedback if this is a misunderstanding of that recommendation.
+
+```{r, eval = F}
+sd_w_mormon <- sd(responses_mormon$weight_mormon)
+vif_mormon <- (1+sd_w_mormon^2)
+lower_95 <- est - (qnorm(0.975) * sqrt(vif_mormon*(est*(1-est))/wt_n))
+upper_95 <- est + (qnorm(0.975) * sqrt(vif_mormon*(est*(1-est))/wt_n))
+```
+
+Using these confidence intervals (and corresponding calculations for the general population), I show the following final result:
+
+```{r echo = F, message = F, warning = F}
+responses_full <- 
+  read_rds(
+    "/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/responses_full.rds"
+  )
+
+responses_mormon <- 
+  read_rds(
+    "/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/responses_mormon.rds"
+  )
+
+sd_w_mormon <- sd(responses_mormon$weight_mormon)
+vif_mormon <- (1+sd_w_mormon^2)
+
+sd_w_all <- sd(responses_full$weight)
+vif_all <- (1+sd_w_all^2)
+
+freq_mormons <- 
+  {responses_mormon %>% 
+      group_by(generation) %>% 
+      y2clerk::freqs(
+        orientation_group, 
+        digits = 3, 
+        nas_group = F, 
+        wt = weight_mormon, 
+        prompt = T) %>% 
+      mutate(
+        value = ifelse(is.na(value), 7, value),
+        label = ifelse(is.na(label), "Refused", label)
+      ) %>% 
+      ungroup() %>% 
+      mutate(
+        lgb = case_when(
+          as.numeric(value) %in% c(2,3,4) ~ 'lgb',
+          T ~ "other"
+        ),
+        lgb = fct_relevel(lgb, c("lgb", 'other'))
+      ) %>% 
+      group_by(lgb, group_var) %>% 
+      summarise(result = sum(result),
+                wt_n = sum(n)) %>% 
+      ungroup() %>% 
+      group_by(group_var) %>% 
+      mutate(
+        sum_wt_n = sum(wt_n),
+        pop = str_c("Mormons (n = 3,881)"
+        ))}
+
+freq_genpop <- 
+  {responses_full %>% 
+      group_by(generation) %>% 
+      y2clerk::freqs(
+        orientation_group, 
+        digits = 3, 
+        nas_group = F, 
+        wt = weight, 
+        prompt = T) %>% 
+      mutate(
+        value = ifelse(is.na(value), 7, value),
+        label = ifelse(is.na(label), "Refused", label)
+      ) %>% 
+      ungroup() %>% 
+      mutate(
+        lgb = case_when(
+          as.numeric(value) %in% c(2,3,4) ~ 'lgb',
+          T ~ "other"
+        ),
+        lgb = fct_relevel(lgb, c("lgb", 'other'))
+      ) %>% 
+      group_by(lgb, group_var) %>% 
+      summarise(result = sum(result),
+                wt_n = sum(n)) %>% 
+      ungroup() %>% 
+      group_by(group_var) %>% 
+      mutate(
+        sum_wt_n = sum(wt_n),
+        pop = str_c("GenPop (n = 318,736)"
+        ))}
+
+freq_comb <- 
+  bind_rows(
+    freq_mormons,
+    freq_genpop
+  ) %>% 
+  ungroup() %>% 
+  mutate(
+    lower_90 = case_when(
+      str_detect(pop,"Gen") ~ result - (qnorm(0.975) * sqrt(vif_all*   (result * (1-result))/sum_wt_n)),
+      str_detect(pop,"Mor") ~ result - (qnorm(0.975) * sqrt(vif_mormon*(result * (1-result))/sum_wt_n)),
+      T ~ NA_real_
+    ),
+    upper_90 = case_when(
+      str_detect(pop,"Gen") ~ result + (qnorm(0.975) * sqrt(vif_all*   (result * (1-result))/sum_wt_n)),
+      str_detect(pop,"Mor") ~ result + (qnorm(0.975) * sqrt(vif_mormon*(result * (1-result))/sum_wt_n)),
+      T ~ NA_real_
+    )
+  ) %>% 
+  mutate(
+    group_var = case_when(
+      group_var == "Boomer_Silent" ~ "Boomer+Silent",
+      group_var == "Gen_X" ~ "Gen X",
+      group_var == "Gen_Z" ~ "Gen Z",
+      T ~ group_var
+    ) %>% fct_relevel(., c("Gen Z", "Millennial", "Gen X", "Boomer+Silent"))
+  ) %>% 
+  filter(lgb == "lgb") %>% select(-lgb) %>% 
+  arrange(pop,desc(group_var))
+
+chart <- 
+  freq_comb %>% 
+  ggplot() + 
+  geom_bar(
+    aes(
+      x = group_var,
+      y = result,
+      fill = pop
+    ),
+    stat = "identity",
+    position = position_dodge()
+  ) +
+  geom_label(
+    aes(
+      x = group_var,
+      y = result,
+      label = str_c(round(result*100,0), "%"),
+      group = pop
+    ),
+    stat = "identity",
+    family = "lato",
+    vjust = -.5,
+    size = 13 * 5/14,
+    position = position_dodge(0.9)
+    
+  ) +
+  geom_errorbar(
+    aes(
+      x = group_var,
+      ymin = lower_90,
+      ymax = upper_90,
+      group = pop
+    ),
+    width = 0.1,
+    stat = 'identity',
+    position = position_dodge(.9)
+  ) +
+  coord_flip() +
+  ggtitle("LGB identity among Mormons, U.S. general population - Nationscape", 
+          "Error bars show 95% confidence intervals") +
+  scale_x_discrete(name = NULL, labels = rev(c("Boomer + Silent", "Gen X", "Millennial", "Gen Z"))) +
+  scale_y_continuous(
+    name = "Percent that identifies as gay, lesbian, or bisexual",
+    labels = str_c(seq(0,.25,by = .05)*100, "%"),
+    breaks = seq(0,.25,by = .05),
+    limits = c(0,.25),
+  ) +
+  scale_fill_manual(
+    name = NULL,
+    values = c("#ed6d5a", "#8d79d1") # yougov colors hehe
+  ) +
+  theme_minimal() +
+  guides(
+    fill = guide_legend(
+      keywidth = 0.4,
+      keyheight = 0.4,
+      default.unit = "inch",
+      reverse =T)
+  ) +
+  theme(
+    legend.text = element_text(size = 10),
+    plot.title = element_text(size = 16),
+    plot.subtitle = element_text(size = 14),
+    axis.text = element_text(color = "black", size = 14),
+    axis.title = element_text(color = "black", size = 12),
+    plot.caption = element_text(size = 8, hjust = 0),
+    plot.background = element_rect(colour = "black", fill=NA, size=1),
+    plot.margin = unit(c(.5,.5,.5,.5), "cm")
+  )
+
+ggsave(
+  str_c(getwd(), "/2021-06-26-freq_mormons_vs_usgenpop",".png"),
+  chart,# + better_type,
+  height = 3,
+  width = 4,
+  scale = 2.2,
+  bg = 'white'
+)
+```
+
+![image](2021-06-26-freq_mormons_vs_usgenpop.png)
+
+The new estimate for LGB-identifying US Gen Z Mormons is 14% (95% CI 10.4%, 18.2%).
+
+## Discussion
+
+This estimate is 4 percentage points lower than the original estimate of 18%. The "LGB+Other" estimate is 15%, which is 7 percentage percentage points lower than the original estimate of 22%. This seems to be somewhat less of a difference than asserted in Jana's update to her original post, where she predicted that the true value is "around 7 to 9 percentage points lower \[than was found using the default Nationscape weights\]." I'd be interested to know what methods informed her updated prediction. I know I'm not necessarily aware of what external considerations may be necessary for this analysis beyond what's specified in the documentation for this dataset.
+
+However, my estimate sounds like it's at least in the ballpark---and in any case, we're talking about pretty large standard errors here. I'm also again very open to lots of potential improvements to this analysis, particularly in regards to the selection of population targets. If I had more time, I'd especially get further input in the decisions about Party ID[^2], for which rates have famously [changed](https://www.pewresearch.org/politics/2018/03/20/1-trends-in-party-affiliation-among-demographic-groups/) in interesting ways in the past decade and during the era of Donald Trump among American Mormons in particular. I'm further interested in better describing what kinds of bias remain after implementing this kind of weighting process. Even with the recommended addition of the variance inflation factor (and with intervals as large as they are), I can't help but feel that I'm still underestimating the standard errors, that there's more variability than these standard calculations capture. That, however, is also more broadly true to some extent across the survey research industry.[^3]
+
+[^2]: For Party ID, this is true both for the specific population target I selected and for how I calculated Party ID using Nationscape variables.
+
+[^3]: One other potentially important caveat is that this Nationscape sample may overestimate the prevalence of different sexual identities across the board. One data point for that hypothesis is that Nationscape LGB estimates by generation were uniformly about 2 percentage points higher than what Gallup found for each generation in response to the same question [earlier this year](https://news.gallup.com/poll/329708/lgbt-identification-rises-latest-estimate.aspx).
+
+One thing that gives me some confidence, though, is a certain piece of [research](https://www.sciencedirect.com/science/article/pii/S0191886920306668?casa_token=ysJzeLYp4n0AAAAA:yqGFR8Et0qXAOHODxu06cJj-9Tc0Tk-7_EU7tQ8q-eQ6pmJtMO6xcKHTo8oxh2ajm9OmzfsI9Ms) that seems to corroborate this new, lower estimate. In 2018, researchers sent a survey to all 30,840 undergraduates at Brigham Young University to learn about "religiosity, mental health outcomes, and sexual minority identity" among the (99% Mormon) student body. The survey was university-approved and resulted in an incredible 24% response rate. The researchers estimated that the proportion of undergraduates who identified as something other than "exclusively heterosexual" at 13.1%.
+
+```{r, include = F, eval = F}
+# I find a confidence interval for that number as follows:
+
+x <- 996
+n <- 7625
+N <- 30840
+
+p_hat <- x/n
+
+margin_of_error <- qnorm(0.975)*sqrt(p_hat*(1-p_hat)/n)
+
+# https://en.wikipedia.org/wiki/Margin_of_error#Effect_of_finite_population_size
+finite_population_correction <- sqrt((N-n)/(N-1)) 
+
+ci <- p_hat + c(-1,1) * finite_population_correction * margin_of_error
+round(ci*100,1)
+```
+
+Because I'm trying to wrap this up, I'm not going to get into whether that paper necessarily represents an accurate estimate of queer BYU students.[^4] It does, however, appear to show prevalence in the neighborhood of what the new weights for Nationscape find, and that feels encouraging.
+
+[^4]: There certainly are issues with representativeness there, though---68% of respondents, for example, were female (likely inflating the estimate for queer students, since it appears [more](https://en.wikipedia.org/wiki/Bisexuality#Demographics_and_prevalence) women are bisexual than men).
+
+In conclusion, I'd describe this estimate as flawed but improved. I think it better accounts for some variability due to non-response, but probably still fails to account for variability in other ways! My code for the new weighting scheme can be found along with the code for this post on [my Github](https://github.com/jcblsn/jacobeliason-dot-com/tree/main/content/post/2021-06-25-how-many-young-mormons-are-queer). If anyone has any feedback or ideas for improvement about anything I've done here, I'd love if you'd leave a comment or contact me directly at `jacobeliason at gmail dot com`.
