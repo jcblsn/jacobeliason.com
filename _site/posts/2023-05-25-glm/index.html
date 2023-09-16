@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jacob Eliason">
-<meta name="dcterms.date" content="2021-11-11">
-<meta name="description" content="Into the mapbotverse.">
+<meta name="dcterms.date" content="2023-05-08">
 
-<title>Jacob Eliason - Deploying a Twitter bot from RStudio</title>
+<title>Jacob Eliason - Generalized Linear Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,14 +76,10 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Jacob Eliason - Deploying a Twitter bot from RStudio">
-<meta property="og:description" content="Into the mapbotverse.">
-<meta property="og:image" content="satellite-sample.jpeg">
+<meta property="og:title" content="Jacob Eliason - Generalized Linear Models">
 <meta property="og:site-name" content="Jacob Eliason">
-<meta name="twitter:title" content="Jacob Eliason - Deploying a Twitter bot from RStudio">
-<meta name="twitter:description" content="Into the mapbotverse.">
-<meta name="twitter:image" content="satellite-sample.jpeg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jacob Eliason - Generalized Linear Models">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -123,16 +118,9 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Deploying a Twitter bot from RStudio</h1>
-                  <div>
-        <div class="description">
-          Into the mapbotverse.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">r</div>
-                <div class="quarto-category">twitter</div>
-                <div class="quarto-category">github actions</div>
+      <h1 class="title">Generalized Linear Models</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">statistics</div>
               </div>
                   </div>
   </div>
@@ -150,7 +138,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 11, 2021</p>
+        <p class="date">May 8, 2023</p>
       </div>
     </div>
     
@@ -168,52 +156,35 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
-<section id="what" class="level2">
-<h2 class="anchored" data-anchor-id="what">What</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <ul>
-<li>Last month, I made a <a href="https://twitter.com/texturesofut">Twitter bot</a> using RStudio. Every few hours, the bot posts a satellite image and a Wikipedia reference for a given pair of coordinates from my home state of Utah. The bot is inspired by <a href="https://twitter.com/mattdray">@mattdray</a>’s <a href="https://twitter.com/londonmapbot">@londonmapbot</a>.</li>
+<li>Reference to previous post on statistics pedagogy</li>
 </ul>
 </section>
-<section id="how" class="level2">
-<h2 class="anchored" data-anchor-id="how">How</h2>
+<section id="generalized-linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-linear-model">Generalized Linear Model</h2>
 <ul>
-<li>I started by forking Matt’s <a href="https://github.com/matt-dray/londonmapbot">repository</a> and following his instructions <a href="https://www.rostrum.blog/2020/09/21/londonmapbot/">here</a>.</li>
-<li>I made the following changes to his workflow:
-<ul>
-<li>Instead of sampling from the greater London area, I sample from a rectangle that contains Utah state boundaries.</li>
-<li>I found a <a href="https://en.wikipedia.org/wiki/Shapefile"><code>.shp</code> file</a> from <a href="https://gis.utah.gov/data/boundaries/citycountystate/">gis.utah.gov</a> and use that file and the <a href="https://r-spatial.github.io/sf/"><code>sf</code></a> package to test if the coordinate pair is inside or outside state boundaries. If necessary, I draw new pairs until I find one within state boundaries.</li>
-<li>I request larger (1280x1280) images from Mapbox.</li>
-<li>Wikipedia has a <a href="https://en.wikipedia.org/wiki/Special:Nearby">feature</a> that shows all pages within 10 km of a given point (such as your current location). <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Geographical_coordinates#Usage_guidelines">Apparently</a>, Wikipedia pages for any “location, structure, or geographic feature that is more or less fixed in one place” have latitude and longitude coordinates encoded. Who knew? It’s possible, then, to paste any coordinate pair into a URL and see what’s nearby. I do that, and add <a href="https://github.com/ropensci/RSelenium"><code>RSelenium</code></a> functions to my script to return the text from the first hit on the resultant page. This text is appended to the body of the tweet as a “Nearby point of interest.”</li>
-<li>I add a hashtag to the body of the tweet to make the account a little more discoverable. The hashtag is randomly selected from a list of a dozen or so that I thought were relevant to the account’s content.</li>
-<li>I use <a href="https://twitter.com/hadleywickham">@hadleywickham</a>’s <a href="https://github.com/hadley/emo"><code>emo</code></a> package to add emoji to brighten up the final result.</li>
-</ul></li>
-</ul>
-<p>&nbsp;&nbsp;</p>
-<p><img src="satellite-sample.jpeg" class="img-fluid"></p>
-</section>
-<section id="why" class="level2">
-<h2 class="anchored" data-anchor-id="why">Why</h2>
-<ul>
-<li>I wanted to learn more about Github Actions. It’s a surprisingly powerful feature; I definitely will be experimenting more.</li>
-<li>I’ve been feeling like I should focus on live projects. I’ve done a fair number of personal projects in the last year, but nearly all of them are static and live on my hard drive. This felt like an easy way to get something more dynamic off the ground.</li>
-<li>I’m still interested in expanding the project by adding an image classification component. When I first started, I was struck by how many of the satellite images showed completely empty space, and I thought it would be interesting to quantify just how many of them are (say, “contain buildings/roads/farms” vs “don’t contain”). I ran out of time and energy for now for this portion, but this kind of satellite data still feels like a good canvas for demonstrating that kind of model. I might come back to it around the holidays when I have a little more time.</li>
-<li>I think Twitter is fun.</li>
+<li>How is a generalized linear model defined?</li>
 </ul>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="theory" class="level2">
+<h2 class="anchored" data-anchor-id="theory">Theory</h2>
 <ul>
-<li>My repository’s action has started to fail intermittently—looking through the run history, it probably only succeeded a third of the time this week. Why? It looks like an issue with the webscraping component (I’m seeing a lot of “HTTP Error 303”), but I can’t figure out why this would happen at some times and not others.</li>
+<li>What is the exponential family of distributions?</li>
 </ul>
 </section>
-<section id="some-of-my-favorite-recent-textures" class="level2">
-<h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
-<p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
-<p></p><div id="tweet-88986"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-88986").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-48987"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-48987").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-21705"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-21705").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-86030"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-86030").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-92666"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-92666").innerHTML = tweet["html"];</script><p></p>
+<section id="strengths-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="strengths-and-limitations">Strengths and limitations</h2>
+<ul>
+<li>Scope of problems to solve with a GLM</li>
+</ul>
+</section>
+<section id="proposed-role-in-modern-toolbox" class="level2">
+<h2 class="anchored" data-anchor-id="proposed-role-in-modern-toolbox">Proposed role in modern toolbox</h2>
+<ul>
+<li>Consider the role for GLMs and all of classical statistics in a world with neural networks</li>
+</ul>
 
 
 </section>
@@ -458,5 +429,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="https://platform.twitter.com/widgets.js"></script>
 </body></html>
