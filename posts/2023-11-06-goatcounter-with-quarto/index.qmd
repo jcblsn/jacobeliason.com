@@ -1,0 +1,42 @@
+---
+title: "Privacy-friendly web analytics for Quarto"
+description: 'Configuring GoatCounter on my personal site.'
+categories: [quarto, meta]
+author: "Jacob Eliason"
+date: "2023-11-06"
+draft: false
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+The following is mostly to pin this solution for my future self.
+
+I've set up Google Analytics on a personal site before but I've never bothered to do anything with the resultant data. I'm interested in knowing whether the site is receiving visitors but I'm also pretty sympathetic to high privacy standards. GoatCounter turned out to be a nice fit for this combination of preferences.
+
+![](goat.jpeg)
+
+I'll let the [GoatCounter site](https://www.goatcounter.com/) speak for itself if you haven't heard of it, but the gist is that it's a lightweight, privacy-respecting analytics service. It's open source and free for small sites.
+
+And, it turns out, it's also easy to configure with Quarto. After you create an account, you're presented with a snippet of JavaScript to embed in your site:
+
+```{javascript}
+<script data-goatcounter="https://[your-code].goatcounter.com/count" 
+async src="//gc.zgo.at/count.js"></script>
+```
+
+Quarto [provides](https://quarto.org/docs/reference/formats/html.html#includes) the option to fairly easily embed custom JavasSript in each of the site's HTML documents. To add tracking functionality to my site, I included the Javascript in my project's `_quarto.yml` file as follows:
+
+```{yaml}
+# ...
+format:
+  html:
+    theme: 
+    # ...
+    css: styles.css
+    include-in-header: 
+      - text: |
+          <script data-goatcounter="https://[your-code].goatcounter.com/count" 
+          async src="//gc.zgo.at/count.js"></script>
+```
+
+From there, all that was left was re-rendering the site with `quarto render`, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.
