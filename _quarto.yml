@@ -49,6 +49,10 @@ format:
     # email-obfuscation: references
     # html-math-method: webtex
     css: styles.css
+    include-in-header: 
+      - text: |
+          <script data-goatcounter="https://jacob.goatcounter.com/count" 
+          async src="//gc.zgo.at/count.js"></script>
     execute:
       freeze: auto
 
