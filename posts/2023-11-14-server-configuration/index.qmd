@@ -3,7 +3,7 @@ title: "Documenting my home server setup"
 description: "The steps I followed to configure a HP ProDesk 600 G5 Mini as a modest Linux server for small data science projects."
 categories: [linux, servers, process write-up]
 author: "Jacob Eliason"
-date: "2023-11-11"
+date: "2023-11-14"
 draft: false
 execute:
   freeze: auto  # re-render only when source changes
@@ -11,11 +11,11 @@ execute:
 
 ## Intro
 
-You may or may not want to set up your own server at home.
+You may or may not want to set up your own server at home. I did, mostly for learning purposes and for data science projects.
 
-I did, mostly for learning purposes and for data science projects. I don't have a lot of experience with networking and there's nothing like learning by doing. The following is a description of the process I followed for future reference.
+The following is a description of the process I followed for future reference. It's fairly procedural as it's only a lightly edited version of the iCloud note I kept along the way.
 
-I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seems like a [reasonable price](https://www.ebay.com/sch/i.html?_from=R40&_nkw=HP+ProDesk+600+G5+Mini&_sacat=0&RAM%2520Size=16%2520GB&Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&_oaa=1&LH_Sold=1&LH_Complete=1&rt=nc&Hard%2520Drive%2520Capacity=512%2520GB&_dcat=179) for a capable machine that's small and energy efficient. There are obviously many options; I wanted something more powerful than a Raspberry Pi but less expensive than a workstation.
+To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seems like a [reasonable price](https://www.ebay.com/sch/i.html?_from=R40&_nkw=HP+ProDesk+600+G5+Mini&_sacat=0&RAM%2520Size=16%2520GB&Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&_oaa=1&LH_Sold=1&LH_Complete=1&rt=nc&Hard%2520Drive%2520Capacity=512%2520GB&_dcat=179) for a capable machine that's small and energy efficient. There are obviously many options; I wanted something more powerful than a Raspberry Pi but less expensive than a workstation.
 
 ::: {.callout-note}
 <!-- ## Peripherals -->
@@ -31,7 +31,7 @@ Besides the server itself, I needed the following peripherals to get started:
 
 ## Definitions
 
-The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn't meant to be a comprehensive guide as much as it is a journal of what I personally learned (mostly from ChatGPT) along the way.
+The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn't meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (mostly from ChatGPT).
 
 ### Networking
 
@@ -42,12 +42,9 @@ The following were some concepts I unfamiliar with or only somewhat familiar wit
 - **Subnet**: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.
 - **Nameservers**: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.
 
-### Hardware
-
-- **BIOS (Basic Input/Output System)**: Firmware that initializes hardware during the boot process and provides runtime services for the operating system.
-
 ### Software
 
+- **BIOS (Basic Input/Output System)**: Firmware that initializes hardware during the boot process and provides runtime services for the operating system.
 - **NTP (Network Time Protocol)**: A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.
 - **LUKS (Linux Unified Key Setup)**: A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.
 - **LVM (Logical Volume Manager)**: A device mapper target that provides logical volume management for the Linux kernel.
@@ -149,4 +146,4 @@ The following were some concepts I unfamiliar with or only somewhat familiar wit
 
 ## Conclusion
 
-This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out. As I said above, this is an educational exercise and I'm keen to learn more about Linux in particular.
+This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out.
