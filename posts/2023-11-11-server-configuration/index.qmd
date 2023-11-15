@@ -1,0 +1,152 @@
+---
+title: "Documenting my home server setup"
+description: "The steps I followed to configure a HP ProDesk 600 G5 Mini as a modest Linux server for small data science projects."
+categories: [linux, servers, process write-up]
+author: "Jacob Eliason"
+date: "2023-11-11"
+draft: false
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+## Intro
+
+You may or may not want to set up your own server at home.
+
+I did, mostly for learning purposes and for data science projects. I don't have a lot of experience with networking and there's nothing like learning by doing. The following is a description of the process I followed for future reference.
+
+I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seems like a [reasonable price](https://www.ebay.com/sch/i.html?_from=R40&_nkw=HP+ProDesk+600+G5+Mini&_sacat=0&RAM%2520Size=16%2520GB&Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&_oaa=1&LH_Sold=1&LH_Complete=1&rt=nc&Hard%2520Drive%2520Capacity=512%2520GB&_dcat=179) for a capable machine that's small and energy efficient. There are obviously many options; I wanted something more powerful than a Raspberry Pi but less expensive than a workstation.
+
+::: {.callout-note}
+<!-- ## Peripherals -->
+
+Besides the server itself, I needed the following peripherals to get started:
+
+- monitor for initial setup
+- keyboard for initial setup
+- Ethernet cable
+- power cable
+- flash drive for Ubuntu installer
+:::
+
+## Definitions
+
+The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn't meant to be a comprehensive guide as much as it is a journal of what I personally learned (mostly from ChatGPT) along the way.
+
+### Networking
+
+- **DHCP (Dynamic Host Configuration Protocol)**: A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.
+- **IPv4 vs IPv6**: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.
+- **Nameservers**: These are the internet's equivalent of a phone book, translating human-readable domain names to IP addresses.
+- **DNS (Domain Name System)**: This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.
+- **Subnet**: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.
+- **Nameservers**: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.
+
+### Hardware
+
+- **BIOS (Basic Input/Output System)**: Firmware that initializes hardware during the boot process and provides runtime services for the operating system.
+
+### Software
+
+- **NTP (Network Time Protocol)**: A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.
+- **LUKS (Linux Unified Key Setup)**: A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.
+- **LVM (Logical Volume Manager)**: A device mapper target that provides logical volume management for the Linux kernel.
+
+![](penguin.jpg)
+
+## Process
+
+- Purchase HP ProDesk 600 G5 Mini
+- Boot Windows and make note of Windows product key
+- Using my MacBook and a flash drive, create a bootable Ubuntu 22.04.3 LTS installer:
+  - `diskutil list` to list disks
+  - `diskutil unmountDisk /dev/disk[number corresponding to flash drive from output previous command]` i.e. `diskutil unmountDisk /dev/disk4` to unmount flash drive
+  - `sudo dd if=/local/path/to/ubuntu-22.04.3-live-server-amd64.iso of=/dev/rdisk[number from above] bs=1m` to copy iso to flash drive (be very careful to use the right disk number! also note 'r' in `of` path)
+- Update BIOS settings on ProDesk to allow booting from USB:
+  - `F10` (varies by machine) to enter BIOS settings
+  - Make sure USB Storage Boot is enabled and set to top of boot order
+- Plug in flash drive to ProDesk and boot from USB:
+  - Cycle power; if BIOS settings were reconfigured correctly, you should see a screen with options to try or install Ubuntu
+- Follow prompts to install Ubuntu
+  - Select "Try or Install Ubuntu Server"
+  - Configure network connections
+    - Select interface
+    - **IPv4**: "Manual"
+    - **Subnet**: Given in router settings
+    - **Address**: Chosen based on router settings—find DHCP range and choose a number outside that range
+    - **Gateway**: Given in router settings (usually same as address but with 1 as last number)
+    - **Name servers**: Usually Google or Cloudflare's, i.e. `1.1.1.1, 1.0.0.1`
+    - **Search domains**: "home"
+  - Configure proxy: 
+    - I skipped this to start with
+  - Storage configuration: 
+    - Use entire disk
+    - LUKS encryption
+    - LVM
+  - Create user
+    - Choose a username and password
+  - Install OpenSSH server
+  - Install updates
+  - Reboot
+- Set up firewall
+  - `sudo ufw enable` to enable firewall
+  - `sudo ufw default deny incoming` to block all incoming traffic
+  - `sudo ufw default deny outgoing` to block all outgoing traffic
+  - `sudo ufw allow ssh` to allow ssh
+  - `sudo ufw allow [port number]` to allow ssh from a safer port than the default
+  - `sudo ufw allow out 80` to allow outgoing HTTP requests
+  - `sudo ufw allow out 443` to allow outgoing HTTPS requests
+  - `sudo ufw allow out 53` to allow outgoing DNS requests
+  - `sudo ufw allow from any to any port 123 proto udp` to allow NTP (for time synchronization)
+  - `sudo ufw status verbose` to check status
+- Configure ssh
+  - `sudo apt update` to update package lists
+  - `sudo apt install openssh-server` to make sure ssh server is installed (should have been already from installer)
+  - `sudo systemctl status ssh` to verify status
+  - `sudo nano /etc/ssh/sshd_config` to edit config file; add:
+    - Port [port number]
+    - PermitRootLogin no
+    - AllowUsers [username]
+    - PubkeyAuthentication yes
+  - `sudo systemctl restart ssh` to apply changes
+  - On MacBook:
+    - `ssh-keygen -t rsa` to generate key pair
+      - Choose default location 
+      - Enter passphrase
+    - `ssh-copy-id -i ~/.ssh/id_rsa.pub -p [port number] [username]@[ip address]` to copy public key to server
+- Configure fail2ban
+  - `sudo apt install fail2ban`
+  - `sudo cp /etc/fail2ban/jail.{conf,local}`
+  - `sudo nano /etc/fail2ban/jail.local` to add desired settings to config file
+  - `sudo systemctl start fail2ban`
+  - `sudo systemctl enable fail2ban` 
+  - `sudo fail2ban-client status sshd` 
+  - `sudo tail -f /var/log/fail2ban.log` to monitor logs
+- SSH into live, configured server: 
+  - `ssh -p [port number] [username]@[ip address]`
+  - Look around to make sure everything looks good
+- Set up server in long-term physical location
+  - Unplug server from monitor and plug into router via Ethernet
+  - Power on
+  - Plug in keyboard
+  - Enter LUKS password with spare keyboard (blindly)
+  - Wait for a couple minutes
+- SSH in from MacBook again
+
+## Next steps
+
+- Install [Fig](https://fig.io/user-manual/autocomplete/ssh), a command-line tool with lots of useful features like autocomplete and aliases
+  - on MacBook: `fig integrations install ss`
+  - on server: `curl -fSsL https://repo.fig.io/scripts/install-headless.sh | bash`
+  - on server: `exec bash --norc` to reset shell
+- Set timezone and sync (note: after a surprisingly long time fiddling with this, I punted on syncing and settled on setting the timezone using my location string)
+- Install `glances` for monitoring
+  - `sudo apt install glances`
+  - `glances`
+- Expand volume size
+  - `lvextend -L+156G /dev/mapper/ubuntu--vg-ubuntu--lv`
+  - `sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv`
+
+## Conclusion
+
+This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out. As I said above, this is an educational exercise and I'm keen to learn more about Linux in particular.
