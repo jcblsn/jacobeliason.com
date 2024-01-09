@@ -172,7 +172,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>You may or may not want to set up your own server at home. I did, mostly for learning purposes and for data science projects.</p>
-<p>The following is a description of the process I followed for future reference. It’s fairly procedural as it’s essentially a lightly edited version of the iCloud note I kept along the way.</p>
+<p>The following is a description of the process I followed for future reference. It’s fairly procedural as it’s only a lightly edited version of the iCloud note I kept along the way.</p>
 <p>To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seems like a <a href="https://www.ebay.com/sch/i.html?_from=R40&amp;_nkw=HP+ProDesk+600+G5+Mini&amp;_sacat=0&amp;RAM%2520Size=16%2520GB&amp;Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&amp;_oaa=1&amp;LH_Sold=1&amp;LH_Complete=1&amp;rt=nc&amp;Hard%2520Drive%2520Capacity=512%2520GB&amp;_dcat=179">reasonable price</a> for a capable machine that’s small and energy efficient. There are obviously many options; I wanted something more powerful than a Raspberry Pi but less expensive than a workstation.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -198,25 +198,25 @@ Note
 </section>
 <section id="definitions" class="level2">
 <h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
-<p>The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn’t meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (mostly from ChatGPT).</p>
+<p>The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn’t meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (mostly via ChatGPT).</p>
 <section id="networking" class="level3">
 <h3 class="anchored" data-anchor-id="networking">Networking</h3>
 <ul>
-<li><strong>DHCP (Dynamic Host Configuration Protocol)</strong>: A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.</li>
-<li><strong>IPv4 vs IPv6</strong>: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.</li>
-<li><strong>Nameservers</strong>: These are the internet’s equivalent of a phone book, translating human-readable domain names to IP addresses.</li>
-<li><strong>DNS (Domain Name System)</strong>: This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.</li>
-<li><strong>Subnet</strong>: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.</li>
-<li><strong>Nameservers</strong>: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.</li>
+<li>DHCP (Dynamic Host Configuration Protocol): A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.</li>
+<li>IPv4 vs IPv6: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.</li>
+<li>Nameservers: These are the internet’s equivalent of a phone book, translating human-readable domain names to IP addresses.</li>
+<li>DNS (Domain Name System): This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.</li>
+<li>Subnet: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.</li>
+<li>Nameservers: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.</li>
 </ul>
 </section>
 <section id="software" class="level3">
 <h3 class="anchored" data-anchor-id="software">Software</h3>
 <ul>
-<li><strong>BIOS (Basic Input/Output System)</strong>: Firmware that initializes hardware during the boot process and provides runtime services for the operating system.</li>
-<li><strong>NTP (Network Time Protocol)</strong>: A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.</li>
-<li><strong>LUKS (Linux Unified Key Setup)</strong>: A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.</li>
-<li><strong>LVM (Logical Volume Manager)</strong>: A device mapper target that provides logical volume management for the Linux kernel.</li>
+<li>BIOS (Basic Input/Output System): Firmware that initializes hardware during the boot process and provides runtime services for the operating system.</li>
+<li>NTP (Network Time Protocol): A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.</li>
+<li>LUKS (Linux Unified Key Setup): A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.</li>
+<li>LVM (Logical Volume Manager): A device mapper target that provides logical volume management for the Linux kernel.</li>
 </ul>
 <p><img src="penguin.jpg" class="img-fluid"></p>
 </section>
@@ -224,7 +224,7 @@ Note
 <section id="process" class="level2">
 <h2 class="anchored" data-anchor-id="process">Process</h2>
 <ul>
-<li>Purchase HP ProDesk 600 G5 Mini</li>
+<li>Power on HP ProDesk 600 G5 Mini</li>
 <li>Boot Windows and make note of Windows product key</li>
 <li>Using my MacBook and a flash drive, create a bootable Ubuntu 22.04.3 LTS installer:
 <ul>
@@ -247,12 +247,12 @@ Note
 <li>Configure network connections
 <ul>
 <li>Select interface</li>
-<li><strong>IPv4</strong>: “Manual”</li>
-<li><strong>Subnet</strong>: Given in router settings</li>
-<li><strong>Address</strong>: Chosen based on router settings—find DHCP range and choose a number outside that range</li>
-<li><strong>Gateway</strong>: Given in router settings (usually same as address but with 1 as last number)</li>
-<li><strong>Name servers</strong>: Usually Google or Cloudflare’s, i.e.&nbsp;<code>1.1.1.1, 1.0.0.1</code></li>
-<li><strong>Search domains</strong>: “home”</li>
+<li>IPv4: “Manual”</li>
+<li>Subnet: Given in router settings</li>
+<li>Address: Chosen based on router settings—find DHCP range and choose a number outside that range</li>
+<li>Gateway: Given in router settings (usually same as address but with 1 as last number)</li>
+<li>Name servers: Usually Google’s or Cloudflare’s, i.e.&nbsp;<code>1.1.1.1, 1.0.0.1</code></li>
+<li>Search domains: “home”</li>
 </ul></li>
 <li>Configure proxy:
 <ul>
