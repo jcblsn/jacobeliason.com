@@ -44,3 +44,11 @@ vignettes/*.pdf
 
 posts/2021-02-11-why-i-made-a-website
 /.luarc.json
+
+**/.env
+
+**/env/
+*.epub
+key.txt
+
+/_site

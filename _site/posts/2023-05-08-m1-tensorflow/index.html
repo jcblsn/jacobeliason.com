@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.333">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -83,7 +83,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,8 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W5T2MB639Z"></script>
@@ -106,51 +114,46 @@ gtag('js', new Date());
 gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 </script>
 <script data-goatcounter="https://jacob.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css">
 
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
 <meta property="og:description" content="For training small neural networks locally.">
-<meta property="og:image" content="mac-stock-photo.jpg">
-<meta property="og:site-name" content="Jacob Eliason">
+<meta property="og:site_name" content="Jacob Eliason">
 <meta name="twitter:title" content="Jacob Eliason - Setting up TensorFlow with GPU support on a M1 Macbook Pro">
 <meta name="twitter:description" content="For training small neural networks locally.">
-<meta name="twitter:image" content="mac-stock-photo.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jacob Eliason</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="false"></div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../files/jacob-eliason-resume.pdf" rel="" target="">
- <span class="menu-text">Resume</span></a>
+    <a class="nav-link" href="../../files/jacob-eliason-resume.pdf"> 
+<span class="menu-text">Resume</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -203,6 +206,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
+
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>As has been noted by <a href="https://twitter.com/williamrblack/status/1429962733055881218?s=20">many</a> <a href="https://twitter.com/MLE_Online/status/1584794484134805504?s=20">others</a>, Google search results seem to have meaningfully degraded in quality in the last couple of years. Whether this is due to AI content farms or more widespread use of SEO techniques, I sometimes find myself searching through what feels like ever-larger haystacks for increasingly well-disguised needles.</p>
@@ -223,22 +227,28 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <section id="create-a-osx-arm64-native-conda-environment" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-osx-arm64-native-conda-environment">2. Create a <code>osx-arm64</code>-native Conda environment</h3>
 <p>Per this Stack Overflow <a href="https://stackoverflow.com/a/65432861">answer</a>, we’ll create a new Conda environment with the <code>osx-arm64</code> channel as the default.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>CONDA_SUBDIR=osx-arm64 conda create -n native numpy -c conda-forge</span>
-<span id="cb1-2"><a href="#cb1-2"></a>conda activate native </span>
-<span id="cb1-3"><a href="#cb1-3"></a>conda config --env --set subdir osx-arm64</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{bash}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="in">CONDA_SUBDIR=osx-arm64 conda create -n native numpy -c conda-forge</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="in">conda activate native </span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="in">conda config --env --set subdir osx-arm64</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Subsequent steps come from “Fix #2” in the following <a href="https://stackoverflow.com/a/75198379">answer</a>.</p>
 </section>
 <section id="designate-the-use-of-the-conda-forge-channel-for-package-installation" class="level3">
 <h3 class="anchored" data-anchor-id="designate-the-use-of-the-conda-forge-channel-for-package-installation">3. Designate the use of the conda-forge channel for package installation</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>conda config --add channels conda-forge</span>
-<span id="cb2-2"><a href="#cb2-2"></a>conda config --set channel_priority strict </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{bash}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="in">conda config --add channels conda-forge</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="in">conda config --set channel_priority strict </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="install-packages" class="level3">
 <h3 class="anchored" data-anchor-id="install-packages">4. Install packages</h3>
 <p>Here we will install the TensorFlow dependencies and TensorFlow itself with versions as shown below.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {{bash}} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>conda install -y -c apple tensorflow-deps==2.10.0</span>
-<span id="cb3-2"><a href="#cb3-2"></a>python -m pip install tensorflow-macos==2.10.0</span>
-<span id="cb3-3"><a href="#cb3-3"></a>python -m pip install tensorflow-metal==0.6.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{bash}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="in">conda install -y -c apple tensorflow-deps==2.10.0</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="in">python -m pip install tensorflow-macos==2.10.0</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="in">python -m pip install tensorflow-metal==0.6.0</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="verify-proper-installation" class="level3">
 <h3 class="anchored" data-anchor-id="verify-proper-installation">5. Verify proper installation</h3>
@@ -349,10 +359,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -362,8 +371,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -376,6 +394,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -419,6 +556,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -444,6 +582,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -506,6 +670,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://utteranc.es/client.js" repo="jcblsn/jacobeliason.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
+
 
 
 

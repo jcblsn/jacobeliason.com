@@ -32,13 +32,12 @@ format:
   html:
     theme: 
       light: [sandstone-light, variables.scss]
-    header-includes: |
-      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css"/>
-      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css"/>
-      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css"/>
-    
-    mainfont: RobotoRegular
-    monofont: FiraCodeRegular
+    # header-includes: |
+    #   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css"/>
+    #   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css"/>
+    #   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css"/>
+    # mainfont: RobotoRegular
+    # monofont: FiraCodeRegular
     fontcolor: "black"
     linkcolor: "#ff1924"
     #"#7f7f7f"

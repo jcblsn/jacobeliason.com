@@ -15,12 +15,12 @@ You may or may not want to set up your own server at home. I did, mostly for lea
 
 The following is a description of the process I followed for future reference. It's fairly procedural as it's only a lightly edited version of the iCloud note I kept along the way.
 
-To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seems like a [reasonable price](https://www.ebay.com/sch/i.html?_from=R40&_nkw=HP+ProDesk+600+G5+Mini&_sacat=0&RAM%2520Size=16%2520GB&Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&_oaa=1&LH_Sold=1&LH_Complete=1&rt=nc&Hard%2520Drive%2520Capacity=512%2520GB&_dcat=179) for a capable machine that's small and energy efficient. There are obviously many options; I wanted something more powerful than a Raspberry Pi but less expensive than a workstation.
+To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seemed like a [reasonable price](https://www.ebay.com/sch/i.html?_from=R40&_nkw=HP+ProDesk+600+G5+Mini&_sacat=0&RAM%2520Size=16%2520GB&Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&_oaa=1&LH_Sold=1&LH_Complete=1&rt=nc&Hard%2520Drive%2520Capacity=512%2520GB&_dcat=179) for a minimally capable machine that's small and energy efficient. There are obviously many options; I was looking for something more powerful than a Raspberry Pi and less expensive than a workstation.
 
 ::: {.callout-note}
 <!-- ## Peripherals -->
 
-Besides the server itself, I needed the following peripherals to get started:
+Besides the server itself, I needed the following peripherals to get started, all of which I had already.
 
 - monitor for initial setup
 - keyboard for initial setup
@@ -31,29 +31,31 @@ Besides the server itself, I needed the following peripherals to get started:
 
 ## Definitions
 
-The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This isn't meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (mostly from ChatGPT).
+The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This part isn't meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (primarily via ChatGPT).
 
 ### Networking
 
-- **DHCP (Dynamic Host Configuration Protocol)**: A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.
-- **IPv4 vs IPv6**: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.
-- **Nameservers**: These are the internet's equivalent of a phone book, translating human-readable domain names to IP addresses.
-- **DNS (Domain Name System)**: This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.
-- **Subnet**: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.
-- **Nameservers**: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.
+- DHCP (Dynamic Host Configuration Protocol): A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.
+- IPv4 vs IPv6: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.
+- Nameservers: These are the internet's equivalent of a phone book, translating human-readable domain names to IP addresses.
+- DNS (Domain Name System): This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.
+- Subnet: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.
+- Nameservers: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.
 
 ### Software
 
-- **BIOS (Basic Input/Output System)**: Firmware that initializes hardware during the boot process and provides runtime services for the operating system.
-- **NTP (Network Time Protocol)**: A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.
-- **LUKS (Linux Unified Key Setup)**: A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.
-- **LVM (Logical Volume Manager)**: A device mapper target that provides logical volume management for the Linux kernel.
+- BIOS (Basic Input/Output System): Firmware that initializes hardware during the boot process and provides runtime services for the operating system.
+- NTP (Network Time Protocol): A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.
+- LUKS (Linux Unified Key Setup): A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.
+- LVM (Logical Volume Manager): A device mapper target that provides logical volume management for the Linux kernel.
 
 ![](penguin.jpg)
 
 ## Process
 
-- Purchase HP ProDesk 600 G5 Mini
+As noted above, the following is mostly just my process notes.
+
+- Power on HP ProDesk 600 G5 Mini
 - Boot Windows and make note of Windows product key
 - Using my MacBook and a flash drive, create a bootable Ubuntu 22.04.3 LTS installer:
   - `diskutil list` to list disks
@@ -68,12 +70,12 @@ The following were some concepts I unfamiliar with or only somewhat familiar wit
   - Select "Try or Install Ubuntu Server"
   - Configure network connections
     - Select interface
-    - **IPv4**: "Manual"
-    - **Subnet**: Given in router settings
-    - **Address**: Chosen based on router settings—find DHCP range and choose a number outside that range
-    - **Gateway**: Given in router settings (usually same as address but with 1 as last number)
-    - **Name servers**: Usually Google or Cloudflare's, i.e. `1.1.1.1, 1.0.0.1`
-    - **Search domains**: "home"
+    - IPv4: "Manual"
+    - Subnet: Given in router settings
+    - Address: Chosen based on router settings—find DHCP range and choose a number outside that range
+    - Gateway: Given in router settings (usually same as address but with 1 as last number)
+    - Name servers: Usually Google's or Cloudflare's, i.e. `1.1.1.1, 1.0.0.1`
+    - Search domains: "home"
   - Configure proxy: 
     - I skipped this to start with
   - Storage configuration: 
@@ -147,3 +149,7 @@ The following were some concepts I unfamiliar with or only somewhat familiar wit
 ## Conclusion
 
 This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out.
+
+<!-- testing performance
+<!-- jacob@cheniston:~$ sysbench cpu --cpu-max-prime=200000 run --threads=6 -->
+<!-- jacob@cheniston:~$ sysbench memory --memory-total-size=32G run -->

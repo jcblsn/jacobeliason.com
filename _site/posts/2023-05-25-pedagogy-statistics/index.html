@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.333">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,8 +64,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W5T2MB639Z"></script>
@@ -72,53 +80,75 @@ gtag('js', new Date());
 gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 </script>
 <script data-goatcounter="https://jacob.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css">
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/roboto" type="text/css">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Jacob Eliason - On statistical pedagogy">
 <meta property="og:description" content="Three observations at the conclusion of my master’s program">
-<meta property="og:image" content="illustration.jpg">
-<meta property="og:site-name" content="Jacob Eliason">
+<meta property="og:site_name" content="Jacob Eliason">
 <meta name="twitter:title" content="Jacob Eliason - On statistical pedagogy">
 <meta name="twitter:description" content="Three observations at the conclusion of my master’s program">
-<meta name="twitter:image" content="illustration.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Jacob Eliason</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="false"></div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../files/jacob-eliason-resume.pdf" rel="" target="">
- <span class="menu-text">Resume</span></a>
+    <a class="nav-link" href="../../files/jacob-eliason-resume.pdf"> 
+<span class="menu-text">Resume</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -169,6 +199,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
+
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>I completed a bachelor’s degree in statistics in 2019 and am nearing the end of a master’s degree in statistics this summer. Having now been a student of statistics in high school, university, and graduate school, this post is intended to clarify some of my thoughts about learning statistics. It could also be read as a letter of what I wish my first-year self could have known.</p>
@@ -179,9 +210,9 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <p>Perhaps as a result of last decade’s data science revolution, it’s become more fashionable to position statistics as being somehow <a href="https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus">outside of</a>, an <a href="https://www.seattletimes.com/education-lab/guest-why-statistics-is-a-good-alternative-to-traditional-pre-college-math/">alternative to</a>, or even a <a href="https://stanfordreview.org/calculus-is-overrated-why-we-should-prioritize-statistics-ec8b147389a3/">replacement for</a> traditional mathematics education. This Gladwell-ian contrarianism misleads students who don’t know better about the nature of both disciplines.</p>
 <p>When I was a college freshman, this impression was reinforced by way my major was structured (my department has since reorganized). Multivariable calculus and linear algebra were optional elective courses and the even the introductory calculus sequence was only a pre-requisite for higher-level coursework. It wasn’t until I decided that I wanted to pursue a master’s degree and added a minor in mathematics that I realized how much I had been missing. I took a course that gave me a foundation in set theory, logic, and proofs. Having that introduction to analysis and the elective coursework in calculus and linear algebra made my statistics courses significantly more meaningful.</p>
 <p>I wish I would have committed to my relationship with calculus earlier.</p>
-<p>The consequences of positioning statistics as somehow outside mathematics are many. It’s no great surprise that when students are taught to memorize incomplete heuristics like “normality is when <span class="math inline">\(n\)</span> is greater than 30” instead of being taught about the Central Limit Theorem from first principles, confident errors like the infamous one below find their way into mainstream discourse.</p>
-<p></p><div id="tweet-86996"></div><script>tweet={"url":"https:\/\/twitter.com\/rabois\/status\/1242642669840429056","author_name":"Keith Rabois","author_url":"https:\/\/twitter.com\/rabois","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003Ewith very large numbers of n’s you don’t need randomization.\u003C\/p\u003E&mdash; Keith Rabois (@rabois) \u003Ca href=\"https:\/\/twitter.com\/rabois\/status\/1242642669840429056?ref_src=twsrc%5Etfw\"\u003EMarch 25, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-86996").innerHTML = tweet["html"];</script><p></p>
-<p>Being able to derive maximum likelihood estimates by hand did more to demystify practical statistics than any number of <code>lm()</code> or `` calls ever did or could have.</p>
+<p>The consequences of positioning statistics as somehow outside mathematics are hard to overstate. It’s no great surprise that when students are taught to memorize incomplete heuristics like “normality is when <span class="math inline">\(n\)</span> is greater than 30” instead of being taught about the Central Limit Theorem from first principles, confident errors like the infamous one below find their way into mainstream discourse.</p>
+<p></p><div id="tweet-10403"></div><script>tweet={"url":"https:\/\/twitter.com\/rabois\/status\/1242642669840429056","author_name":"Keith Rabois","author_url":"https:\/\/twitter.com\/rabois","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003Ewith very large numbers of n’s you don’t need randomization.\u003C\/p\u003E&mdash; Keith Rabois (@rabois) \u003Ca href=\"https:\/\/twitter.com\/rabois\/status\/1242642669840429056?ref_src=twsrc%5Etfw\"\u003EMarch 25, 2020\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-10403").innerHTML = tweet["html"];</script><p></p>
+<p>Being able to derive maximum likelihood estimates by hand did more to demystify practical statistics than any number of <code>lm()</code> or <code>predict()</code> calls ever did or could have.</p>
 </section>
 <section id="critique-of-the-model-zoo" class="level2">
 <h2 class="anchored" data-anchor-id="critique-of-the-model-zoo">Critique of the ‘model zoo’</h2>
@@ -286,10 +317,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -299,8 +329,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -313,6 +352,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -356,6 +514,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -381,6 +540,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -443,6 +628,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://utteranc.es/client.js" repo="jcblsn/jacobeliason.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
+
 
 
 
