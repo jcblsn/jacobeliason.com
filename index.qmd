@@ -24,18 +24,18 @@ comments: false
 
 ## Bio
 
-Data scientist with 3+ years experience developing data solutions for public and private sector clients. Expertise in Bayesian statistics, causal inference, and generative AI complemented by recent graduate coursework.
+I am a data scientist with expertise in Bayesian statistics, causal inference, and generative AI.
 
-I also enjoy running, hiking, and film photography.
+I enjoy running, hiking, and film photography.
 
 ```{r}
 #| echo: false
 #| eval: false
-# <br>
-# <br>
-# <br>
+# <!-- <br> -->
+# <!-- <br> -->
+# <!-- <br> -->
 # 
-# <p><small>Last updated `r lubridate::today()`</small></p>
+# <!-- <p><small>Last updated `r lubridate::today()`</small></p> -->
 ```
 
 ```{r}
