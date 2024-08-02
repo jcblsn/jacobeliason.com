@@ -4,9 +4,9 @@ image: profile.png
 about:
   template: trestles
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/jaco_bel
+    # - icon: twitter
+    #   text: Twitter
+    #   href: https://twitter.com/jaco_bel
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/jacobzeliason/

@@ -15,8 +15,6 @@ website:
       - blog.qmd 
       - text: Resume
         href: files/jacob-eliason-resume.pdf
-      #- icon: twitter
-      #  href: https://www.twitter.com/jaco_bel
     # logo: files/favicon.png
   favicon: files/favicon-sun.png
   # site-url: "https://jacobeliason.com"
