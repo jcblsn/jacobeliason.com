@@ -24,7 +24,7 @@ comments: false
 
 ## Bio
 
-I am a data scientist with experience in statistics and deep learning. I like working on hard problems.
+Data scientist with 3+ years experience developing data solutions for public and private sector clients. Expertise in Bayesian statistics, causal inference, and generative AI complemented by recent graduate coursework.
 
 I also enjoy running, hiking, and film photography.
 

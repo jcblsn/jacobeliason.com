@@ -1,0 +1,12 @@
+{
+  "hash": "81692efa1c674472e6455975f5a677b2",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: On Gaussian processes\ndescription: ''\ncategories:\n  - statistics\nauthor: Jacob Eliason\ndate: '2024-02-20'\ndraft: true\nbibliography:\n  - references.bib\ntable-of-contents: true\nformat: html\nexecute:\n  freeze: auto\n---\n\n# Introduction\n\n## Q&A\n\n- What is a Gaussian process?\n  - *A Gaussian process can be thought of as an extension of the multivariate normal distribution to an infinite number of random variables covering each point on the input domain*\n  - *A Gaussian process is a probabilistic method that gives a confidence for a function representing a set of points*\n  - *For a given set of training points, there are potentially infinitely many functions that fit the data. Gaussian processes offer an elegant solution to this problem by assigning a probability to each of these functions*\n  - *The key idea of Gaussian processes is to model the underlying distribution of XX together with YY as a multivariate normal distribution*\n- What is a kernel?\n  - *The covariance between function values at any two points*\n\nhelpful visualizations [^1] [^2]\n\n[^1]: https://distill.pub/2019/visual-exploration-gaussian-processes/\n[^2]: http://www.infinitecuriosity.org/vizgp/\n\n",
+    "supporting": [
+      "index_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
