@@ -4,7 +4,7 @@ description: "Notes on transitioning to a NAS for personal file storage and back
 categories: ["servers"]
 author: "Jacob Eliason"
 date: "2024-08-02"
-draft: true
+draft: false
 execute:
     freeze: auto
 ---
@@ -59,7 +59,7 @@ nohup caffeinate -s rsync -avz --progress --checksum --partial --delete --stats 
 ```
 The `caffeinate` command prevents my Mac from sleeping during the transfer.
 
-To safely move files from my Mac to the NAS, I used the following script co-authored with Claude:
+To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:
 
 ```bash
 #!/bin/bash
