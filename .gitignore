@@ -50,5 +50,3 @@ posts/2021-02-11-why-i-made-a-website
 **/env/
 *.epub
 key.txt
-
-/_site
