@@ -1,15 +1,4 @@
-/why-i-made-a-website /posts/2021-02-11-why-i-made-a-website
-/processing-data-from-strava /posts/2021-04-30-processing-data-from-strava
-/how-many-young-mormons-are-queer /posts/2021-06-25-how-many-young-mormons-are-queer
-/setting-up-a-twitter-bot /posts/2021-11-11-setting-up-a-twitter-bot
-/writing-manifoldr-wrapper /posts/2022-11-27-writing-manifoldr-wrapper
-/m1-tensorflow /posts/2023-05-08-m1-tensorflow
-/glm /posts/2023-05-25-glm
-/pedagogy-statistics /posts/2023-05-25-pedagogy-statistics
-/goatcounter-for-quarto /posts/2023-11-06-goatcounter-for-quarto
-/server-configuration /posts/2023-11-14-server-configuration
-/factscore /posts/2024-01-13-factscore
-/applied-gp /posts/2024-02-20-applied-gp
-/network-attached-storage /posts/2024-08-02-network-attached-storage
-/cv /files/jacob-eliason-cv.pdf
-/resume /files/jacob-eliason-resume.pdf
+# https://docs.netlify.com/routing/redirects/
+# Redirects from what the browser requests to what we serve
+/home                /
+/resume              /files/jacob-eliason-resume.pdf

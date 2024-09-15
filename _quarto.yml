@@ -16,8 +16,10 @@ website:
       - text: Resume
         href: files/jacob-eliason-resume.pdf
     # logo: files/favicon.png
+      - icon: rss
+        href: blog.xml
   favicon: files/favicon-sun.png
-  # site-url: "https://jacobeliason.com"
+  site-url: "https://jacobeliason.com"
   google-analytics: "G-W5T2MB639Z"
   twitter-card: true # automatically generate a title, description, and preview image for the content when linked from Twitter
   open-graph: true

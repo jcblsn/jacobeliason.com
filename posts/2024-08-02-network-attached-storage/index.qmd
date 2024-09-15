@@ -5,6 +5,8 @@ categories: ["servers"]
 author: "Jacob Eliason"
 date: "2024-08-02"
 draft: false
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 
@@ -115,6 +117,14 @@ Because I was setting up a new directory structure, I used a file containing pai
 ## File Sharing
 
 I use Synology Drive's Mac client, which functions pretty similarly to Dropbox's Mac client. This has made it easier to move all my MacBook work into the NAS and to archive or offload large projects once completed.
+
+One note worth considering is that Synology Drive sometimes has issues with other sync services. I pay for Obsidian Sync and prefer that standalone service for my notes. I had to disable Drive's sync service for the directory containing my Obsidian vault to avoid conflicts. This is surprisingly unintuitive, as the client doesn't have a user-friendly way to pause syncing for a specific directory. 
+
+However, on a Mac you can do this by navigating to
+
+> `~/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf`
+
+And editing `filter` and `filter-v4150` to include the directory name you want to exclude from syncing under the `[Directory]` section of each. If successful, files created under such a directory will be marked as "ignored" in the Drive client. This is acceptable to me because such files will still be backed up by Hyper Backup and Snapshots, and Obsidian Sync provides a superior sync experience for what I need.
 
 ## Alternatives Considered
 

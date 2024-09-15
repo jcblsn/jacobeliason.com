@@ -150,6 +150,11 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
     <a class="nav-link" href="../../files/jacob-eliason-resume.pdf"> 
 <span class="menu-text">Resume</span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -297,6 +302,12 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <section id="file-sharing" class="level2">
 <h2 class="anchored" data-anchor-id="file-sharing">File Sharing</h2>
 <p>I use Synology Drive’s Mac client, which functions pretty similarly to Dropbox’s Mac client. This has made it easier to move all my MacBook work into the NAS and to archive or offload large projects once completed.</p>
+<p>One note worth considering is that Synology Drive sometimes has issues with other sync services. I pay for Obsidian Sync and prefer that standalone service for my notes. I had to disable Drive’s sync service for the directory containing my Obsidian vault to avoid conflicts. This is surprisingly unintuitive, as the client doesn’t have a user-friendly way to pause syncing for a specific directory.</p>
+<p>However, on a Mac you can do this by navigating to</p>
+<blockquote class="blockquote">
+<p><code>~/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf</code></p>
+</blockquote>
+<p>And editing <code>filter</code> and <code>filter-v4150</code> to include the directory name you want to exclude from syncing under the <code>[Directory]</code> section of each. If successful, files created under such a directory will be marked as “ignored” in the Drive client. This is acceptable to me because such files will still be backed up by Hyper Backup and Snapshots, and Obsidian Sync provides a superior sync experience for what I need.</p>
 </section>
 <section id="alternatives-considered" class="level2">
 <h2 class="anchored" data-anchor-id="alternatives-considered">Alternatives Considered</h2>
