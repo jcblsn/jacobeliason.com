@@ -7,6 +7,8 @@ listing:
   categories: true
   sort-ui: false
   filter-ui: false
+  exclude:
+    title: "Setting up TensorFlow*"
 page-layout: full
 title-block-banner: false 
 comments: false
