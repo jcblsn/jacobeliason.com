@@ -15,7 +15,6 @@ website:
       - blog.qmd 
       - text: Resume
         href: files/jacob-eliason-resume.pdf
-    # logo: files/favicon.png
       - icon: rss
         href: blog.xml
   favicon: files/favicon-sun.png

@@ -1,4 +1,1 @@
-# https://docs.netlify.com/routing/redirects/
-# Redirects from what the browser requests to what we serve
-/home                /
-/resume              /files/jacob-eliason-resume.pdf
+/resume    /files/jacob-eliason-resume.pdf    200
