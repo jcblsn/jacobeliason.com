@@ -38,11 +38,8 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-/.quarto/
-
 .DS_Store
 
-posts/2021-02-11-why-i-made-a-website
 /.luarc.json
 
 **/.env
@@ -50,3 +47,11 @@ posts/2021-02-11-why-i-made-a-website
 **/env/
 *.epub
 key.txt
+
+# quarto website files
+.quarto/*
+_site/
+_book/
+.quarto/
+
+/.quarto/

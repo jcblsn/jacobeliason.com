@@ -15,7 +15,7 @@ about:
       href: https://github.com/jcblsn
     - icon: envelope
       text: Email
-      href: mailto:jacobeliason+site@gmail.com
+      href: mailto:contact@jacobeliason.com
     - icon: code
       text: Site Code
       href: https://github.com/jcblsn/jacobeliason.com
