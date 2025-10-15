@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-10-14">
 <meta name="description" content="Ignore survey weights at your peril">
 
-<title>Methodological issues in Kaufmann’s analysis of FIRE gender identity data – Jacob Eliason</title>
+<title>Jacob Eliason - Methodological issues in Kaufmann’s analysis of FIRE gender identity data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -59,10 +39,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-02f092830c628bd6ddaae7527eb6dbf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,18 +83,12 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Methodological issues in Kaufmann’s analysis of FIRE gender identity data – Jacob Eliason">
+<meta property="og:title" content="Jacob Eliason - Methodological issues in Kaufmann’s analysis of FIRE gender identity data">
 <meta property="og:description" content="Ignore survey weights at your peril">
-<meta property="og:image" content="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-14-weighted_vs_unweighted_estimates.png">
 <meta property="og:site_name" content="Jacob Eliason">
-<meta property="og:image:height" content="1350">
-<meta property="og:image:width" content="2400">
-<meta name="twitter:title" content="Methodological issues in Kaufmann’s analysis of FIRE gender identity data – Jacob Eliason">
+<meta name="twitter:title" content="Jacob Eliason - Methodological issues in Kaufmann’s analysis of FIRE gender identity data">
 <meta name="twitter:description" content="Ignore survey weights at your peril">
-<meta name="twitter:image" content="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-14-weighted_vs_unweighted_estimates.png">
-<meta name="twitter:image-height" content="1350">
-<meta name="twitter:image-width" content="2400">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -129,7 +103,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -149,7 +123,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -202,16 +176,12 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
-<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a> and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022-2023 to 3.6% in 2025.</p>
-<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series (appropriate for inference) shows a different trend.</p>
+<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a>, and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022-2023 to 3.6% in 2025.</p>
+<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series shows a different trend.</p>
 <p><img src="2025-10-14-weighted_vs_unweighted_estimates.png" class="img-fluid"></p>
-<section id="why-weights-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-weights-matter">Why weights matter</h2>
-<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is standard practice to account for variable rates of survey non-response by respondent demographic <span class="citation" data-cites="grovesnrb">(<a href="#ref-grovesnrb" role="doc-biblioref">Groves 2006</a>)</span>. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
-</section>
-<section id="what-can-we-say" class="level2">
-<h2 class="anchored" data-anchor-id="what-can-we-say">What can we say?</h2>
+<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is <a href="https://doi.org/10.1093/poq/nfl033">standard practice</a> to account for variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
 <p>Deriving causal claims about temporal effects from cross-sectional data is <a href="https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf">always challenging</a>, but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.</p>
+<hr>
 <p><em>Proudly human-written. Code for the analysis described in this post is available <a href="https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331">here</a>.</em></p>
 <!-- | Year | Unweighted (raw %) | Weighted (%) | -->
 <!-- |-----:|-------------------:|-------------:| -->
@@ -234,13 +204,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-grovesnrb" class="csl-entry" role="listitem">
-Groves, Robert M. 2006. <span>“Nonresponse Rates and Nonresponse Bias in Household Surveys.”</span> <em>Public Opinion Quarterly</em> 70 (5): 646–75. <a href="https://doi.org/10.1093/poq/nfl033">https://doi.org/10.1093/poq/nfl033</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -276,7 +240,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -308,45 +283,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/jacobeliason\.com");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -381,11 +318,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -433,6 +366,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -10,19 +10,19 @@ execute:
   freeze: auto
 ---
 
-Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY) and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022-2023 to 3.6% in 2025. 
+Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY), and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022-2023 to 3.6% in 2025. 
 
-This conclusion, based on analysis of survey data collected for [FIRE](https://archive.ph/Tlk1I)'s [College Free Speech Rankings](https://archive.ph/pqtMd), suffers from several issues, including a significant analytical error I haven't seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same [dataset](https://rankings.thefire.org/explore?demo=all&year=2025), I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann's numbers, but the weighted series (appropriate for inference) shows a different trend.
+This conclusion, based on analysis of survey data collected for [FIRE](https://archive.ph/Tlk1I)'s [College Free Speech Rankings](https://archive.ph/pqtMd), suffers from several issues, including a significant analytical error I haven't seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same [dataset](https://rankings.thefire.org/explore?demo=all&year=2025), I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann's numbers, but the weighted series shows a different trend.
 
 ![](2025-10-14-weighted_vs_unweighted_estimates.png)
 
-## Why weights matter
 
-The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is standard practice to account for variable rates of survey non-response by respondent demographic [@grovesnrb]. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
+The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is [standard practice](https://doi.org/10.1093/poq/nfl033) to account for variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
 
-## What can we say?
 
 Deriving causal claims about temporal effects from cross-sectional data is [always challenging](https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf), but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.
+
+---
 
 *Proudly human-written. Code for the analysis described in this post is available [here](https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331).*
 
