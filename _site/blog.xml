@@ -1,0 +1,2241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Jacob Eliason</title>
+<link>https://jacobeliason.com/blog.html</link>
+<atom:link href="https://jacobeliason.com/blog.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 14 Oct 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Methodological issues in Kaufmann’s analysis of FIRE gender identity data</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a> and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022-2023 to 3.6% in 2025.</p>
+<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series (appropriate for inference) shows a different trend.</p>
+<p><img src="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-14-weighted_vs_unweighted_estimates.png" class="img-fluid"></p>
+<section id="why-weights-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-weights-matter">Why weights matter</h2>
+<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is standard practice to account for variable rates of survey non-response by respondent demographic <span class="citation" data-cites="grovesnrb">(Groves 2006)</span>. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
+</section>
+<section id="what-can-we-say" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-we-say">What can we say?</h2>
+<p>Deriving causal claims about temporal effects from cross-sectional data is <a href="https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf">always challenging</a>, but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.</p>
+<p><em>Proudly human-written. Code for the analysis described in this post is available <a href="https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331">here</a>.</em></p>
+<!-- | Year | Unweighted (raw %) | Weighted (%) | -->
+<!-- |-----:|-------------------:|-------------:| -->
+<!-- | 2022 |               6.9% |         2.2% | -->
+<!-- | 2023 |               6.9% |         1.9% | -->
+<!-- | 2024 |               5.3% |        10.5% | -->
+<!-- | 2025 |               3.6% |         9.1% | -->
+<!-- Using the weights provided by FIRE/College Pulse, the data do not support Kaufmann's conclusion of a decline. The weighted estimates show different patterns entirely, with substantially higher rates in 2024-2025 than in prior years. -->
+<!-- Whether these weighted estimates themselves reflect real population changes, methodological updates, or some combination requires additional investigation beyond the scope of this analysis. But the starting point for any such investigation must be the weighted data, not the raw sample proportions. -->
+<!-- ## Discontinuity -->
+<!-- I started my career working as a statistician for the Census Bureau's [Survey of Income and Program Participation](https://www.census.gov/programs-surveys/sipp.html) (SIPP). SIPP is a "longitudinal" household survey that records outcomes from panels of respondents by overlapping four-year periods in order to identify causal changes over time. This allows for some interesting measurement that wouldn't otherwise be possible: for example, "[spell durations](https://fns-prod.azureedge.us/sites/default/files/DynamicsMid2000.pdf)" for time spent as a recipient of a particular benefit program, or under the federal poverty threshold. -->
+<!-- In contrast, FIRE's campus survey is "cross-sectional" in that different students are sampled each year rather than following the same individuals over time. One vulnerability of using instruments like this to derive conclusions about temporal patterns is that cross-sectional designs are vulnerable to methodological changes from one year to the next, which can create apparent trends where none actually exist. -->
+<!-- I suspect a methodological change may have occurred in this case. Weighted estimates for the FIRE survey show a nearly five-fold increase in "Gender non-conforming" starting in 2024. -->
+<!-- This struck me as surprising, so I spent a few minutes looking for possible explanations. It looks like the timing coincides with changes to federal survey methodology. In August 2023, the Census Bureau's Household Pulse Survey replaced the options for the question "Do you currently describe yourself as male, female or transgender?" -- instead of `Male, Female, Transgender,  None of these`, the alternate version asked "How do you currently describe yourself?" and added `Nonbinary, I use a different term`, allowing multiple selections. Using the new wording, Census found that approximately 7% of Gen Z adults identified as nonbinary--close to the weighted FIRE estimates for 2024-2025. -->
+<!-- Additionally, the federal Integrated Postsecondary Education Data System (IPEDS)--one of College Pulse's sources for weighting adjustments--[added a question in 2022-23](https://archive.ph/1Zy0s) to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks starting in 2024 to reflect these new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates increased so suddenly. -->
+<!-- todo: \* discuss challenges with drawing time series narratives from cross-sectional data generally \* introduce suggestive evidence for methodological change \* discuss implications conclude \* unweighted estimates are not meaningful for point in time or temporal narratives \* weighted results for 2025 are likely a good estimate for 2025, but not directly comparable to e.g. 2022 -->
+<!-- \~\~...In August 2024, the U.S. Census Bureau's Household Pulse Survey changed its gender identity question, replacing "none of these" with "nonbinary/I use a different term." Following this change, the Census found that approximately 7% of Gen Z adults identified as nonbinary—close to the weighted FIRE estimates for 2024-2025. -->
+<!-- IPEDS, one of College Pulse's benchmark sources, added a question in 2022-23 to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks to reflect new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates diverge from the unweighted ones starting in 2024.\~\~ -->
+<!-- Kaufmann's analysis of the FIRE survey data does not belong in such an attempt. Setting aside subjective concerns others have raised about the interpretation of this source in the first place (can "gender non-conforming" be used interchangeably with "transgender?" in the first place?), using unweighted tallies from repeated cross-section data frankly constitutes analytical malpractice. -->
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-grovesnrb" class="csl-entry">
+Groves, Robert M. 2006. <span>“Nonresponse Rates and Nonresponse Bias in Household Surveys.”</span> <em>Public Opinion Quarterly</em> 70 (5): 646–75. <a href="https://doi.org/10.1093/poq/nfl033">https://doi.org/10.1093/poq/nfl033</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>surveys</category>
+  <guid>https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/</guid>
+  <pubDate>Tue, 14 Oct 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>How I’m Storing Files</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2024-08-02-network-attached-storage/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This post serves as documentation of my current NAS setup. As usual, it primarily serves as personal documentation. I’ll update it as my system evolves or if I encounter and resolve new issues.</p>
+<p><img src="https://jacobeliason.com/posts/2024-08-02-network-attached-storage/storage-unsplash.jpg" class="img-fluid"></p>
+<section id="why-a-nas" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-nas">Why a NAS</h2>
+<p>My previous solution for file storage involved external hard drives, Dropbox, and my computer’s hard drive. This setup was fragmented, making file access difficult and leaving data unversioned and not properly backed up. I have approximately one terabyte of photos from my digital camera and film scans, plus iPhone photos from the last decade. I also maintain a copy of my family’s photos, adding another terabyte. This amount is too large to store on my personal computer, and I wanted some access to these files without relying on cloud downloads.</p>
+<p>Cloud storage solutions caused some unease, as I couldn’t fully account for my files or ensure their integrity. I disliked the idea of an internet account being a single point of failure for my most valuable digital possessions.</p>
+<p>My personal computer’s hard drive was filled with datasets and code assets. I wanted a Dropbox-style ability to offload from local storage when not in use.</p>
+<p>A NAS allows me to consolidate what was previously spread across my computer’s hard drive, Dropbox, and two external hard drives into one place. For files previously stored only on external hard drives, it reduces the worry about drive failure.</p>
+<p>Additional benefits include:</p>
+<ul>
+<li>More precise control over backup and storage for files that require or don’t require an additional copy</li>
+<li>Versioning</li>
+<li>Potential long-term cost savings</li>
+</ul>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
+<p>I chose the <a href="https://www.synology.com/en-us/products/DS224+">Synology DS224+</a> with two 8-terabyte drives.</p>
+</section>
+<section id="backup" class="level3">
+<h3 class="anchored" data-anchor-id="backup">Backup</h3>
+<p>I implemented a multi-tiered backup strategy:</p>
+<ol type="1">
+<li><a href="https://www.synology.com/en-global/dsm/feature/hyper_backup">Hyper Backup</a> to <a href="https://c2.synology.com/en-us">Synology C2</a></li>
+<li>Hyper Backup to an external drive (though I’m considering switching to Cloud Sync to have a full backup available as a regular file structure)</li>
+<li><a href="https://www.synology.com/en-global/dsm/feature/snapshot_replication">Snapshots</a></li>
+</ol>
+<p>Synology’s C2 allows file browsing from the Mac Hyper Backup client app without needing a Synology device. Pricing is similar to alternatives, with the main difference being whole TB increments versus continuous rate pricing.</p>
+<p>Snapshots are lightweight operations that can run frequently without causing issues. They offer a sophisticated retention schedule and a legible file structure.</p>
+<p>In this setup, Hyper Backup provides long-term protection, while snapshots offer short-term protection.</p>
+</section>
+<section id="transfer" class="level3">
+<h3 class="anchored" data-anchor-id="transfer">Transfer</h3>
+<p>After some frustrating trial and error, I set a large external hard drive as the root directory for my Dropbox Mac client’s backup in order to download my cloud storage files without harming their metadata. I then connected the drive to the NAS and used the following from my personal computer to copy files from the drive to the destination file system:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nohup</span> caffeinate <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> rsync <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-avz</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--progress</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--checksum</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--partial</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--delete</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--stats</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--human-readable</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--log-file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>~/rsync_log.txt <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/source"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/target"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;</span></span></code></pre></div>
+<p>The <code>caffeinate</code> command prevents my Mac from sleeping during the transfer.</p>
+<p>To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#!/bin/bash</span></span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">RSYNC</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/opt/homebrew/bin/rsync"</span></span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PAIRS_FILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pairs.txt"</span></span>
+<span id="cb2-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">LOG_FILE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rsync_log.txt"</span></span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># use Homebrew-installed rsync (required for created date compatibility)</span></span>
+<span id="cb2-9"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">RSYNC_VERSION</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$($RSYNC</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--version</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span> version <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">awk</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'{ print $3 }'</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb2-10"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">REQUIRED_VERSION</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3.1.0"</span></span>
+<span id="cb2-11"></span>
+<span id="cb2-12"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-e</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$RSYNC_VERSION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-V</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n1</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">!=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb2-13">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Your rsync version </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$RSYNC_VERSION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> is less than the required </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-14">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Please upgrade rsync using Homebrew: brew install rsync"</span></span>
+<span id="cb2-15">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">exit</span> 1</span>
+<span id="cb2-16"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb2-17"></span>
+<span id="cb2-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># check if the pairs file exists</span></span>
+<span id="cb2-19"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">!</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PAIRS_FILE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb2-20">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Error: Pairs file does not exist."</span></span>
+<span id="cb2-21">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">exit</span> 1</span>
+<span id="cb2-22"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb2-23"></span>
+<span id="cb2-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># read each line from the pairs file</span></span>
+<span id="cb2-25"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">IFS</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">read</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">line</span></span>
+<span id="cb2-26"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb2-27">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># split the line into source and destination</span></span>
+<span id="cb2-28">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">read</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ra</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ADDR</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;&lt;&lt;</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$line</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-29">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">SOURCE</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${ADDR</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-30">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">DESTINATION</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${ADDR</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-31"></span>
+<span id="cb2-32">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># check if source and destination are provided</span></span>
+<span id="cb2-33">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb2-34">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Skipping invalid line: </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$line</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-35">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">continue</span></span>
+<span id="cb2-36">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb2-37"></span>
+<span id="cb2-38">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Starting rsync from </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> to </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-39">    </span>
+<span id="cb2-40">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># perform sync</span></span>
+<span id="cb2-41">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$RSYNC</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-avhP</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--delete</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--crtimes</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--times</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--log-file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$LOG_FILE</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-42"></span>
+<span id="cb2-43">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Completed rsync for </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> to </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-44"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PAIRS_FILE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-45"></span>
+<span id="cb2-46"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"All operations completed. Check </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$LOG_FILE</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> for details."</span></span></code></pre></div>
+<p>Because I was setting up a new directory structure, I used a file containing pairs of one source and one destination directory at a time to copy files over.</p>
+<!-- ### Configuration -->
+</section>
+</section>
+<section id="file-sharing" class="level2">
+<h2 class="anchored" data-anchor-id="file-sharing">File Sharing</h2>
+<p>I use Synology Drive’s Mac client, which functions pretty similarly to Dropbox’s Mac client. This has made it easier to move all my MacBook work into the NAS and to archive or offload large projects once completed.</p>
+<p>One note worth considering is that Synology Drive sometimes has issues with other sync services. I pay for Obsidian Sync and prefer that standalone service for my notes. I had to disable Drive’s sync service for the directory containing my Obsidian vault to avoid conflicts. This is surprisingly unintuitive, as the client doesn’t have a user-friendly way to pause syncing for a specific directory.</p>
+<p>However, on a Mac you can do this by navigating to</p>
+<blockquote class="blockquote">
+<p><code>~/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf</code></p>
+</blockquote>
+<p>And editing <code>filter</code> and <code>filter-v4150</code> to include the directory name you want to exclude from syncing under the <code>[Directory]</code> section of each. If successful, files created under such a directory will be marked as “ignored” in the Drive client. This is acceptable to me because such files will still be backed up by Hyper Backup and Snapshots, and Obsidian Sync provides a superior sync experience for what I need.</p>
+</section>
+<section id="alternatives-considered" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives-considered">Alternatives Considered</h2>
+<ul>
+<li>Cloud sync with Dropbox: I tested this but found issues with slow propagation from Dropbox to NAS and metadata inconsistencies.</li>
+<li>Building a custom NAS with a Raspberry Pi: While cheaper, I prioritized reliability and chose Synology as a more supported solution.</li>
+<li>Cloud-only storage: I subjectively prefer having at least one local copy of my files.</li>
+<li>Local copy at home backed up to a PC at another location: This seemed too labor-intensive.</li>
+</ul>
+</section>
+<section id="additional-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="additional-use-cases">Additional Use Cases</h2>
+<section id="zotero" class="level3">
+<h3 class="anchored" data-anchor-id="zotero">Zotero</h3>
+<p>Thanks to <a href="https://www.reddit.com/r/zotero/comments/15b5kay/tutorial_for_synology_nas_storage/">this post</a>, I figured out how to store all PDF files on the Synology, share using WebDAV, connect using <a href="https://tailscale.com/">Tailscale</a>, and access using <a href="https://www.zotero.org/">Zotero</a> on any device. This provides unlimited storage and sync for my personal library.</p>
+</section>
+<section id="time-machine" class="level3">
+<h3 class="anchored" data-anchor-id="time-machine">Time Machine</h3>
+<p>I set up a shared folder on the NAS for Time Machine backups, which run automatically when I’m on the network.</p>
+</section>
+<section id="photos" class="level3">
+<h3 class="anchored" data-anchor-id="photos">Photos</h3>
+<p>For Apple Photos, I unchecked “Copy items to the Photos library” in Preferences &gt; General to keep photos on the NAS.</p>
+</section>
+<section id="file-system" class="level3">
+<h3 class="anchored" data-anchor-id="file-system">File System</h3>
+<p>I’m using the <a href="https://johnnydecimal.com/">Johnny Decimal system</a> for file organization.</p>
+</section>
+</section>
+<section id="to-do" class="level2">
+<h2 class="anchored" data-anchor-id="to-do">To Do</h2>
+<p>Create additional shared folders to host backups for other devices and family members’ data.</p>
+</section>
+<section id="troubleshooting-notes" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-notes">Troubleshooting Notes</h2>
+<p>For slow SMB connections to NAS from Mac Finder:</p>
+<ul>
+<li>Navigate to DSM &gt; Control Panel &gt; File Services &gt; SMB Settings &gt; Advanced Settings</li>
+<li>Clear SMB Cache</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>servers</category>
+  <guid>https://jacobeliason.com/posts/2024-08-02-network-attached-storage/</guid>
+  <pubDate>Fri, 02 Aug 2024 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Documenting my home server setup</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2023-11-14-server-configuration/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>You may or may not want to set up your own server at home. I did, mostly for learning purposes and for data science projects.</p>
+<p>The following is a description of the process I followed for future reference. It’s fairly procedural as it’s only a lightly edited version of the iCloud note I kept along the way.</p>
+<p>To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seemed like a <a href="https://www.ebay.com/sch/i.html?_from=R40&amp;_nkw=HP+ProDesk+600+G5+Mini&amp;_sacat=0&amp;RAM%2520Size=16%2520GB&amp;Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&amp;_oaa=1&amp;LH_Sold=1&amp;LH_Complete=1&amp;rt=nc&amp;Hard%2520Drive%2520Capacity=512%2520GB&amp;_dcat=179">reasonable price</a> for a minimally capable machine that’s small and energy efficient. There are obviously many options; I was looking for something more powerful than a Raspberry Pi and less expensive than a workstation.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<!-- ## Peripherals -->
+<p>Besides the server itself, I needed the following peripherals to get started, all of which I had already.</p>
+<ul>
+<li>monitor for initial setup</li>
+<li>keyboard for initial setup</li>
+<li>Ethernet cable</li>
+<li>power cable</li>
+<li>flash drive for Ubuntu installer</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<p>The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This part isn’t meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (primarily via ChatGPT).</p>
+<section id="networking" class="level3">
+<h3 class="anchored" data-anchor-id="networking">Networking</h3>
+<ul>
+<li>DHCP (Dynamic Host Configuration Protocol): A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.</li>
+<li>IPv4 vs IPv6: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.</li>
+<li>Nameservers: These are the internet’s equivalent of a phone book, translating human-readable domain names to IP addresses.</li>
+<li>DNS (Domain Name System): This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.</li>
+<li>Subnet: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.</li>
+<li>Nameservers: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.</li>
+</ul>
+</section>
+<section id="software" class="level3">
+<h3 class="anchored" data-anchor-id="software">Software</h3>
+<ul>
+<li>BIOS (Basic Input/Output System): Firmware that initializes hardware during the boot process and provides runtime services for the operating system.</li>
+<li>NTP (Network Time Protocol): A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.</li>
+<li>LUKS (Linux Unified Key Setup): A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.</li>
+<li>LVM (Logical Volume Manager): A device mapper target that provides logical volume management for the Linux kernel.</li>
+</ul>
+<p><img src="https://jacobeliason.com/posts/2023-11-14-server-configuration/penguin.jpg" class="img-fluid"></p>
+</section>
+</section>
+<section id="process" class="level2">
+<h2 class="anchored" data-anchor-id="process">Process</h2>
+<p>As noted above, the following is mostly just my process notes.</p>
+<ul>
+<li>Power on HP ProDesk 600 G5 Mini</li>
+<li>Boot Windows and make note of Windows product key</li>
+<li>Using my MacBook and a flash drive, create a bootable Ubuntu 22.04.3 LTS installer:
+<ul>
+<li><code>diskutil list</code> to list disks</li>
+<li><code>diskutil unmountDisk /dev/disk[number corresponding to flash drive from output previous command]</code> i.e.&nbsp;<code>diskutil unmountDisk /dev/disk4</code> to unmount flash drive</li>
+<li><code>sudo dd if=/local/path/to/ubuntu-22.04.3-live-server-amd64.iso of=/dev/rdisk[number from above] bs=1m</code> to copy iso to flash drive (be very careful to use the right disk number! also note ‘r’ in <code>of</code> path)</li>
+</ul></li>
+<li>Update BIOS settings on ProDesk to allow booting from USB:
+<ul>
+<li><code>F10</code> (varies by machine) to enter BIOS settings</li>
+<li>Make sure USB Storage Boot is enabled and set to top of boot order</li>
+</ul></li>
+<li>Plug in flash drive to ProDesk and boot from USB:
+<ul>
+<li>Cycle power; if BIOS settings were reconfigured correctly, you should see a screen with options to try or install Ubuntu</li>
+</ul></li>
+<li>Follow prompts to install Ubuntu
+<ul>
+<li>Select “Try or Install Ubuntu Server”</li>
+<li>Configure network connections
+<ul>
+<li>Select interface</li>
+<li>IPv4: “Manual”</li>
+<li>Subnet: Given in router settings</li>
+<li>Address: Chosen based on router settings—find DHCP range and choose a number outside that range</li>
+<li>Gateway: Given in router settings (usually same as address but with 1 as last number)</li>
+<li>Name servers: Usually Google’s or Cloudflare’s, i.e.&nbsp;<code>1.1.1.1, 1.0.0.1</code></li>
+<li>Search domains: “home”</li>
+</ul></li>
+<li>Configure proxy:
+<ul>
+<li>I skipped this to start with</li>
+</ul></li>
+<li>Storage configuration:
+<ul>
+<li>Use entire disk</li>
+<li>LUKS encryption</li>
+<li>LVM</li>
+</ul></li>
+<li>Create user
+<ul>
+<li>Choose a username and password</li>
+</ul></li>
+<li>Install OpenSSH server</li>
+<li>Install updates</li>
+<li>Reboot</li>
+</ul></li>
+<li>Set up firewall
+<ul>
+<li><code>sudo ufw enable</code> to enable firewall</li>
+<li><code>sudo ufw default deny incoming</code> to block all incoming traffic</li>
+<li><code>sudo ufw default deny outgoing</code> to block all outgoing traffic</li>
+<li><code>sudo ufw allow ssh</code> to allow ssh</li>
+<li><code>sudo ufw allow [port number]</code> to allow ssh from a safer port than the default</li>
+<li><code>sudo ufw allow out 80</code> to allow outgoing HTTP requests</li>
+<li><code>sudo ufw allow out 443</code> to allow outgoing HTTPS requests</li>
+<li><code>sudo ufw allow out 53</code> to allow outgoing DNS requests</li>
+<li><code>sudo ufw allow from any to any port 123 proto udp</code> to allow NTP (for time synchronization)</li>
+<li><code>sudo ufw status verbose</code> to check status</li>
+</ul></li>
+<li>Configure ssh
+<ul>
+<li><code>sudo apt update</code> to update package lists</li>
+<li><code>sudo apt install openssh-server</code> to make sure ssh server is installed (should have been already from installer)</li>
+<li><code>sudo systemctl status ssh</code> to verify status</li>
+<li><code>sudo nano /etc/ssh/sshd_config</code> to edit config file; add:
+<ul>
+<li>Port [port number]</li>
+<li>PermitRootLogin no</li>
+<li>AllowUsers [username]</li>
+<li>PubkeyAuthentication yes</li>
+</ul></li>
+<li><code>sudo systemctl restart ssh</code> to apply changes</li>
+<li>On MacBook:
+<ul>
+<li><code>ssh-keygen -t rsa</code> to generate key pair
+<ul>
+<li>Choose default location</li>
+<li>Enter passphrase</li>
+</ul></li>
+<li><code>ssh-copy-id -i ~/.ssh/id_rsa.pub -p [port number] [username]@[ip address]</code> to copy public key to server</li>
+</ul></li>
+</ul></li>
+<li>Configure fail2ban
+<ul>
+<li><code>sudo apt install fail2ban</code></li>
+<li><code>sudo cp /etc/fail2ban/jail.{conf,local}</code></li>
+<li><code>sudo nano /etc/fail2ban/jail.local</code> to add desired settings to config file</li>
+<li><code>sudo systemctl start fail2ban</code></li>
+<li><code>sudo systemctl enable fail2ban</code></li>
+<li><code>sudo fail2ban-client status sshd</code></li>
+<li><code>sudo tail -f /var/log/fail2ban.log</code> to monitor logs</li>
+</ul></li>
+<li>SSH into live, configured server:
+<ul>
+<li><code>ssh -p [port number] [username]@[ip address]</code></li>
+<li>Look around to make sure everything looks good</li>
+</ul></li>
+<li>Set up server in long-term physical location
+<ul>
+<li>Unplug server from monitor and plug into router via Ethernet</li>
+<li>Power on</li>
+<li>Plug in keyboard</li>
+<li>Enter LUKS password with spare keyboard (blindly)</li>
+<li>Wait for a couple minutes</li>
+</ul></li>
+<li>SSH in from MacBook again</li>
+</ul>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<ul>
+<li>Install <a href="https://fig.io/user-manual/autocomplete/ssh">Fig</a>, a command-line tool with lots of useful features like autocomplete and aliases
+<ul>
+<li>on MacBook: <code>fig integrations install ss</code></li>
+<li>on server: <code>curl -fSsL https://repo.fig.io/scripts/install-headless.sh | bash</code></li>
+<li>on server: <code>exec bash --norc</code> to reset shell</li>
+</ul></li>
+<li>Set timezone and sync (note: after a surprisingly long time fiddling with this, I punted on syncing and settled on setting the timezone using my location string)</li>
+<li>Install <code>glances</code> for monitoring
+<ul>
+<li><code>sudo apt install glances</code></li>
+<li><code>glances</code></li>
+</ul></li>
+<li>Expand volume size
+<ul>
+<li><code>lvextend -L+156G /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+<li><code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out.</p>
+<!-- testing performance
+<!-- jacob@cheniston:~$ sysbench cpu --cpu-max-prime=200000 run --threads=6 -->
+<!-- jacob@cheniston:~$ sysbench memory --memory-total-size=32G run -->
+<!-- tailscale -->
+<!-- https://tailscale.com/kb/1077/secure-server-ubuntu-18-04 -->
+
+
+</section>
+
+ ]]></description>
+  <category>linux</category>
+  <category>servers</category>
+  <category>process write-up</category>
+  <guid>https://jacobeliason.com/posts/2023-11-14-server-configuration/</guid>
+  <pubDate>Tue, 14 Nov 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Privacy-friendly web analytics for Quarto</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>The following is mostly to pin this solution for my future self.</p>
+<p>I’ve set up Google Analytics on a personal site before but I’ve never bothered to do anything with the resultant data. I’m interested in knowing whether the site is receiving visitors but I’m also pretty sympathetic to high privacy standards. GoatCounter turned out to be a nice fit for this combination of preferences.</p>
+<p><img src="https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/goat.jpeg" class="img-fluid"></p>
+<p>I’ll let the <a href="https://www.goatcounter.com/">GoatCounter site</a> speak for itself if you haven’t heard of it, but the gist is that it’s a lightweight, privacy-respecting analytics service. It’s open source and free for small sites.</p>
+<p>And, it turns out, it’s also easy to configure with Quarto. After you create an account, you’re presented with a snippet of JavaScript to embed in your site:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource {javascript} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1">&lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
+<span id="cb1-2">async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
+<p>Quarto <a href="https://quarto.org/docs/reference/formats/html.html#includes">provides</a> the option to fairly easily embed custom JavasSript in each of the site’s HTML documents. To add tracking functionality to my site, I included the Javascript in my project’s <code>_quarto.yml</code> file as follows:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"># ...</span>
+<span id="cb2-2">format:</span>
+<span id="cb2-3">  html:</span>
+<span id="cb2-4">    theme: </span>
+<span id="cb2-5">    # ...</span>
+<span id="cb2-6">    css: styles.css</span>
+<span id="cb2-7">    include-in-header: </span>
+<span id="cb2-8">      - text: |</span>
+<span id="cb2-9">          &lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
+<span id="cb2-10">          async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
+<p>From there, all that was left was re-rendering the site with <code>quarto render</code>, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.</p>
+
+
+
+ ]]></description>
+  <category>quarto</category>
+  <category>meta</category>
+  <guid>https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/</guid>
+  <pubDate>Mon, 06 Nov 2023 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Writing an R wrapper for a prediction market’s API</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I recently wrote an R wrapper for an online prediction market’s API.</p>
+<section id="why" class="level4">
+<h4 class="anchored" data-anchor-id="why">Why?</h4>
+<ul>
+<li>After stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically</li>
+<li>It had been a while since I’d written code for an R package and I wanted to refresh my memory</li>
+</ul>
+</section>
+<section id="manifold-markets" class="level4">
+<h4 class="anchored" data-anchor-id="manifold-markets">Manifold Markets</h4>
+<p>The prediction market is called <a href="https://manifold.markets/home">Manifold Markets</a>. Manifold has been described as a “<a href="https://help.manifold.markets/#block-fe58c63c18e04014b7ae47c8b5de53de">play-money prediction market platform where you can bet on anything</a>,” an “<a href="https://ftxfuturefund.org/all-grants/?_organization_name=manifold-markets">experiment for enabling effective forecasters to direct altruistic donations</a>,” and “<a href="https://twitter.com/ESYudkowsky/status/1592040000652455938">like Wikipedia for things that nobody knows yet but will be observable later</a>.” It’s something like <a href="https://www.predictit.org">PredictIt</a> without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.</p>
+<p><img src="https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/uncut-gems.png" class="img-fluid"></p>
+</section>
+<section id="my-contribution" class="level4">
+<h4 class="anchored" data-anchor-id="my-contribution">My contribution</h4>
+<p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. Building the wrapper involved mapping the API’s HTTP-based interface into R functions. It required careful parsing of the API’s responses and ensuring that each function performed its corresponding API request effectively. This involved considerable error checking and handling to ensure robustness. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
+<p>For example, we can retrieve user information by their unique username (in this case, the official account <code>@ManifoldMarkets</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># devtools::install_github("jcblsn/manifoldr")</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3">manifoldr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">manifold_api</span>(</span>
+<span id="cb1-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">endpoint =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/v0/user/ManifoldMarkets"</span>, </span>
+<span id="cb1-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">request_type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GET"</span></span>
+<span id="cb1-6">)</span></code></pre></div>
+</div>
+<p>A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as <code>clean_manifold_content()</code>, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using <code>manifoldr::get_manifold_api_key()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">manifoldr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_market</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">market_id_or_slug =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"will-the-los-angeles-lakers-make-th-8cbc520d8ca6"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb2-2">  manifoldr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
+</div>
+<p>The package includes implementations of standard unit testing and code coverage tools using <a href="https://covr.r-lib.org"><code>covr</code></a>, <a href="https://testthat.r-lib.org"><code>testthat</code></a>, and <a href="https://github.com/r-lib/actions">Github Actions</a>.</p>
+</section>
+<section id="illustration" class="level4">
+<h4 class="anchored" data-anchor-id="illustration">Illustration</h4>
+<p>To demonstrate the package tools, I made a new account on the platform called “Manifold NBA” and programmatically set up prediction markets for all 30 American professional basketball teams’ playoff odds. Feel free to check those out <a href="https://manifold.markets/NBA?tab=markets">here</a>.</p>
+<p><img src="https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/manifold-nba.png" class="img-fluid"></p>
+</section>
+<section id="feedback" class="level4">
+<h4 class="anchored" data-anchor-id="feedback">Feedback</h4>
+<p>The API is still in alpha, so I haven’t built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an <a href="https://github.com/jcblsn/manifoldr/issues">issue inside the package repository</a>.</p>
+</section>
+<section id="resources" class="level4">
+<h4 class="anchored" data-anchor-id="resources">Resources</h4>
+<p>Finally, I’ve made a short list of resources that were helpful to me while I worked on this.</p>
+<ul>
+<li>A <a href="https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html">vignette</a> on “Best practices for API packages” found in the <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> package documentation</li>
+<li>Hadley Wickham and Jenny Bryan’s comprehensive “<a href="https://r-pkgs.org">R Packages</a>”</li>
+<li>Another <a href="https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management">vignette</a> from <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> on secret management, which was necessary in order to implement unit testing for endpoints that require authentication</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>r</category>
+  <category>r packages</category>
+  <category>forecasting</category>
+  <guid>https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/</guid>
+  <pubDate>Sun, 27 Nov 2022 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Deploying a Twitter bot from RStudio</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2021-11-11-setting-up-a-twitter-bot/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="what" class="level2">
+<h2 class="anchored" data-anchor-id="what">What</h2>
+<ul>
+<li>Last month, I made a <a href="https://twitter.com/texturesofut">Twitter bot</a> using RStudio. Every few hours, the bot posts a satellite image and a Wikipedia reference for a given pair of coordinates from my home state of Utah. The bot is inspired by <a href="https://twitter.com/mattdray">@mattdray</a>’s <a href="https://twitter.com/londonmapbot">@londonmapbot</a>.</li>
+</ul>
+</section>
+<section id="how" class="level2">
+<h2 class="anchored" data-anchor-id="how">How</h2>
+<ul>
+<li>I started by forking Matt’s <a href="https://github.com/matt-dray/londonmapbot">repository</a> and following his instructions <a href="https://www.rostrum.blog/2020/09/21/londonmapbot/">here</a>.</li>
+<li>I made the following changes to his workflow:
+<ul>
+<li>Instead of sampling from the greater London area, I sample from a rectangle that contains Utah state boundaries.</li>
+<li>I found a <a href="https://en.wikipedia.org/wiki/Shapefile"><code>.shp</code> file</a> from <a href="https://gis.utah.gov/data/boundaries/citycountystate/">gis.utah.gov</a> and use that file and the <a href="https://r-spatial.github.io/sf/"><code>sf</code></a> package to test if the coordinate pair is inside or outside state boundaries. If necessary, I draw new pairs until I find one within state boundaries.</li>
+<li>I request larger (1280x1280) images from Mapbox.</li>
+<li>Wikipedia has a <a href="https://en.wikipedia.org/wiki/Special:Nearby">feature</a> that shows all pages within 10 km of a given point (such as your current location). <a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Geographical_coordinates#Usage_guidelines">Apparently</a>, Wikipedia pages for any “location, structure, or geographic feature that is more or less fixed in one place” have latitude and longitude coordinates encoded. Who knew? It’s possible, then, to paste any coordinate pair into a URL and see what’s nearby. I do that, and add <a href="https://github.com/ropensci/RSelenium"><code>RSelenium</code></a> functions to my script to return the text from the first hit on the resultant page. This text is appended to the body of the tweet as a “Nearby point of interest.”</li>
+<li>I add a hashtag to the body of the tweet to make the account a little more discoverable. The hashtag is randomly selected from a list of a dozen or so that I thought were relevant to the account’s content.</li>
+<li>I use <a href="https://twitter.com/hadleywickham">@hadleywickham</a>’s <a href="https://github.com/hadley/emo"><code>emo</code></a> package to add emoji to brighten up the final result.</li>
+</ul></li>
+</ul>
+<p>&nbsp;&nbsp;</p>
+<p><img src="https://jacobeliason.com/posts/2021-11-11-setting-up-a-twitter-bot/satellite-sample.jpeg" class="img-fluid"></p>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why</h2>
+<ul>
+<li>I wanted to learn more about Github Actions. It’s a surprisingly powerful feature; I definitely will be experimenting more.</li>
+<li>I’ve been feeling like I should focus on live projects. I’ve done a fair number of personal projects in the last year, but nearly all of them are static and live on my hard drive. This felt like an easy way to get something more dynamic off the ground.</li>
+<li>I’m still interested in expanding the project by adding an image classification component. When I first started, I was struck by how many of the satellite images showed completely empty space, and I thought it would be interesting to quantify just how many of them are (say, “contain buildings/roads/farms” vs “don’t contain”). I ran out of time and energy for now for this portion, but this kind of satellite data still feels like a good canvas for demonstrating that kind of model. I might come back to it around the holidays when I have a little more time.</li>
+<li>I think Twitter is fun.</li>
+</ul>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ul>
+<li>My repository’s action has started to fail intermittently—looking through the run history, it probably only succeeded a third of the time this week. Why? It looks like an issue with the webscraping component (I’m seeing a lot of “HTTP Error 303”), but I can’t figure out why this would happen at some times and not others.</li>
+</ul>
+</section>
+<section id="some-of-my-favorite-recent-textures" class="level2">
+<h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
+<p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
+<p></p><div id="tweet-16067"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-16067").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-16064"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-16064").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-14589"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-14589").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-51529"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-51529").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-87602"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-87602").innerHTML = tweet["html"];</script><p></p>
+
+
+</section>
+
+ ]]></description>
+  <category>r</category>
+  <category>twitter</category>
+  <category>github actions</category>
+  <guid>https://jacobeliason.com/posts/2021-11-11-setting-up-a-twitter-bot/</guid>
+  <pubDate>Thu, 11 Nov 2021 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Re-weighting to estimate population characteristics within a subset of a survey sample</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2021-06-25-how-many-young-mormons-are-queer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<ul>
+<li>On Monday, <a href="https://twitter.com/janariess">Jana Riess</a> (who I’ve admired for some time since reading her fascinating <a href="https://www.amazon.com/Next-Mormons-Millennials-Changing-Church/dp/0190885203">book</a>) published a <a href="https://religionnews.com/2021/06/21/rising-number-of-adult-mormons-in-the-us-are-gay-lesbian-or-bisexual/">surprising finding</a> in Religious News Service showing that 18% of Gen Z Mormons are lesbian, gay, or bisexual.</li>
+<li>Jana’s findings were picked up by several local and national news sources, including the <a href="https://www.sltrib.com/religion/2021/06/21/jana-riess-there-are-more/">Salt Lake Tribune</a> and the <a href="https://www.washingtonpost.com/religion/1-in-5-young-adult-mormons-in-the-us-are-gay-lesbian-or-bisexual/2021/06/22/607d764e-d388-11eb-b39f-05a2d776b1f4_story.html">Washington Post</a>. They also generated <a href="https://twitter.com/BenjaminEPark/status/1407055962402439168?s=20">some</a> <a href="https://twitter.com/patrickqmason/status/1407046811727040512?s=20">lively</a> <a href="https://twitter.com/religiongal/status/1407070094488850438?s=20">discussion</a> on social media.</li>
+<li>Today, she posted an update explaining how the true number was probably lower than 18% due to a misunderstanding regarding the Nationscape project’s weighting scheme.</li>
+<li>After exploring the <a href="https://www.voterstudygroup.org/publication/nationscape-data-set">Nationscape dataset</a>, I believe we can produce a better estimate for that true number by applying a new weighting scheme to just the Mormon respondents in the Nationscape study.</li>
+</ul>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<p>According to the Nationscape Representativeness Assessment (included with data download), survey responses are weighted to be representative of the US population. The assessment demonstrates through various comparisons to external sources that “the methodology employed in Nationscape generates estimates of <em>general population characteristics</em> [emphasis added] that are…closely aligned with government survey benchmarks.”</p>
+<p>As Jana explains in the update to her original post, the problem is that while the weighted responses from the Nationscape dataset as a whole do a reasonably good job at describing the “general population,” there’s no reason to expect that a subset of the data will do the same for a corresponding smaller population.</p>
+<p>In this case, the subset of the data is the 3,881 respondents (about 1% of the total) who selected “Mormon” in response to the question, “What is your present religion, if any?” Based on these respondents, we’d like to make inferences about the population of all adults in the United States who describe themselves as Mormon. However, these 3,881 individuals are different from that population of interest in some important ways. How do we know that? We don’t know precisely, since the Mormon church doesn’t publish exact figures for its membership, but there exist some resources that can help paint an approximate picture. Pew Research, in particular, has produced a number of resources for Mormon population demographics that seem to me a reasonable baseline for comparison (as I’ll mention later, this is among the decisions I’d be happy to replace with something better-informed.)</p>
+<p>To give a couple of examples: Pew’s Religious Landscape Study <a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#party-affiliation">estimated</a> that in 2014, 70% of US Mormons identified as Republican or leaned Republican. In the Nationscape dataset, only 60% of Mormons identified as Republican or leaned Republican. In 2009, Pew <a href="https://assets.pewresearch.org/wp-content/uploads/sites/11/2012/07/Mormons2revised.gif">estimated</a> using Census-defined regions that 76% of US Mormons lived in the West—however, in fact only 64% of Nationscape Mormons were from the West.</p>
+<p>The problem is if Republican Mormons or Mormons from the West are likely to answer the question of interest differently than other Mormons. If we don’t do anything about that, we’re not going to get a very good estimate of the true population figure.</p>
+</section>
+<section id="proposed-solution" class="level2">
+<h2 class="anchored" data-anchor-id="proposed-solution">Proposed solution</h2>
+<p>The good news is this: the Nationscape sample (like nearly every nationwide survey project) is different from its target population too, and their solution to that problem is pretty accessible. From the Representativeness Assessment:</p>
+<blockquote class="blockquote">
+<p>The survey data are…weighted to be representative of the American population. Our weights are generated using a simple raking technique, as there is little benefit to more complicated approaches (Mercer et al.&nbsp;2018). One set of weights is generated for each week’s survey. The targets to which Nationscape is weighted are derived from the adult population of the 2017 American Community Survey of the U.S. Census Bureau. The one exception is the 2016 vote, which is derived from the official election results released by the Federal Election Commission.</p>
+</blockquote>
+<p>On reading that, I wondered if there was any reason a new weighting scheme couldn’t be devised for application to the Mormon subset alone. All we’d need are new targets that describe characteristics of, instead of the adult population of the US, the adult population of Mormons in the US.</p>
+<p>I picked some variables that seemed relevant and had reasonable population estimates readily available.</p>
+<ul>
+<li>Census region (<a href="https://assets.pewresearch.org/wp-content/uploads/sites/11/2012/07/Mormons2revised.gif">Pew, 2009</a>)</li>
+<li>Age (<a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#age-distribution">Pew RLS, 2014</a>)</li>
+<li>Gender (<a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#gender-composition">Pew RLS, 2014</a>)</li>
+<li>Race (<a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#racial-and-ethnic-composition">Pew RLS, 2014</a>)</li>
+<li>Education (<a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#educational-distribution">Pew RLS, 2014</a>)</li>
+<li>Party ID (<a href="https://www.pewforum.org/religious-landscape-study/religious-tradition/mormon/#party-affiliation">Pew RLS, 2014</a>)</li>
+</ul>
+<p>If anybody reading this has thoughts about what variables or sources might be better than those shown here, please drop a comment below. All of these—<code>Region</code> in particular—are somewhat dated and I’m actually quite sure better sources exist. I tried to limit myself with how long I spent on this post because I wanted to get feedback before too much time passes.</p>
+<p>Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 20%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Variable</th>
+<th style="text-align: center;">Level</th>
+<th style="text-align: center;">Unweighted estimate</th>
+<th style="text-align: center;">Population target</th>
+<th style="text-align: center;">With original weights</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">18-29</td>
+<td style="text-align: center;">26%</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">26%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">30-49</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">37%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">50-64</td>
+<td style="text-align: center;">21%</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">22%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">65+</td>
+<td style="text-align: center;">12%</td>
+<td style="text-align: center;">16%</td>
+<td style="text-align: center;">16%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">Northeast</td>
+<td style="text-align: center;">6%</td>
+<td style="text-align: center;">4%</td>
+<td style="text-align: center;">5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">Midwest</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">7%</td>
+<td style="text-align: center;">9%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">South</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">12%</td>
+<td style="text-align: center;">21%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">West</td>
+<td style="text-align: center;">64%</td>
+<td style="text-align: center;">76%</td>
+<td style="text-align: center;">65%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">High school or less</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">27%</td>
+<td style="text-align: center;">34%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">Some college</td>
+<td style="text-align: center;">42%</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">41%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">College grad</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">23%</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">Post grad</td>
+<td style="text-align: center;">14%</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Gender</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">51%</td>
+<td style="text-align: center;">56%</td>
+<td style="text-align: center;">52%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Gender</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">49%</td>
+<td style="text-align: center;">44%</td>
+<td style="text-align: center;">48%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Democrat</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">19%</td>
+<td style="text-align: center;">30%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Republican</td>
+<td style="text-align: center;">60%</td>
+<td style="text-align: center;">70%</td>
+<td style="text-align: center;">59%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Independent</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">11%</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Race</td>
+<td style="text-align: center;">White</td>
+<td style="text-align: center;">82%</td>
+<td style="text-align: center;">85%</td>
+<td style="text-align: center;">79%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Race</td>
+<td style="text-align: center;">Non-white</td>
+<td style="text-align: center;">18%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">21%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Some of the differences between the unweighted estimates and the population targets are within the margin of error or simply unimportant to the question at hand. However, if nothing else there’s clear evidence that applying the original Nationscape weights provides no systematic improvement to the unweighted estimates in terms of what we understand “Mormons in the United States” to really look like. Both the unweighted estimates and the estimates produced using the original Nationscape weights will almost certainly generate estimates for Mormonism that are, for example, too Southern, too Democrat, and too male.</p>
+<p>We can produce much more accurate estimates by using new weights for the Mormon respondents that are based on these population targets. Using a “simple raking technique” (in my case, using the <code>survey</code> package in R), I <a href="https://github.com/jcblsn/jacobeliason-dot-com/blob/main/content/post/2021-06-25-how-many-young-mormons-are-queer/produce-mormon-weights-for-nationscape.R">bring</a> the sample characteristics of the Mormon survey respondents more or less into alignment with what we understand the population characteristics of Mormons to really be. Here’s what the new weighted estimates and the population targets look like side by side.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 26%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Variable</th>
+<th style="text-align: center;">Level</th>
+<th style="text-align: center;">With new weights</th>
+<th style="text-align: center;">Population target</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">18-29</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">22%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">30-49</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">40%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">50-64</td>
+<td style="text-align: center;">22%</td>
+<td style="text-align: center;">22%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Age</td>
+<td style="text-align: center;">65+</td>
+<td style="text-align: center;">16%</td>
+<td style="text-align: center;">16%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">Northeast</td>
+<td style="text-align: center;">4%</td>
+<td style="text-align: center;">4%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">Midwest</td>
+<td style="text-align: center;">7%</td>
+<td style="text-align: center;">7%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">South</td>
+<td style="text-align: center;">12%</td>
+<td style="text-align: center;">12%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Region</td>
+<td style="text-align: center;">West</td>
+<td style="text-align: center;">77%</td>
+<td style="text-align: center;">76%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">High school or less</td>
+<td style="text-align: center;">27%</td>
+<td style="text-align: center;">27%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">Some college</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">40%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">College grad</td>
+<td style="text-align: center;">23%</td>
+<td style="text-align: center;">23%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Education</td>
+<td style="text-align: center;">Post grad</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Gender</td>
+<td style="text-align: center;">Female</td>
+<td style="text-align: center;">56%</td>
+<td style="text-align: center;">56%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Gender</td>
+<td style="text-align: center;">Male</td>
+<td style="text-align: center;">44%</td>
+<td style="text-align: center;">44%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Democrat</td>
+<td style="text-align: center;">19%</td>
+<td style="text-align: center;">19%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Republican</td>
+<td style="text-align: center;">70%</td>
+<td style="text-align: center;">70%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Party</td>
+<td style="text-align: center;">Independent</td>
+<td style="text-align: center;">11%</td>
+<td style="text-align: center;">11%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Race</td>
+<td style="text-align: center;">White</td>
+<td style="text-align: center;">85%</td>
+<td style="text-align: center;">85%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Race</td>
+<td style="text-align: center;">Non-white</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">15%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>These obviously are a much closer match. Going one step further, I highlight the “performance” of these different schemes by taking the difference between each set of estimates and the population targets. Using those differences, I compute the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">root-mean-square error</a> for each scheme overall (where a higher number is more error and “worse”).<sup>1</sup></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">New weights</td>
+<td style="text-align: left;">0.0020</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nationscape weights</td>
+<td style="text-align: left;">0.0600</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unweighted</td>
+<td style="text-align: left;">0.0541</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Interestingly, the Nationscape weights actually make Mormon estimates <em>less</em> like the Mormon population targets than using no weights at all would.</p>
+</section>
+<section id="new-results" class="level2">
+<h2 class="anchored" data-anchor-id="new-results">New results</h2>
+<p>That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for “Do you identify as [straight/gay/lesbian/bisexual/other]” by generation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Generation</th>
+<th style="text-align: left;">Straight</th>
+<th style="text-align: left;">LGB</th>
+<th style="text-align: left;">Other</th>
+<th style="text-align: left;">Prefer not to say</th>
+<th style="text-align: left;">Refused</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Boomer+Silent</td>
+<td style="text-align: left;">95%</td>
+<td style="text-align: left;">2%</td>
+<td style="text-align: left;">0%</td>
+<td style="text-align: left;">2%</td>
+<td style="text-align: left;">0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gen X</td>
+<td style="text-align: left;">93%</td>
+<td style="text-align: left;">5%</td>
+<td style="text-align: left;">1%</td>
+<td style="text-align: left;">1%</td>
+<td style="text-align: left;">0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Millennial</td>
+<td style="text-align: left;">86%</td>
+<td style="text-align: left;">11%</td>
+<td style="text-align: left;">1%</td>
+<td style="text-align: left;">2%</td>
+<td style="text-align: left;">0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gen Z</td>
+<td style="text-align: left;">82%</td>
+<td style="text-align: left;">14%</td>
+<td style="text-align: left;">1%</td>
+<td style="text-align: left;">2%</td>
+<td style="text-align: left;">0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Furthermore, I produce confidence intervals, incorporating the adjustment recommended in the Nationscape User Guide:</p>
+<blockquote class="blockquote">
+<p>Researchers should take care in calculating margins of error or standard errors due to the non-random nature of the sample. Standard calculations based on random sampling will underestimate the true magnitude of random error in our sample . As a starting place, we recommend the adjustment proposed by Rivers and Bailey (2009).</p>
+</blockquote>
+<p><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.212.2388&amp;rep=rep1&amp;type=pdf">Rivers and Bailey</a> give the following to estimate variance:</p>
+<p><img src="https://latex.codecogs.com/png.latex?V(%5Chat%7B%5Ctheta%7D)%20=%20(1%20+%20%7Bs%5E2%7D_%7Bw%7D)%5Chat%7B%5Ctheta%7D(1-%5Chat%7B%5Ctheta%7D)"> where <img src="https://latex.codecogs.com/png.latex?s_w"> is the standard deviation of the weights</p>
+<p>My interpretation of Rivers and Bailey follows code like this. I include it here because I’d love to hear feedback if this is a misunderstanding of that recommendation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">sd_w_mormon <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(responses_mormon<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>weight_mormon)</span>
+<span id="cb1-2">vif_mormon <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>sd_w_mormon<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb1-3">lower_95 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> est <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.975</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(vif_mormon<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(est<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>est))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>wt_n))</span>
+<span id="cb1-4">upper_95 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> est <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.975</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(vif_mormon<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(est<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>est))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>wt_n))</span></code></pre></div>
+</div>
+<p>Using these confidence intervals (and corresponding calculations for the general population), I show the following final result:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jacobeliason.com/posts/2021-06-25-how-many-young-mormons-are-queer/2021-06-26-freq_mormons_vs_usgenpop.png" class="img-fluid figure-img"></p>
+<figcaption>image</figcaption>
+</figure>
+</div>
+<p>The new estimate for LGB-identifying US Gen Z Mormons is 14% (95% CI 10.4%, 18.2%).</p>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>This estimate is 4 percentage points lower than the original estimate of 18%. The “LGB+Other” estimate is 15%, which is 7 percentage percentage points lower than the original estimate of 22%. This seems to be somewhat less of a difference than asserted in Jana’s update to her original post, where she predicted that the true value is “around 7 to 9 percentage points lower [than was found using the default Nationscape weights].” I’d be interested to know what methods informed her updated prediction. I know I’m not necessarily aware of what external considerations may be necessary for this analysis beyond what’s specified in the documentation for this dataset.</p>
+<p>However, my estimate sounds like it’s at least in the ballpark—and in any case, we’re talking about pretty large standard errors here. I’m also again very open to lots of potential improvements to this analysis, particularly in regards to the selection of population targets. If I had more time, I’d especially get further input in the decisions about Party ID<sup>2</sup>, for which rates have famously <a href="https://www.pewresearch.org/politics/2018/03/20/1-trends-in-party-affiliation-among-demographic-groups/">changed</a> in interesting ways in the past decade and during the era of Donald Trump among American Mormons in particular. I’m further interested in better describing what kinds of bias remain after implementing this kind of weighting process. Even with the recommended addition of the variance inflation factor (and with intervals as large as they are), I can’t help but feel that I’m still underestimating the standard errors, that there’s more variability than these standard calculations capture. That, however, is also more broadly true to some extent across the survey research industry.<sup>3</sup></p>
+<p>One thing that gives me some confidence, though, is a certain piece of <a href="https://www.sciencedirect.com/science/article/pii/S0191886920306668?casa_token=ysJzeLYp4n0AAAAA:yqGFR8Et0qXAOHODxu06cJj-9Tc0Tk-7_EU7tQ8q-eQ6pmJtMO6xcKHTo8oxh2ajm9OmzfsI9Ms">research</a> that seems to corroborate this new, lower estimate. In 2018, researchers sent a survey to all 30,840 undergraduates at Brigham Young University to learn about “religiosity, mental health outcomes, and sexual minority identity” among the (99% Mormon) student body. The survey was university-approved and resulted in an incredible 24% response rate. The researchers estimated that the proportion of undergraduates who identified as something other than “exclusively heterosexual” at 13.1%.</p>
+<p>Because I’m trying to wrap this up, I’m not going to get into whether that paper necessarily represents an accurate estimate of queer BYU students.<sup>4</sup> It does, however, appear to show prevalence in the neighborhood of what the new weights for Nationscape find, and that feels encouraging.</p>
+<p>In conclusion, I’d describe this estimate as flawed but improved. I think it better accounts for some variability due to non-response, but probably still fails to account for variability in other ways! My code for the new weighting scheme can be found along with the code for this post on <a href="https://github.com/jcblsn/jacobeliason-dot-com/tree/main/content/post/2021-06-25-how-many-young-mormons-are-queer">my Github</a>. If anyone has any feedback or ideas for improvement about anything I’ve done here, I’d love if you’d leave a comment or contact me directly at <code>jacobeliason at gmail dot com</code>.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I’ve used RMSE for validating predictions before but I have no idea if this is a thing w.r.t. weighting schemes. Feel free to chime in. The point here was just to somehow describe the differences between those three methods in a single metric.↩︎</p></li>
+<li id="fn2"><p>For Party ID, this is true both for the specific population target I selected and for how I calculated Party ID using Nationscape variables.↩︎</p></li>
+<li id="fn3"><p>One other potentially important caveat is that this Nationscape sample may overestimate the prevalence of different sexual identities across the board. One data point for that hypothesis is that Nationscape LGB estimates by generation were uniformly about 2 percentage points higher than what Gallup found for each generation in response to the same question <a href="https://news.gallup.com/poll/329708/lgbt-identification-rises-latest-estimate.aspx">earlier this year</a>.↩︎</p></li>
+<li id="fn4"><p>There certainly are issues with representativeness there, though—68% of respondents, for example, were female (likely inflating the estimate for queer students, since it appears <a href="https://en.wikipedia.org/wiki/Bisexuality#Demographics_and_prevalence">more</a> women are bisexual than men).↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>surveys</category>
+  <category>demography</category>
+  <guid>https://jacobeliason.com/posts/2021-06-25-how-many-young-mormons-are-queer/</guid>
+  <pubDate>Fri, 25 Jun 2021 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Preparing data from Strava for analysis</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2021-04-30-processing-data-from-strava/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>When I run, I use <a href="https://www.strava.com/">Strava</a> to log my activity. In honor of recently running my one-thousandth mile on Strava, I thought I’d do a write up for the steps I use to process my user data in R. The data Strava makes available is granular and can be used for all kinds of fun things after the steps detailed here.</p>
+<!-- ![](2021-04-30-processing-strava-data-nyc.png) -->
+<p><img src="https://jacobeliason.com/posts/2021-04-30-processing-data-from-strava/000109170030.jpeg" class="img-fluid"></p>
+<section id="s1" class="level2">
+<h2 class="anchored" data-anchor-id="s1">1. Export your data</h2>
+<p>Per the <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">instructions</a> on their website, you can export your Strava activity data by navigating to your profile in a web browser and following <em>Settings</em> &gt; <em>My Account</em> &gt; <em>Download or Delete your Account - Get Started</em> &gt; <em>Request Your Archive</em>. From that point, it takes me about 10 minutes to see a download link in my inbox.</p>
+<p>The download apparently includes a lot of different kinds of data but the most salient (for my account, anyway) are contained in <code>activities.csv</code> and the <code>activities/</code> directory. The former contains summary information for each of my Strava activities and the latter contains individual files, each of which have second-to-second position data for an individual run, hike, or bike ride. The activity files appear to be some kind of custom or proprietary exercise file type–the two extensions I notice are <code>.gpx</code> and <code>.fit.gz</code>. At first glance, I don’t recognize either.</p>
+<p>Fortunately, as usual I find that someone else has already done the heavy lifting for the most important part of this process. The Github packages <a href="https://github.com/grimbough/FITfileR"><code>FITfileR</code></a> and <a href="https://github.com/trackerproject/trackeR"><code>trackeR</code></a> can be used to convert these file types into something more legible. Special thanks to <a href="https://github.com/grimbough">Mike Smith</a> for his excellent work on the former.</p>
+</section>
+<section id="s2" class="level2">
+<h2 class="anchored" data-anchor-id="s2">2. Unpacking <code>.gpx</code> and <code>.fit.gz</code> files</h2>
+<p>I start by installing the Github packages and loading those along with the <code>tidyverse</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># devtools::install_github("grimbough/FITfileR")</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># devtools::install_github("trackerproject/trackeR")</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(FITfileR)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(trackeR)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<p>A few more lines help with setup and prepare for reading the activity files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">PATH <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_remove</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">getwd</span>(),<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"</span>),<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/personal-projects/strava"</span>)</span>
+<span id="cb2-2">export_date <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2021-04-29"</span></span>
+<span id="cb2-3">PATH_ACTIVITIES <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_c</span>(PATH, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/DATA/"</span>,export_date,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/activities/"</span>)</span>
+<span id="cb2-4">activity_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.files</span>(PATH_ACTIVITIES)</span>
+<span id="cb2-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(activity_names, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># check to make sure I got the correct file path</span></span></code></pre></div>
+</div>
+<p>As I look at the file names, the first thing that becomes apparent is that I have some extra work to do as a result of my alternately using my phone and a Garmin watch to record activities. Those two devices produce the two different file extensions I observe and require different steps for unpacking.</p>
+<section id="s2-read-fit" class="level3">
+<h3 class="anchored" data-anchor-id="s2-read-fit">Uncompressing and reading files from my fitness watch (<code>.fit.gz</code>)</h3>
+<p>The <code>.fit.gz</code> files are <a href="https://en.wikipedia.org/wiki/Gzip">compressed</a> and need to be uncompressed to <code>.fit</code> before I can use the <code>FITfileR</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">compressed_record_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fit.gz"</span>]</span>
+<span id="cb3-2"></span>
+<span id="cb3-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(compressed_record_names)){</span>
+<span id="cb3-4">  R.utils<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gunzip</span>(</span>
+<span id="cb3-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_c</span>(PATH_ACTIVITIES, compressed_record_names[i]),</span>
+<span id="cb3-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">remove =</span> F</span>
+<span id="cb3-7">  )</span>
+<span id="cb3-8">}</span></code></pre></div>
+</div>
+<p>Having unzipped the files, I again collect names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">activity_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.files</span>(PATH_ACTIVITIES)</span>
+<span id="cb4-2">uncompressed_fit_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fit"</span>] <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># want exact match to .fit only, no .fit.gz</span></span></code></pre></div>
+</div>
+<p>Now, using <code>FITfileR::records()</code>, I transform the files into tidy, rectangular datasets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">list.fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb5-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(uncompressed_fit_names)) {</span>
+<span id="cb5-3">  record <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> FITfileR<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readFitFile</span>(</span>
+<span id="cb5-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_c</span>(PATH_ACTIVITIES, uncompressed_record_names[i])</span>
+<span id="cb5-5">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> FITfileR<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">records</span>()</span>
+<span id="cb5-6">  </span>
+<span id="cb5-7">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(record) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) {</span>
+<span id="cb5-8">    record <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> record <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">activity_id =</span> i, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">filename =</span> uncompressed_fit_names[i])</span>
+<span id="cb5-9">  }</span>
+<span id="cb5-10">  </span>
+<span id="cb5-11">  list.fit[[i]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> record</span>
+<span id="cb5-12">}</span>
+<span id="cb5-13">fit_records <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> list.fit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div>
+</div>
+</section>
+<section id="s2-read-gpx" class="level3">
+<h3 class="anchored" data-anchor-id="s2-read-gpx">Reading files recorded from my iPhone (<code>.gpx</code>)</h3>
+<p>I turn my attention back to the <code>.gpx</code> files. Fortunately, these files don’t require much beyond a simple pass from the <code>trackeR</code> function. I do some additional housekeeping along the way, but this part is pretty straightforward.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">gpx_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gpx"</span>]</span>
+<span id="cb6-2"></span>
+<span id="cb6-3">list.gpx <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb6-4"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(gpx_names)) {</span>
+<span id="cb6-5">  record <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> trackeR<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readGPX</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_c</span>(PATH_ACTIVITIES, gpx_names[i])) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as_tibble</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-7">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rename</span>(</span>
+<span id="cb6-8">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">timestamp =</span> time, </span>
+<span id="cb6-9">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position_lat =</span> latitude, </span>
+<span id="cb6-10">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">position_long =</span> longitude, </span>
+<span id="cb6-11">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cadence =</span> cadence_running</span>
+<span id="cb6-12">    )</span>
+<span id="cb6-13">  list.gpx[[i]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> record</span>
+<span id="cb6-14">}</span></code></pre></div>
+</div>
+</section>
+<section id="s2-combine" class="level3">
+<h3 class="anchored" data-anchor-id="s2-combine">Combine both record types</h3>
+<p>I add my two datasets together and with that, I’m ready to Learn Things.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">records <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(</span>
+<span id="cb7-2">  fit_records,</span>
+<span id="cb7-3">  list.gpx <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>()</span>
+<span id="cb7-4">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(timestamp)</span>
+<span id="cb7-5"></span>
+<span id="cb7-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># colnames(records)</span></span>
+<span id="cb7-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># nrow(records)</span></span></code></pre></div>
+</div>
+</section>
+<section id="s2-summary" class="level3">
+<h3 class="anchored" data-anchor-id="s2-summary">Straightening out the summary information in <code>activities.csv</code></h3>
+<p>One last thing I’ll do before I finish up is make some tweaks to the <code>activities.csv</code> file I got in my original download. I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> </span>
+<span id="cb8-2">  activities <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb8-3">  janitor<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">clean_names</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># helper function for column names</span></span>
+<span id="cb8-4">  janitor<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">remove_empty</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># drop empty rows</span></span>
+<span id="cb8-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(filename, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">everything</span>()) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># reorder columns</span></span>
+<span id="cb8-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(filename)) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># drop rows with empty file names</span></span></code></pre></div>
+</div>
+<p>I also make a variety of mostly trivial changes for my own convenience and then I’m good to go!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">KM_TO_MI <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.621371</span></span>
+<span id="cb9-2">M_TO_FT <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.28084</span></span>
+<span id="cb9-3"></span>
+<span id="cb9-4">record_key <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> record_key_raw <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb9-5">  </span>
+<span id="cb9-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># change units for elevation variables</span></span>
+<span id="cb9-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vars</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"elevation"</span>)), <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(x){x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> x<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>M_TO_FT}) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb9-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(</span>
+<span id="cb9-9">    </span>
+<span id="cb9-10">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># units #</span></span>
+<span id="cb9-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">distance =</span> distance<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>KM_TO_MI,</span>
+<span id="cb9-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">duration =</span> elapsed_time<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>,</span>
+<span id="cb9-13">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">duration_moving =</span> moving_time<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>,</span>
+<span id="cb9-14">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pace =</span> (duration<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>distance) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb9-15">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pace_moving =</span> (duration_moving<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>distance) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb9-16">    </span>
+<span id="cb9-17">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ids #</span></span>
+<span id="cb9-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">filename =</span> filename <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_remove</span>(., <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"activities/"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_replace</span>(., <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fit.gz"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fit"</span>),</span>
+<span id="cb9-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">activity_id =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(activity_id),</span>
+<span id="cb9-20">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tolower</span>(activity_type),</span>
+<span id="cb9-21">    </span>
+<span id="cb9-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># incorrectly coded activities #</span></span>
+<span id="cb9-23">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(filename <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1812636545.gpx"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hike"</span>, activity_type), </span>
+<span id="cb9-24">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(filename <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3324264305.fit"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"walk"</span>, activity_type), </span>
+<span id="cb9-25">    </span>
+<span id="cb9-26">    </span>
+<span id="cb9-27">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># dates #</span></span>
+<span id="cb9-28">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rdatetime_utc =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as_datetime</span>(activity_date, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">format =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%b %d, %Y, %I:%M:%S %p"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">tz =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"UTC"</span>),</span>
+<span id="cb9-29">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rdatetime_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as_datetime</span>(rdatetime_utc, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">tz =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"America/New_York"</span>),</span>
+<span id="cb9-30">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rdate_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as_date</span>(rdatetime_et), </span>
+<span id="cb9-31">    </span>
+<span id="cb9-32">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rday =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">day</span>(rdate_et),</span>
+<span id="cb9-33">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rmonth =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">month</span>(rdate_et),</span>
+<span id="cb9-34">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ryear =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">year</span>(rdate_et),</span>
+<span id="cb9-35">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rhour_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hour</span>(rdatetime_et),</span>
+<span id="cb9-36">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rminute_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">minute</span>(rdatetime_et)</span>
+<span id="cb9-37"></span>
+<span id="cb9-38">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb9-39">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>( <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># drop empty variables</span></span>
+<span id="cb9-40">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"weather"</span>), <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"precipitation"</span>), <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wind"</span>),</span>
+<span id="cb9-41">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>apparent_temperature, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>sunrise_time, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>sunset_time, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>dewpoint, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>humidity, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>cloud_cover, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>uv_index</span>
+<span id="cb9-42">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb9-43">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate_if</span>(is.numeric, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(.x, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># round numeric variables</span></span></code></pre></div>
+</div>
+<p>Now, for each run, I have information on granular location data and summary information in datasets <code>records</code> and <code>record_key</code> respectively. The interesting stuff pretty much all comes after this point, but I’ll save that for another post.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>r</category>
+  <category>sports</category>
+  <category>process write-up</category>
+  <guid>https://jacobeliason.com/posts/2021-04-30-processing-data-from-strava/</guid>
+  <pubDate>Fri, 30 Apr 2021 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

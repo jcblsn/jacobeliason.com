@@ -1,0 +1,89 @@
+---
+title: "Setting up TensorFlow with GPU support on a M1 Macbook Pro"
+description: 'For training small neural networks locally.'
+categories: [deep learning, python, process write-up]
+author: "Jacob Eliason"
+date: "2023-05-08"
+draft: false
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+## Introduction
+
+As has been noted by [many](https://twitter.com/williamrblack/status/1429962733055881218?s=20) [others](https://twitter.com/MLE_Online/status/1584794484134805504?s=20), Google search results seem to have meaningfully degraded in quality in the last couple of years. Whether this is due to AI content farms or more widespread use of SEO techniques, I sometimes find myself searching through what feels like ever-larger haystacks for increasingly well-disguised needles.
+
+This was especially true for me last fall after I upgraded my laptop to a M1 Macbook Pro. Setting up a Python environment for TensorFlow with GPU support was surprisingly hard to do despite no shortage of helpful-sounding search results. 
+
+After getting things up and running and subsequently having helped a couple of my classmates walk through the same process on their computers, I thought I'd write down the steps that worked with my machine.
+
+
+
+## Why?
+
+Training neural networks locally with GPU support is many times faster than training them with a CPU alone.
+
+For me, this was nice to have last semester while I was taking a deep learning class. I prefer writing code in VS Code over other environments and GPU acceleration made it feasible for me to do most of my coursework there instead of in Google Colab.
+
+## Steps
+
+### 1. Install miniforge or miniconda
+
+I had issues when I tried these steps using Anaconda. I used [miniconda](https://docs.conda.io/en/latest/miniconda.html#macos-installers) in the end.
+
+### 2. Create a `osx-arm64`-native Conda environment
+
+Per this Stack Overflow [answer](https://stackoverflow.com/a/65432861), we'll create a new Conda environment with the `osx-arm64` channel as the default. 
+
+```{{bash}}
+CONDA_SUBDIR=osx-arm64 conda create -n native numpy -c conda-forge
+conda activate native 
+conda config --env --set subdir osx-arm64
+```
+
+Subsequent steps come from "Fix #2" in the following [answer](https://stackoverflow.com/a/75198379).
+
+### 3. Designate the use of the conda-forge channel for package installation
+
+```{{bash}}
+conda config --add channels conda-forge
+conda config --set channel_priority strict 
+```
+### 4. Install packages
+
+Here we will install the TensorFlow dependencies and TensorFlow itself with versions as shown below.
+
+```{{bash}}
+conda install -y -c apple tensorflow-deps==2.10.0
+python -m pip install tensorflow-macos==2.10.0
+python -m pip install tensorflow-metal==0.6.0
+```
+
+### 5. Verify proper installation
+
+```{bash}
+python --version
+conda list|grep -E '(tensorflow|numpy)'
+```
+
+This portion should yield the following:
+
+```
+Python 3.10.8
+numpy                     1.23.2          py310h127c7cf_0    conda-forge
+tensorflow-deps           2.10.0                        0    apple
+tensorflow-estimator      2.10.0                   pypi_0    pypi
+tensorflow-macos          2.10.0                   pypi_0    pypi
+tensorflow-metal          0.6.0                    pypi_0    pypi
+```
+
+### 6. Test
+
+And that should be it! After completing those steps, the following code should yield a list that includes both a CPU and a GPU.
+
+```{python}
+import tensorflow as tf
+tf.config.list_physical_devices()
+```
+
+![](mac-stock-photo.jpg)

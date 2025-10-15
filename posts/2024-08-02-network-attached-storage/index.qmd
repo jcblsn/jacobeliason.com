@@ -1,0 +1,160 @@
+---
+title: "How I'm Storing Files"
+description: "Notes on transitioning to a NAS for personal file storage and backup"
+categories: ["servers"]
+author: "Jacob Eliason"
+date: "2024-08-02"
+draft: false
+execute:
+  freeze: auto  # re-render only when source changes
+---
+
+
+This post serves as documentation of my current NAS setup. As usual, it primarily serves as personal documentation. I'll update it as my system evolves or if I encounter and resolve new issues.
+
+![](storage-unsplash.jpg)
+
+## Why a NAS
+
+My previous solution for file storage involved external hard drives, Dropbox, and my computer's hard drive. This setup was fragmented, making file access difficult and leaving data unversioned and not properly backed up.
+I have approximately one terabyte of photos from my digital camera and film scans, plus iPhone photos from the last decade. I also maintain a copy of my family's photos, adding another terabyte. This amount is too large to store on my personal computer, and I wanted some access to these files without relying on cloud downloads.
+
+Cloud storage solutions caused some unease, as I couldn't fully account for my files or ensure their integrity. I disliked the idea of an internet account being a single point of failure for my most valuable digital possessions.
+
+My personal computer's hard drive was filled with datasets and code assets. I wanted a Dropbox-style ability to offload from local storage when not in use.
+
+A NAS allows me to consolidate what was previously spread across my computer's hard drive, Dropbox, and two external hard drives into one place. For files previously stored only on external hard drives, it reduces the worry about drive failure.
+
+Additional benefits include:
+
+* More precise control over backup and storage for files that require or don't require an additional copy
+* Versioning
+* Potential long-term cost savings
+
+## Setup
+
+### Hardware
+
+I chose the [Synology DS224+](https://www.synology.com/en-us/products/DS224+) with two 8-terabyte drives.
+
+### Backup
+I implemented a multi-tiered backup strategy:
+
+1. [Hyper Backup](https://www.synology.com/en-global/dsm/feature/hyper_backup) to [Synology C2](https://c2.synology.com/en-us)
+2. Hyper Backup to an external drive (though I'm considering switching to Cloud Sync to have a full backup available as a regular file structure)
+3. [Snapshots](https://www.synology.com/en-global/dsm/feature/snapshot_replication)
+
+Synology's C2 allows file browsing from the Mac Hyper Backup client app without needing a Synology device. Pricing is similar to alternatives, with the main difference being whole TB increments versus continuous rate pricing.
+
+Snapshots are lightweight operations that can run frequently without causing issues. They offer a sophisticated retention schedule and a legible file structure.
+
+In this setup, Hyper Backup provides long-term protection, while snapshots offer short-term protection.
+
+### Transfer
+
+After some frustrating trial and error, I set a large external hard drive as the root directory for my Dropbox Mac client's backup in order to download my cloud storage files without harming their metadata. I then connected the drive to the NAS and used the following from my personal computer to copy files from the drive to the destination file system:
+
+```bash
+nohup caffeinate -s rsync -avz --progress --checksum --partial --delete --stats --human-readable --log-file=~/rsync_log.txt "/source" "/target" &
+```
+The `caffeinate` command prevents my Mac from sleeping during the transfer.
+
+To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:
+
+```bash
+#!/bin/bash
+
+RSYNC="/opt/homebrew/bin/rsync"
+
+PAIRS_FILE="pairs.txt"
+LOG_FILE="rsync_log.txt"
+
+# use Homebrew-installed rsync (required for created date compatibility)
+RSYNC_VERSION=$($RSYNC --version | grep version | awk '{ print $3 }')
+REQUIRED_VERSION="3.1.0"
+
+if [[ $(echo -e "$RSYNC_VERSION\n$REQUIRED_VERSION" | sort -V | head -n1) != "$REQUIRED_VERSION" ]]; then
+  echo "Your rsync version $RSYNC_VERSION is less than the required $REQUIRED_VERSION"
+  echo "Please upgrade rsync using Homebrew: brew install rsync"
+  exit 1
+fi
+
+# check if the pairs file exists
+if [ ! -f "$PAIRS_FILE" ]; then
+    echo "Error: Pairs file does not exist."
+    exit 1
+fi
+
+# read each line from the pairs file
+while IFS= read -r line
+do
+    # split the line into source and destination
+    read -ra ADDR <<< "$line"
+    SOURCE="${ADDR[0]}"
+    DESTINATION="${ADDR[1]}"
+
+    # check if source and destination are provided
+    if [ -z "$SOURCE" ] || [ -z "$DESTINATION" ]; then
+        echo "Skipping invalid line: $line"
+        continue
+    fi
+
+    echo "Starting rsync from $SOURCE to $DESTINATION"
+    
+    # perform sync
+    $RSYNC -avhP --delete --crtimes --times --log-file=$LOG_FILE "$SOURCE" "$DESTINATION"
+
+    echo "Completed rsync for $SOURCE to $DESTINATION"
+done < "$PAIRS_FILE"
+
+echo "All operations completed. Check $LOG_FILE for details."
+```
+
+Because I was setting up a new directory structure, I used a file containing pairs of one source and one destination directory at a time to copy files over. 
+
+<!-- ### Configuration -->
+
+## File Sharing
+
+I use Synology Drive's Mac client, which functions pretty similarly to Dropbox's Mac client. This has made it easier to move all my MacBook work into the NAS and to archive or offload large projects once completed.
+
+One note worth considering is that Synology Drive sometimes has issues with other sync services. I pay for Obsidian Sync and prefer that standalone service for my notes. I had to disable Drive's sync service for the directory containing my Obsidian vault to avoid conflicts. This is surprisingly unintuitive, as the client doesn't have a user-friendly way to pause syncing for a specific directory. 
+
+However, on a Mac you can do this by navigating to
+
+> `~/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf`
+
+And editing `filter` and `filter-v4150` to include the directory name you want to exclude from syncing under the `[Directory]` section of each. If successful, files created under such a directory will be marked as "ignored" in the Drive client. This is acceptable to me because such files will still be backed up by Hyper Backup and Snapshots, and Obsidian Sync provides a superior sync experience for what I need.
+
+## Alternatives Considered
+
+* Cloud sync with Dropbox: I tested this but found issues with slow propagation from Dropbox to NAS and metadata inconsistencies.
+* Building a custom NAS with a Raspberry Pi: While cheaper, I prioritized reliability and chose Synology as a more supported solution.
+* Cloud-only storage: I subjectively prefer having at least one local copy of my files.
+* Local copy at home backed up to a PC at another location: This seemed too labor-intensive.
+
+## Additional Use Cases
+
+### Zotero
+
+Thanks to [this post](https://www.reddit.com/r/zotero/comments/15b5kay/tutorial_for_synology_nas_storage/), I figured out how to store all PDF files on the Synology, share using WebDAV, connect using [Tailscale](https://tailscale.com/), and access using [Zotero](https://www.zotero.org/) on any device. This provides unlimited storage and sync for my personal library.
+
+### Time Machine
+I set up a shared folder on the NAS for Time Machine backups, which run automatically when I'm on the network.
+
+### Photos
+For Apple Photos, I unchecked "Copy items to the Photos library" in Preferences > General to keep photos on the NAS.
+
+### File System
+I'm using the [Johnny Decimal system](https://johnnydecimal.com/) for file organization.
+
+## To Do
+
+Create additional shared folders to host backups for other devices and family members' data.
+
+## Troubleshooting Notes
+
+For slow SMB connections to NAS from Mac Finder:
+
+* Navigate to DSM > Control Panel > File Services > SMB Settings > Advanced Settings
+* Clear SMB Cache

@@ -1,0 +1,14 @@
+{
+  "hash": "5ab916121eb0de5fd2f152daf825f336",
+  "result": {
+    "markdown": "---\ntitle: \"Exploring FActScore, a tool for evaluating the factuality of LLM-generated text\"\ndescription: \"Steps towards machine-assisted peer review\"\ncategories: [llm, factscore, factuality, deep learning]\nauthor: \"Jacob Eliason\"\ndate: \"2024-01-13\"\ndraft: true\nbibliography: [\"references.bib\"]\nexecute:\n  freeze: auto  # re-render only when source changes\n---\n\n::: {.cell}\n\n:::\n\n\n## Introduction\n\nI've been drawn lately towards an alternative frame for the current batch of applied deep learning tools—mostly LLMs—which seem now mostly widely referenced as \"generative AI.\" I think a lot of people are hung up on \"intelligence\" in light of obvious shortcomings visible in, say, the free version of ChatGPT. \n\n{{}}\n\nI don't have a position on whether future iterations of this architecture will be genuinely \"intelligent\" or [reach AGI](https://openai.com/blog/planning-for-agi-and-beyond) in one year or five years or ever, but the case for existing models alone continuing to be substantially useful to people is pretty strong.\n\n\n{{< tweet karpathy 1744062845426532473 >}}\n\n\n\n\"Intelligence amplification\" feels useful. Regardless of how you characterize them, there's clearly plenty of low-hanging fruit for boosting creativity, productivity, and quality using generated text.\n\n## FActScore\n\n@factscore\n\n## Implementation\n\n### Corpus\n\n### Test questions\n\n### Evaluation\n\n### Case study\n\n## Conclusion\n\nasdf",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
