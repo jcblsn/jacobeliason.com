@@ -5,6 +5,8 @@ author: "Jacob Eliason"
 categories: [surveys, demography]
 date: "2021-06-25"
 draft: false
+execute:
+  freeze: auto
 ---
 
 ```{r, include = F, message = F, warning = F}
@@ -54,7 +56,7 @@ If anybody reading this has thoughts about what variables or sources might be be
 Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.
 
 ```{r, echo = F, message = F}
-target_summary <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/mormon_weight_summary.csv")
+target_summary <- read_csv("../../../personal-projects/nationscape/DATA/mormon_weight_summary.csv")
 
 # table_out <- 
 target_summary %>% 
@@ -113,7 +115,7 @@ These obviously are a much closer match. Going one step further, I highlight the
 [^1]: I've used RMSE for validating predictions before but I have no idea if this is a thing w.r.t. weighting schemes. Feel free to chime in. The point here was just to somehow describe the differences between those three methods in a single metric.
 
 ```{r echo = F, message = F}
-target_performance <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/mormon_weight_performance.csv")
+target_performance <- read_csv("../../../personal-projects/nationscape/DATA/mormon_weight_performance.csv")
 
 target_performance %>% 
   mutate(
@@ -136,7 +138,7 @@ Interestingly, the Nationscape weights actually make Mormon estimates *less* lik
 That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for "Do you identify as \[straight/gay/lesbian/bisexual/other\]" by generation.
 
 ```{r echo = F, message = F}
-new_estimate <- read_csv("/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/new_est_orientation_by_gen.csv")
+new_estimate <- read_csv("../../../personal-projects/nationscape/DATA/new_est_orientation_by_gen.csv")
 
 new_estimate %>% 
   mutate(
@@ -171,15 +173,15 @@ upper_95 <- est + (qnorm(0.975) * sqrt(vif_mormon*(est*(1-est))/wt_n))
 
 Using these confidence intervals (and corresponding calculations for the general population), I show the following final result:
 
-```{r echo = F, message = F, warning = F}
+```{r echo = F, message = F, warning = F, eval = F}
 responses_full <- 
   read_rds(
-    "/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/responses_full.rds"
+    "../../../personal-projects/nationscape/DATA/responses_full.rds"
   )
 
 responses_mormon <- 
   read_rds(
-    "/Users/jacobeliason/Documents/Files/Code/Repos/personal-projects/nationscape/DATA/responses_mormon.rds"
+    "../../../personal-projects/nationscape/DATA/responses_mormon.rds"
   )
 
 sd_w_mormon <- sd(responses_mormon$weight_mormon)

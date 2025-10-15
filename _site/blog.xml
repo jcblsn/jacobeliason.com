@@ -9,8 +9,61 @@
 <link>https://jacobeliason.com/blog.html</link>
 <atom:link href="https://jacobeliason.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.549</generator>
-<lastBuildDate>Fri, 02 Aug 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Tue, 14 Oct 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Methodological issues in Kaufmann’s analysis of FIRE gender identity data</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a> and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022-2023 to 3.6% in 2025.</p>
+<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series (appropriate for inference) shows a different trend.</p>
+<p><img src="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-14-weighted_vs_unweighted_estimates.png" class="img-fluid"></p>
+<section id="why-weights-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-weights-matter">Why weights matter</h2>
+<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is standard practice to account for variable rates of survey non-response by respondent demographic <span class="citation" data-cites="grovesnrb">(Groves 2006)</span>. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
+</section>
+<section id="what-can-we-say" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-we-say">What can we say?</h2>
+<p>Deriving causal claims about temporal effects from cross-sectional data is <a href="https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf">always challenging</a>, but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.</p>
+<p><em>Proudly human-written. Code for the analysis described in this post is available <a href="https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331">here</a>.</em></p>
+<!-- | Year | Unweighted (raw %) | Weighted (%) | -->
+<!-- |-----:|-------------------:|-------------:| -->
+<!-- | 2022 |               6.9% |         2.2% | -->
+<!-- | 2023 |               6.9% |         1.9% | -->
+<!-- | 2024 |               5.3% |        10.5% | -->
+<!-- | 2025 |               3.6% |         9.1% | -->
+<!-- Using the weights provided by FIRE/College Pulse, the data do not support Kaufmann's conclusion of a decline. The weighted estimates show different patterns entirely, with substantially higher rates in 2024-2025 than in prior years. -->
+<!-- Whether these weighted estimates themselves reflect real population changes, methodological updates, or some combination requires additional investigation beyond the scope of this analysis. But the starting point for any such investigation must be the weighted data, not the raw sample proportions. -->
+<!-- ## Discontinuity -->
+<!-- I started my career working as a statistician for the Census Bureau's [Survey of Income and Program Participation](https://www.census.gov/programs-surveys/sipp.html) (SIPP). SIPP is a "longitudinal" household survey that records outcomes from panels of respondents by overlapping four-year periods in order to identify causal changes over time. This allows for some interesting measurement that wouldn't otherwise be possible: for example, "[spell durations](https://fns-prod.azureedge.us/sites/default/files/DynamicsMid2000.pdf)" for time spent as a recipient of a particular benefit program, or under the federal poverty threshold. -->
+<!-- In contrast, FIRE's campus survey is "cross-sectional" in that different students are sampled each year rather than following the same individuals over time. One vulnerability of using instruments like this to derive conclusions about temporal patterns is that cross-sectional designs are vulnerable to methodological changes from one year to the next, which can create apparent trends where none actually exist. -->
+<!-- I suspect a methodological change may have occurred in this case. Weighted estimates for the FIRE survey show a nearly five-fold increase in "Gender non-conforming" starting in 2024. -->
+<!-- This struck me as surprising, so I spent a few minutes looking for possible explanations. It looks like the timing coincides with changes to federal survey methodology. In August 2023, the Census Bureau's Household Pulse Survey replaced the options for the question "Do you currently describe yourself as male, female or transgender?" -- instead of `Male, Female, Transgender,  None of these`, the alternate version asked "How do you currently describe yourself?" and added `Nonbinary, I use a different term`, allowing multiple selections. Using the new wording, Census found that approximately 7% of Gen Z adults identified as nonbinary--close to the weighted FIRE estimates for 2024-2025. -->
+<!-- Additionally, the federal Integrated Postsecondary Education Data System (IPEDS)--one of College Pulse's sources for weighting adjustments--[added a question in 2022-23](https://archive.ph/1Zy0s) to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks starting in 2024 to reflect these new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates increased so suddenly. -->
+<!-- todo: \* discuss challenges with drawing time series narratives from cross-sectional data generally \* introduce suggestive evidence for methodological change \* discuss implications conclude \* unweighted estimates are not meaningful for point in time or temporal narratives \* weighted results for 2025 are likely a good estimate for 2025, but not directly comparable to e.g. 2022 -->
+<!-- \~\~...In August 2024, the U.S. Census Bureau's Household Pulse Survey changed its gender identity question, replacing "none of these" with "nonbinary/I use a different term." Following this change, the Census found that approximately 7% of Gen Z adults identified as nonbinary—close to the weighted FIRE estimates for 2024-2025. -->
+<!-- IPEDS, one of College Pulse's benchmark sources, added a question in 2022-23 to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks to reflect new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates diverge from the unweighted ones starting in 2024.\~\~ -->
+<!-- Kaufmann's analysis of the FIRE survey data does not belong in such an attempt. Setting aside subjective concerns others have raised about the interpretation of this source in the first place (can "gender non-conforming" be used interchangeably with "transgender?" in the first place?), using unweighted tallies from repeated cross-section data frankly constitutes analytical malpractice. -->
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-grovesnrb" class="csl-entry">
+Groves, Robert M. 2006. <span>“Nonresponse Rates and Nonresponse Bias in Household Surveys.”</span> <em>Public Opinion Quarterly</em> 70 (5): 646–75. <a href="https://doi.org/10.1093/poq/nfl033">https://doi.org/10.1093/poq/nfl033</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>surveys</category>
+  <guid>https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/</guid>
+  <pubDate>Tue, 14 Oct 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>How I’m Storing Files</title>
   <dc:creator>Jacob Eliason</dc:creator>
@@ -85,6 +138,7 @@ font-style: inherit;">"/source"</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"/target"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">&amp;</span></span></code></pre></div>
 <p>The <code>caffeinate</code> command prevents my Mac from sleeping during the transfer.</p>
 <p>To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:</p>
@@ -128,10 +182,12 @@ font-style: inherit;">$($RSYNC</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--version</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">grep</span> version <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">awk</span> <span class="st" style="color: #20794D;
@@ -149,8 +205,10 @@ font-style: inherit;">"3.1.0"</span></span>
 <span id="cb2-11"></span>
 <span id="cb2-12"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">[[</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$(</span><span class="bu" style="color: null;
@@ -169,12 +227,14 @@ font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20
 background-color: null;
 font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sort</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-V</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span> <span class="at" style="color: #657422;
@@ -191,8 +251,10 @@ font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20
 background-color: null;
 font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-13">  <span class="bu" style="color: null;
 background-color: null;
@@ -217,6 +279,7 @@ background-color: null;
 font-style: inherit;">exit</span> 1</span>
 <span id="cb2-16"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-17"></span>
 <span id="cb2-18"><span class="co" style="color: #5E5E5E;
@@ -224,6 +287,7 @@ background-color: null;
 font-style: inherit;"># check if the pairs file exists</span></span>
 <span id="cb2-19"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -240,8 +304,10 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-20">    <span class="bu" style="color: null;
 background-color: null;
@@ -253,6 +319,7 @@ background-color: null;
 font-style: inherit;">exit</span> 1</span>
 <span id="cb2-22"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-23"></span>
 <span id="cb2-24"><span class="co" style="color: #5E5E5E;
@@ -260,6 +327,7 @@ background-color: null;
 font-style: inherit;"># read each line from the pairs file</span></span>
 <span id="cb2-25"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">while</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">IFS</span><span class="op" style="color: #5E5E5E;
@@ -273,6 +341,7 @@ background-color: null;
 font-style: inherit;">line</span></span>
 <span id="cb2-26"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">do</span></span>
 <span id="cb2-27">    <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -336,6 +405,7 @@ background-color: null;
 font-style: inherit;"># check if source and destination are provided</span></span>
 <span id="cb2-33">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -350,6 +420,7 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">||</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -364,8 +435,10 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-34">        <span class="bu" style="color: null;
 background-color: null;
@@ -378,9 +451,11 @@ background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb2-35">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">continue</span></span>
 <span id="cb2-36">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-37"></span>
 <span id="cb2-38">    <span class="bu" style="color: null;
@@ -445,6 +520,7 @@ background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb2-44"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span> <span class="st" style="color: #20794D;
@@ -930,103 +1006,11 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <section id="some-of-my-favorite-recent-textures" class="level2">
 <h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
 <p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
-<p></p><div id="tweet-65658"></div><script>tweet=<!DOCTYPE html>
-<html lang="en" class="dog">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X / ?</title>
-    <meta name="version" content="1">
-    <link href="https://abs.twimg.com/favicons/twitter.3.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css">
-  </head>
-  <body dir="auto">
-    <div class="top">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1519 200">
-        <defs/>
-        <path d="M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
-        <path d="M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l10-6 6 3 9-1 4-1a6 6 0 001 1l1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a37 37 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="content">
-        <a href="https://twitter.com" title="X logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="x-logo"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
-        </a>
-        <h1 id="header">Nothing to see here</h1>
-        <p id="description">Looks like this page doesn’t exist. Here’s a picture of a poodle sitting in a chair for your trouble.</p>
-
-          <a id="button_search" href="/" class="button">Looking for this?</a>
-
-      </div>
-      <img id="image" src="https://abs.twimg.com/errors/ErrorState_NotFound.png" alt="A primped poodle with a bow in its hair sitting in a chair like a human.">
-      <div class="footer">
-        <ul>
-          <li><a href="https://twitter.com/" id="footer_home">Home</a></li>
-          <li><a href="https://status.twitterstat.us/" id="footer_status">Status</a></li>
-          <li><a href="https://twitter.com/tos" id="footer_tos">Terms of Service</a></li>
-          <li><a href="https://twitter.com/privacy" id="footer_privacy">Privacy Policy</a></li>
-          <li><a href="https://support.twitter.com/articles/20170514" id="footer_cookie">Cookie Policy</a></li>
-          <li><a href="https://legal.twitter.com/imprint" id="footer_imprint">Imprint</a></li>
-          <li><a href="https://business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html" id="footer_ads">Ads info</a></li>
-          <li dir="ltr">&copy; X Corp. <span id="copyright-year">&emsp;&emsp;&emsp;&emsp;</span></li>
-        </ul>
-      </div>
-    </div>
-  </body>
-  <script src="https://abs.twimg.com/errors/404-8651f633fd193e0b546010676a4fac06.js"></script>
-
-;document.getElementById("tweet-65658").innerHTML = tweet["html"];<p></p>
-<p></p><div id="tweet-86289"></div><script>tweet=<!DOCTYPE html>
-<html lang="en" class="dog">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X / ?</title>
-    <meta name="version" content="1">
-    <link href="https://abs.twimg.com/favicons/twitter.3.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://abs.twimg.com/errors/fullscreen_errors-047ca1475a6efac7c9c89a9ff92b7a20.css">
-  </head>
-  <body dir="auto">
-    <div class="top">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1519 200">
-        <defs/>
-        <path d="M708 103l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9368 9368 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h11l10-6 6 3 9-1 4-1 1 1 1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a38 38 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
-        <path d="M-36 193l9-5 13 1 2-2 5 1h8l1-1 42-5h7l7 3v1l12-2a9328 9328 0 0129-6l2-5 12 1 6-2 3 1 2 1v-2l13-2v1l4 2 7-1h1l17-3 1 2 4-1 18-7 3-1 4-1h9l13-1 1-4 3-2 13 1v2l22-2 10-3h6l10 5 16-5 15-3 2-1 8-4 6-2 12-1 7-2 8 5 7 1 22-9h7l5-1v-1l25-3 1 2 5 2v1h11l2 1 8-4h3l-1 1h9a6 6 0 002 0l10-6 6 3 9-1 4-1a6 6 0 001 1l1-2 6-1 1-1 10-2h2l7-5v1h4l3-1c11 0 23 2 34-3 2-2 7 0 10 0l12 1 4 1 9 2 12-1 11-3 11 1h4l10-6 17 1 2 1c9 2 19-3 22-11l1-1 9 1 15-5c3-1 9 4 9-5 5 0 5 3 5 7l2 3 4-1 4-2 9-4 3-3h3l8-4 6-3 26 2 7-4h18l7 1c10 3 13-6 17-12l8 4 3-1 14-3 15-2a37 37 0 01-5-1l-8-4 7-8 8-4-10-136-922 71 16 205z"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="content">
-        <a href="https://twitter.com" title="X logo">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="x-logo"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
-        </a>
-        <h1 id="header">Nothing to see here</h1>
-        <p id="description">Looks like this page doesn’t exist. Here’s a picture of a poodle sitting in a chair for your trouble.</p>
-
-          <a id="button_search" href="/" class="button">Looking for this?</a>
-
-      </div>
-      <img id="image" src="https://abs.twimg.com/errors/ErrorState_NotFound.png" alt="A primped poodle with a bow in its hair sitting in a chair like a human.">
-      <div class="footer">
-        <ul>
-          <li><a href="https://twitter.com/" id="footer_home">Home</a></li>
-          <li><a href="https://status.twitterstat.us/" id="footer_status">Status</a></li>
-          <li><a href="https://twitter.com/tos" id="footer_tos">Terms of Service</a></li>
-          <li><a href="https://twitter.com/privacy" id="footer_privacy">Privacy Policy</a></li>
-          <li><a href="https://support.twitter.com/articles/20170514" id="footer_cookie">Cookie Policy</a></li>
-          <li><a href="https://legal.twitter.com/imprint" id="footer_imprint">Imprint</a></li>
-          <li><a href="https://business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html" id="footer_ads">Ads info</a></li>
-          <li dir="ltr">&copy; X Corp. <span id="copyright-year">&emsp;&emsp;&emsp;&emsp;</span></li>
-        </ul>
-      </div>
-    </div>
-  </body>
-  <script src="https://abs.twimg.com/errors/404-8651f633fd193e0b546010676a4fac06.js"></script>
-
-;document.getElementById("tweet-86289").innerHTML = tweet["html"];<p></p>
-<p></p><div id="tweet-83262"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-83262").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-97061"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-97061").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-15758"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-15758").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-16067"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-16067").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-16064"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-16064").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-14589"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-14589").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-51529"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-51529").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-87602"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-87602").innerHTML = tweet["html"];</script><p></p>
 
 
 </section>
@@ -1085,7 +1069,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 22%">
@@ -1244,7 +1228,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>We can produce much more accurate estimates by using new weights for the Mormon respondents that are based on these population targets. Using a “simple raking technique” (in my case, using the <code>survey</code> package in R), I <a href="https://github.com/jcblsn/jacobeliason-dot-com/blob/main/content/post/2021-06-25-how-many-young-mormons-are-queer/produce-mormon-weights-for-nationscape.R">bring</a> the sample characteristics of the Mormon survey respondents more or less into alignment with what we understand the population characteristics of Mormons to really be. Here’s what the new weighted estimates and the population targets look like side by side.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 30%">
@@ -1381,7 +1365,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>These obviously are a much closer match. Going one step further, I highlight the “performance” of these different schemes by taking the difference between each set of estimates and the population targets. Using those differences, I compute the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">root-mean-square error</a> for each scheme overall (where a higher number is more error and “worse”).<sup>1</sup></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Method</th>
@@ -1412,7 +1396,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for “Do you identify as [straight/gay/lesbian/bisexual/other]” by generation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Generation</th>
@@ -1675,8 +1659,10 @@ font-style: inherit;">"fit.gz"</span>]</span>
 <span id="cb3-2"></span>
 <span id="cb3-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1734,8 +1720,10 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb5-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1763,6 +1751,7 @@ font-style: inherit;">records</span>()</span>
 <span id="cb5-6">  </span>
 <span id="cb5-7">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(record) <span class="sc" style="color: #5E5E5E;
@@ -1833,8 +1822,10 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb6-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1988,6 +1979,7 @@ font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"elevation"</span>)), <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x){x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> x<span class="sc" style="color: #5E5E5E;

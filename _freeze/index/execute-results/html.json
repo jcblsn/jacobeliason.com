@@ -1,8 +1,8 @@
 {
-  "hash": "1f8e5de887fce35ec25e1cc528ec57a7",
+  "hash": "58fae280ad5128ad27fce55ec0ae57d9",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Jacob Eliason\"\nimage: profile.png\nabout:\n  template: trestles\n  links:\n    # - icon: twitter\n    #   text: Twitter\n    #   href: https://twitter.com/jaco_bel\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/in/jacobzeliason/\n    - icon: github\n      text: Github\n      href: https://github.com/jcblsn\n    - icon: envelope\n      text: Email\n      href: mailto:contact@jacobeliason.com\n    - icon: code\n      text: Site Code\n      href: https://github.com/jcblsn/jacobeliason.com\ncomments: false\n---\n\n\n## Bio\n\nI am a data scientist with expertise in Bayesian statistics, causal inference, and generative AI.\n\nI enjoy running, hiking, and film photography.\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n",
+    "markdown": "---\ntitle: \"Jacob Eliason\"\nimage: profile.png\nabout:\n  template: trestles\n  links:\n    # - icon: twitter\n    #   text: Twitter\n    #   href: https://twitter.com/jaco_bel\n    - icon: linkedin\n      text: LinkedIn\n      href: https://www.linkedin.com/in/jacobzeliason/\n    - icon: github\n      text: Github\n      href: https://github.com/jcblsn\n    - icon: envelope\n      text: Email\n      href: mailto:contact@jacobeliason.com\n    # - icon: code\n    #   text: Site Code\n    #   href: https://github.com/jcblsn/jacobeliason.com\ncomments: false\nfreeze: auto\n---\n\n\n\n## Bio\n\nMy background is in statistics. I work in measurement: A/B tests, causal inference, and survey methods. Trying to be less wrong. \n\nInterested in remote sensing, sports, and elections data.\n\nI enjoy running marathons and film photography.\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n",
     "supporting": [
       "index_files"
     ],

@@ -16,17 +16,20 @@ about:
     - icon: envelope
       text: Email
       href: mailto:contact@jacobeliason.com
-    - icon: code
-      text: Site Code
-      href: https://github.com/jcblsn/jacobeliason.com
+    # - icon: code
+    #   text: Site Code
+    #   href: https://github.com/jcblsn/jacobeliason.com
 comments: false
+freeze: auto
 ---
 
 ## Bio
 
-I am a data scientist with expertise in Bayesian statistics, causal inference, and generative AI.
+My background is in statistics. I work in measurement: A/B tests, causal inference, and survey methods. Trying to be less wrong. 
 
-I enjoy running, hiking, and film photography.
+Interested in remote sensing, sports, and elections data.
+
+I enjoy running marathons and film photography.
 
 ```{r}
 #| echo: false
@@ -65,6 +68,8 @@ redirects <- c(
   paste0("/resume /files/jacob-eliason-resume.pdf")
 )
 
-# write the _redirect file
+# write the _redirect file into both the rendered site and repo root so redirects stay fresh
+dir.create(here::here("_site"), showWarnings = FALSE, recursive = TRUE)
 writeLines(redirects, here::here("_site", "_redirects"))
+writeLines(redirects, here::here("_redirects"))
 ```

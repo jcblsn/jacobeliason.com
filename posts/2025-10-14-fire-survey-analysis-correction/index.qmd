@@ -1,0 +1,61 @@
+---
+title: "Methodological issues in Kaufmann's analysis of FIRE gender identity data"
+description: "Ignore survey weights at your peril"
+categories: ["surveys"]
+author: "Jacob Eliason"
+date: "2025-10-14"
+draft: false
+bibliography: references.bib
+execute:
+  freeze: auto
+---
+
+Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY) and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022-2023 to 3.6% in 2025. 
+
+This conclusion, based on analysis of survey data collected for [FIRE](https://archive.ph/Tlk1I)'s [College Free Speech Rankings](https://archive.ph/pqtMd), suffers from several issues, including a significant analytical error I haven't seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same [dataset](https://rankings.thefire.org/explore?demo=all&year=2025), I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann's numbers, but the weighted series (appropriate for inference) shows a different trend.
+
+![](2025-10-14-weighted_vs_unweighted_estimates.png)
+
+## Why weights matter
+
+The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is standard practice to account for variable rates of survey non-response by respondent demographic [@grovesnrb]. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
+
+## What can we say?
+
+Deriving causal claims about temporal effects from cross-sectional data is [always challenging](https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf), but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.
+
+*Proudly human-written. Code for the analysis described in this post is available [here](https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331).*
+
+[^1]: Another issue is that it treats the FIRE category ("a gender other than male or female") as if it were a direct measure of "trans identification," which it is not: transgender students who identify as male or female are not counted.
+
+<!-- | Year | Unweighted (raw %) | Weighted (%) | -->
+<!-- |-----:|-------------------:|-------------:| -->
+<!-- | 2022 |               6.9% |         2.2% | -->
+<!-- | 2023 |               6.9% |         1.9% | -->
+<!-- | 2024 |               5.3% |        10.5% | -->
+<!-- | 2025 |               3.6% |         9.1% | -->
+
+<!-- Using the weights provided by FIRE/College Pulse, the data do not support Kaufmann's conclusion of a decline. The weighted estimates show different patterns entirely, with substantially higher rates in 2024-2025 than in prior years. -->
+
+<!-- Whether these weighted estimates themselves reflect real population changes, methodological updates, or some combination requires additional investigation beyond the scope of this analysis. But the starting point for any such investigation must be the weighted data, not the raw sample proportions. -->
+
+<!-- ## Discontinuity -->
+
+<!-- I started my career working as a statistician for the Census Bureau's [Survey of Income and Program Participation](https://www.census.gov/programs-surveys/sipp.html) (SIPP). SIPP is a "longitudinal" household survey that records outcomes from panels of respondents by overlapping four-year periods in order to identify causal changes over time. This allows for some interesting measurement that wouldn't otherwise be possible: for example, "[spell durations](https://fns-prod.azureedge.us/sites/default/files/DynamicsMid2000.pdf)" for time spent as a recipient of a particular benefit program, or under the federal poverty threshold. -->
+
+<!-- In contrast, FIRE's campus survey is "cross-sectional" in that different students are sampled each year rather than following the same individuals over time. One vulnerability of using instruments like this to derive conclusions about temporal patterns is that cross-sectional designs are vulnerable to methodological changes from one year to the next, which can create apparent trends where none actually exist. -->
+
+<!-- I suspect a methodological change may have occurred in this case. Weighted estimates for the FIRE survey show a nearly five-fold increase in "Gender non-conforming" starting in 2024. -->
+
+<!-- This struck me as surprising, so I spent a few minutes looking for possible explanations. It looks like the timing coincides with changes to federal survey methodology. In August 2023, the Census Bureau's Household Pulse Survey replaced the options for the question "Do you currently describe yourself as male, female or transgender?" -- instead of `Male, Female, Transgender,  None of these`, the alternate version asked "How do you currently describe yourself?" and added `Nonbinary, I use a different term`, allowing multiple selections. Using the new wording, Census found that approximately 7% of Gen Z adults identified as nonbinary--close to the weighted FIRE estimates for 2024-2025. -->
+
+<!-- Additionally, the federal Integrated Postsecondary Education Data System (IPEDS)--one of College Pulse's sources for weighting adjustments--[added a question in 2022-23](https://archive.ph/1Zy0s) to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks starting in 2024 to reflect these new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates increased so suddenly. -->
+
+<!-- todo: \* discuss challenges with drawing time series narratives from cross-sectional data generally \* introduce suggestive evidence for methodological change \* discuss implications conclude \* unweighted estimates are not meaningful for point in time or temporal narratives \* weighted results for 2025 are likely a good estimate for 2025, but not directly comparable to e.g. 2022 -->
+
+<!-- \~\~...In August 2024, the U.S. Census Bureau's Household Pulse Survey changed its gender identity question, replacing "none of these" with "nonbinary/I use a different term." Following this change, the Census found that approximately 7% of Gen Z adults identified as nonbinary—close to the weighted FIRE estimates for 2024-2025. -->
+
+<!-- IPEDS, one of College Pulse's benchmark sources, added a question in 2022-23 to capture students for whom gender is "unknown or other than the provided categories (Men/Women)." If College Pulse updated their weighting benchmarks to reflect new federal data standards that explicitly include nonbinary categories, this would explain why the weighted estimates diverge from the unweighted ones starting in 2024.\~\~ -->
+
+
+<!-- Kaufmann's analysis of the FIRE survey data does not belong in such an attempt. Setting aside subjective concerns others have raised about the interpretation of this source in the first place (can "gender non-conforming" be used interchangeably with "transgender?" in the first place?), using unweighted tallies from repeated cross-section data frankly constitutes analytical malpractice. -->
