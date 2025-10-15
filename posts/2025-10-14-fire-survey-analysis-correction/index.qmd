@@ -4,11 +4,14 @@ description: "Ignore survey weights at your peril"
 categories: ["surveys"]
 author: "Jacob Eliason"
 date: "2025-10-14"
+date-modified: last-modified
 draft: false
 bibliography: references.bib
 execute:
   freeze: auto
 ---
+
+*Last updated: {{< meta date-modified >}}.*
 
 Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY), and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022-2023 to 3.6% in 2025. 
 
@@ -20,7 +23,7 @@ This conclusion, based on analysis of survey data collected for [FIRE](https://a
 The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is [standard practice](https://doi.org/10.1093/poq/nfl033) to account for variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
 
 
-Deriving causal claims about temporal effects from cross-sectional data is [always challenging](https://sites.stat.columbia.edu/gelman/research/unpublished/apc.pdf), but a good faith answer to the question of how the prevalence of gender non-conforming identification has changed over time is dead on arrival without survey weights.
+Deriving causal claims about temporal effects from cross-sectional data is [often challenging](https://pubmed.ncbi.nlm.nih.gov/35231933/). In this case, since the weighting procedure itself appears to calibrate on gender, even the resulting weighted proportions for gender identity may reflect benchmark choices as much as population change. Still, using unweighted counts--the realized respondent mix--in place of weighted estimates is dead on arrival for any claim about the student population.
 
 ---
 
