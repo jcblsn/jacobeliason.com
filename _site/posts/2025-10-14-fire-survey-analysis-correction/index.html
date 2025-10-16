@@ -164,7 +164,7 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">October 15, 2025</p>
+        <p class="date-modified">October 16, 2025</p>
       </div>
     </div>
       
@@ -182,15 +182,36 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 
 
 
-<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a>, and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022-2023 to 3.6% in 2025.</p>
+<section id="looking-closely-at-a-surprising-claim" class="level2">
+<h2 class="anchored" data-anchor-id="looking-closely-at-a-surprising-claim">Looking closely at a surprising claim</h2>
+<p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a>, and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022–2023 to 3.6% in 2025.</p>
 <p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series shows a different trend.</p>
 <p><img src="2025-10-14-weighted_vs_unweighted_estimates.png" class="img-fluid"></p>
-<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is <a href="https://doi.org/10.1093/poq/nfl033">standard practice</a> to account for variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
+<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is <a href="https://doi.org/10.1093/poq/nfl033">standard practice</a> to account for issues like variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population (and sometimes the sampling frame is deliberately not constructed to be representative), raw survey responses are still usually not representative because, among other reasons, <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
 <p>That’s not the end of the story; estimating changes in time from cross-sectional data can be challenging! In this case, since the weighting procedure itself appears to calibrate on gender, even the resulting weighted proportions for gender identity may reflect benchmark choices as much as population change. Still, using unweighted counts–the realized respondent mix–in place of weighted estimates is dead on arrival for any claim about the student population.</p>
+</section>
+<section id="update" class="level2">
+<h2 class="anchored" data-anchor-id="update">Update</h2>
+<p>In light of Kaufmann’s <a href="https://x.com/epkaufm/status/1978849792647201078">response</a> to the weighting criticism, I thought I’d expand this stub from earlier in the week to make a couple of points more clearly.</p>
+<section id="we-probably-shouldnt-use-the-weighted-series-from-fire-here-either" class="level3">
+<h3 class="anchored" data-anchor-id="we-probably-shouldnt-use-the-weighted-series-from-fire-here-either">We probably shouldn’t use the weighted series from FIRE here either</h3>
+<p>The weighted series propagates assumptions the survey methodologist makes about the population’s true composition, based on trustworthy benchmarks (in this case, from <a href="https://www.census.gov/programs-surveys/cps.html">CPS</a>, <a href="https://nces.ed.gov/surveys/npsas/">NPSAS</a>, and <a href="https://nces.ed.gov/ipeds">IPEDS</a>). To the extent the methodologist makes good assumptions, that means the weighted proportion is probably at least a reasonable representation of true prevalence, but only because they’ve mechanically made it so; it won’t represent new evidence in that direction.</p>
+<p>FIRE’s survey is primarily focused on free speech. Since this survey is only intrumentally interested in gender identity, FIRE might reasonably make changes to how gender is treated in the weighting protocol from one year to the next that could disrupt an attempt to estimate a trend like the one Kaufmann investigates. I haven’t asked FIRE, but I strongly suspect something like that may have happened. For example, if one of their weighting sources moved from two gender identity choices to three, I’d expect to see something close to the observed jump in the weighted series’ value from 2023 to 2024. In fact, it looks like this <a href="https://nces.ed.gov/ipeds/report-your-data/archived-changes/2023-24">is the case at IPEDS</a>, one of the data sources for weighting.</p>
+</section>
+<section id="but-weighting-really-is-appropriate-for-this-kind-of-over-time-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="but-weighting-really-is-appropriate-for-this-kind-of-over-time-analysis">But weighting really is “appropriate for this kind of over time analysis”</h3>
+<p>I was surprised by this response <a href="https://www.erininthemorning.com/p/fact-check-no-there-is-not-a-new">Kaufmann gave to Erin Reed</a>:</p>
+<p><img src="reed-kaufmann-quote.jpeg" class="img-fluid"></p>
+<p>Nonresponse is one of a number of reasons you could make mistakes with unweighted survey data, and unless you know otherwise, there’s really no expectation that the composition of a respondent pool will be stable or representative of a population over time.</p>
+<p>For example, the following chart shows the FIRE dataset’s unweighted proportions for graduation year (<code>gradyear</code>; expressed for visual clarity as years from survey collection date) over time. A close inspection might identify a pattern similar to the one found in Kaufmann’s original chart. Did the proportion of American college students about to graduate surge by 74% and then collapse by 30% between 2020-2025?</p>
+<p><img src="2025-10-16-unweighted_gradyear_proportions.png" class="img-fluid"></p>
+<p>Maybe. If I wanted to know, I wouldn’t look at the unweighted composition of respondents from a survey designed to answer a completely different set of questions.</p>
 <hr>
 <p><em>Human-authored. Code for the analysis described in this post is available <a href="https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331">here</a>.</em></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

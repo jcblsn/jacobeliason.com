@@ -11,18 +11,42 @@ execute:
   freeze: auto
 ---
 
-Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY), and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022-2023 to 3.6% in 2025. 
+## Looking closely at a surprising claim
+
+Eric Kaufmann's [recent article on UnHerd](https://archive.ph/ywhWw)--covered by the [New York Post](https://archive.ph/phkCH), [RealClearPolitics](https://archive.ph/LnTWY), and elsewhere--claims that gender non-conforming identification among U.S. college students "has effectively halved" from 6.8% in 2022–2023 to 3.6% in 2025. 
 
 This conclusion, based on analysis of survey data collected for [FIRE](https://archive.ph/Tlk1I)'s [College Free Speech Rankings](https://archive.ph/pqtMd), suffers from several issues, including a significant analytical error I haven't seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same [dataset](https://rankings.thefire.org/explore?demo=all&year=2025), I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann's numbers, but the weighted series shows a different trend.
 
 ![](2025-10-14-weighted_vs_unweighted_estimates.png)
 
-The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is [standard practice](https://doi.org/10.1093/poq/nfl033) to account for variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population, raw survey responses are usually not representative because [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
+The organization that runs this survey [uses post-stratification weighting](https://archive.ph/2zU1X) to ensure their sample reflects the national population of college students. This is [standard practice](https://doi.org/10.1093/poq/nfl033) to account for issues like variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population (and sometimes the sampling frame is deliberately not constructed to be representative), raw survey responses are still usually not representative because, among other reasons, [individuals from certain demographic groups are more likely to respond to survey invitations](https://archive.ph/emD3t). Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.
 
 That's not the end of the story; estimating changes in time from cross-sectional data can be challenging! In this case, since the weighting procedure itself appears to calibrate on gender, even the resulting weighted proportions for gender identity may reflect benchmark choices as much as population change. Still, using unweighted counts--the realized respondent mix--in place of weighted estimates is dead on arrival for any claim about the student population.
+
+## Update
+
+In light of Kaufmann's [response](https://x.com/epkaufm/status/1978849792647201078) to the weighting criticism, I thought I'd expand this stub from earlier in the week to make a couple of points more clearly. 
+
+### We probably shouldn't use the weighted series from FIRE here either
+
+The weighted series propagates assumptions the survey methodologist makes about the population's true composition, based on trustworthy benchmarks (in this case, from [CPS](https://www.census.gov/programs-surveys/cps.html), [NPSAS](https://nces.ed.gov/surveys/npsas/), and [IPEDS](https://nces.ed.gov/ipeds)). To the extent the methodologist makes good assumptions, that means the weighted proportion is probably at least a reasonable representation of true prevalence, but only because they've mechanically made it so; it won't represent new evidence in that direction. 
+
+FIRE's survey is primarily focused on free speech. Since this survey is only intrumentally interested in gender identity, FIRE might reasonably make changes to how gender is treated in the weighting protocol from one year to the next that could disrupt an attempt to estimate a trend like the one Kaufmann investigates. I haven't asked FIRE, but I strongly suspect something like that may have happened. For example, if one of their weighting sources moved from two gender identity choices to three, I'd expect to see something close to the observed jump in the weighted series' value from 2023 to 2024. In fact, it looks like this [is the case at IPEDS](https://nces.ed.gov/ipeds/report-your-data/archived-changes/2023-24), one of the data sources for weighting.
+
+### But weighting really is "appropriate for this kind of over time analysis"
+
+I was surprised by this response [Kaufmann gave to Erin Reed](https://www.erininthemorning.com/p/fact-check-no-there-is-not-a-new):
+
+![](reed-kaufmann-quote.jpeg)
+
+Nonresponse is one of a number of reasons you could make mistakes with unweighted survey data, and unless you know otherwise, there's really no expectation that the composition of a respondent pool will be stable or representative of a population over time. 
+
+For example, the following chart shows the FIRE dataset's unweighted proportions for graduation year (`gradyear`; expressed for visual clarity as years from survey collection date) over time. A close inspection might identify a pattern similar to the one found in Kaufmann's original chart. Did the proportion of American college students about to graduate surge by 74% and then collapse by 30% between 2020-2025? 
+
+![](2025-10-16-unweighted_gradyear_proportions.png)
+
+Maybe. If I wanted to know, I wouldn't look at the unweighted composition of respondents from a survey designed to answer a completely different set of questions.
 
 ---
 
 *Human-authored. Code for the analysis described in this post is available [here](https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331).*
-
-[^1]: Another issue is that it treats the FIRE category ("a gender other than male or female") as if it were a direct measure of "trans identification," which it is not: transgender students who identify as male or female are not counted.
