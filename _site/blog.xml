@@ -9,7 +9,7 @@
 <link>https://jacobeliason.com/blog.html</link>
 <atom:link href="https://jacobeliason.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.549</generator>
+<generator>quarto-1.8.26</generator>
 <lastBuildDate>Tue, 14 Oct 2025 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Methodological issues in Kaufmann’s analysis of FIRE gender identity data</title>
@@ -24,35 +24,44 @@
 <section id="looking-closely-at-a-surprising-claim" class="level2">
 <h2 class="anchored" data-anchor-id="looking-closely-at-a-surprising-claim">Looking closely at a surprising claim</h2>
 <p>Eric Kaufmann’s <a href="https://archive.ph/ywhWw">recent article on UnHerd</a>–covered by the <a href="https://archive.ph/phkCH">New York Post</a>, <a href="https://archive.ph/LnTWY">RealClearPolitics</a>, and elsewhere–claims that gender non-conforming identification among U.S. college students “has effectively halved” from 6.8% in 2022–2023 to 3.6% in 2025.</p>
-<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series shows a different trend.</p>
+<p>This conclusion, based on analysis of survey data collected for <a href="https://archive.ph/Tlk1I">FIRE</a>’s <a href="https://archive.ph/pqtMd">College Free Speech Rankings</a>, suffers from several issues, including a significant analytical error I haven’t seen documented yet: Kaufmann failed to use the survey weights required to produce representative survey estimates for a panel survey like this one. Using the same <a href="https://rankings.thefire.org/explore?demo=all&amp;year=2025">dataset</a>, I calculated both unweighted and weighted estimates of gender non-conforming identification by year. The unweighted series reproduces Kaufmann’s numbers, but the weighted series shows a different trend. I wouldn’t interpret the weighted series as the “correct answer” (discussed below), but the divergence illustrates how drastically the respondent pool apparently fluctuates year-to-year–and how analysis of this dataset in particular should not be interpreted as adding evidence for or against Kaufmann’s argument.</p>
 <p><img src="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-14-weighted_vs_unweighted_estimates.png" class="img-fluid"></p>
-<p>The organization that runs this survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is <a href="https://doi.org/10.1093/poq/nfl033">standard practice</a> to account for issues like variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population (and sometimes the sampling frame is deliberately not constructed to be representative), raw survey responses are still usually not representative because, among other reasons, <a href="https://archive.ph/emD3t">individuals from certain demographic groups are more likely to respond to survey invitations</a>. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
-<p>That’s not the end of the story; estimating changes in time from cross-sectional data can be challenging! In this case, since the weighting procedure itself appears to calibrate on gender, even the resulting weighted proportions for gender identity may reflect benchmark choices as much as population change. Still, using unweighted counts–the realized respondent mix–in place of weighted estimates is dead on arrival for any claim about the student population.</p>
+<p>The organization that runs the survey <a href="https://archive.ph/2zU1X">uses post-stratification weighting</a> to ensure their sample reflects the national population of college students. This is standard practice to account for issues like variable rates of survey non-response by respondent demographic. The justification for survey weighting is straightforward: even if survey invitations are sent to a representative sample from a target population (and sometimes the sampling frame is deliberately not constructed to be representative), raw survey responses are still usually not representative because, among other reasons, individuals from certain demographic groups may be more likely to respond to survey invitations. Weights rebalance the actual sample toward externally validated benchmarks so estimates better represent the population of interest. If you ignore these, you are explicitly describing the respondent pool, not the target population.</p>
+<p>This doesn’t imply, however, that the appropriate method is simply to use the weighted series. The weighting procedure propagates assumptions the survey methodologist makes about the population’s true composition, based on trustworthy benchmarks (in this case, from <a href="https://www.census.gov/programs-surveys/cps.html">CPS</a>, <a href="https://nces.ed.gov/surveys/npsas/">NPSAS</a>, and <a href="https://nces.ed.gov/ipeds">IPEDS</a>). This is normal and not a bad thing, but it creates a different problem if your variable of interest happens to be one of the demographic variables used in that procedure. When the methodologist makes explicit assumptions like “Census has a very good recent estimate of the true proportion of women for our target population at X%, so we will adjust our sample until women are X%,” the weighted proportion of women in the final survey results will be, mechanically, close to X%. These weighted proportions are usually a reasonable representation of true prevalence, but only as far as the assumptions are reasonable.</p>
+<p>In this case, FIRE’s survey showing a higher non-binary identification value in 2024 than in 2021 implies that the target they used in 2024 was higher than the target they used in 2021 (probably–this is an oversimplification). However, FIRE’s survey is about free speech. They are only interested in gender identity as far as it helps calibrate their estimates related to free speech. Survey vendors (should) regularly update their weighting targets to reflect the best available data. This is good practice for generating an accurate snapshot in a given year, but if the government’s own definitions change, a trend constructued from waves in consecutive years might artificially blow up. For example, if the source for gender moved from two gender identity choices to three, I’d expect to see something close to the observed jump in the weighted series’ value from 2023 to 2024. In fact, it looks like this <a href="https://nces.ed.gov/ipeds/report-your-data/archived-changes/2023-24">is the case at IPEDS</a>, one of the data sources for weighting.</p>
+<p>However, this of course is not relevant to the suitability of the unweighted estimates. An analysis using unweighted counts–the realized respondent mix–in place of some weighted estimate is dead on arrival for this kind of claim about the true student population.</p>
 </section>
-<section id="update" class="level2">
-<h2 class="anchored" data-anchor-id="update">Update</h2>
-<p>In light of Kaufmann’s <a href="https://x.com/epkaufm/status/1978849792647201078">response</a> to the weighting criticism, I thought I’d expand this stub from earlier in the week to make a couple of points more clearly.</p>
-<section id="we-probably-shouldnt-use-the-weighted-series-from-fire-here-either" class="level3">
-<h3 class="anchored" data-anchor-id="we-probably-shouldnt-use-the-weighted-series-from-fire-here-either">We probably shouldn’t use the weighted series from FIRE here either</h3>
-<p>The weighted series propagates assumptions the survey methodologist makes about the population’s true composition, based on trustworthy benchmarks (in this case, from <a href="https://www.census.gov/programs-surveys/cps.html">CPS</a>, <a href="https://nces.ed.gov/surveys/npsas/">NPSAS</a>, and <a href="https://nces.ed.gov/ipeds">IPEDS</a>). To the extent the methodologist makes good assumptions, that means the weighted proportion is probably at least a reasonable representation of true prevalence, but only because they’ve mechanically made it so; it won’t represent new evidence in that direction.</p>
-<p>FIRE’s survey is primarily focused on free speech. Since this survey is only intrumentally interested in gender identity, FIRE might reasonably make changes to how gender is treated in the weighting protocol from one year to the next that could disrupt an attempt to estimate a trend like the one Kaufmann investigates. I haven’t asked FIRE, but I strongly suspect something like that may have happened. For example, if one of their weighting sources moved from two gender identity choices to three, I’d expect to see something close to the observed jump in the weighted series’ value from 2023 to 2024. In fact, it looks like this <a href="https://nces.ed.gov/ipeds/report-your-data/archived-changes/2023-24">is the case at IPEDS</a>, one of the data sources for weighting.</p>
-</section>
-<section id="but-weighting-really-is-appropriate-for-this-kind-of-over-time-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="but-weighting-really-is-appropriate-for-this-kind-of-over-time-analysis">But weighting really is “appropriate for this kind of over time analysis”</h3>
-<p>I was surprised by this response <a href="https://www.erininthemorning.com/p/fact-check-no-there-is-not-a-new">Kaufmann gave to Erin Reed</a>:</p>
+<section id="kaufmanns-response" class="level2">
+<h2 class="anchored" data-anchor-id="kaufmanns-response">Kaufmann’s Response</h2>
+<p>Kaufmann <a href="https://x.com/epkaufm/status/1978849792647201078">responded</a> to my initial criticism by characterizing this post (which I have expanded above and below to prevent further confusion) as an argument in favor of the weighted series. This is unfortunate, since from the outset here<sup>1</sup>, <a href="https://x.com/jaco_bel/status/1978475166742049176">on Twitter</a>, and elsewhere I’ve been clear that I’m not proposing the use of the weighted series in favor of the unweighted one. In focusing on debunking the weighted trend line, Kaufmann’s response does little to further justify his original approach.</p>
+<p>He did, however, give this response to another critic:</p>
 <p><img src="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/reed-kaufmann-quote.jpeg" class="img-fluid"></p>
-<p>Nonresponse is one of a number of reasons you could make mistakes with unweighted survey data, and unless you know otherwise, there’s really no expectation that the composition of a respondent pool will be stable or representative of a population over time.</p>
-<p>For example, the following chart shows the FIRE dataset’s unweighted proportions for graduation year (<code>gradyear</code>; expressed for visual clarity as years from survey collection date) over time. A close inspection might identify a pattern similar to the one found in Kaufmann’s original chart. Did the proportion of American college students about to graduate surge by 74% and then collapse by 30% between 2020-2025?</p>
+</section>
+<section id="weighting-really-is-appropriate-for-this-kind-of-over-time-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="weighting-really-is-appropriate-for-this-kind-of-over-time-analysis">Weighting really is “appropriate for this kind of over time analysis”</h2>
+<p>It might not be obvious why this is wrong. Nonresponse is one of a number of reasons you could make mistakes with unweighted survey data and unless you know otherwise, there’s really no expectation that the composition of a respondent pool will be stable or representative of a population over time.</p>
+<p>Here’s an illustrating example. The following chart shows the FIRE dataset’s unweighted proportions for graduation year (<code>gradyear</code>; expressed for visual clarity as years from survey collection date) over time. A close inspection might identify a pattern similar to the one found in Kaufmann’s original chart. Did the proportion of American college students about to graduate surge by 74% and then collapse by 30% between 2020-2025?</p>
 <p><img src="https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/2025-10-16-unweighted_gradyear_proportions.png" class="img-fluid"></p>
-<p>Maybe. If I wanted to know, I wouldn’t look at the unweighted composition of respondents from a survey designed to answer a completely different set of questions.</p>
+<p>Of course not. The population of college seniors is relatively stable; the swings in the chart above are artifacts of the survey panel’s composition. Just to round this point out: if the sample can accidentally capture 74% more seniors in one year than the next, it can certainly capture fewer non-binary students for reasons unrelated to real or imagined cultural shifts.</p>
+<p>In a <a href="https://archive.ph/w9iU2">subsequent post</a>, Kaufmann presented a regression analysis attempting to control for these demographic shifts. This is a more interesting approach than using raw counts, and it might register as an interesting complement if it was presented alongside evidence from a weighted probability sample. However, a regression model can only control for observed variables like race, school, or financial aid status. It relies on the assumption that non-response is random conditional on those traits. We also can’t make assumptions about whatever internal design decisions or quotas FIRE might have alternately used to construct their sample over the years. If the recruitment strategy for their panel changed at all: for example, by changing vendors or targeting different types of media channels, the type of student responding in 2025 may differ from 2023 in ways a regression on standard demographics cannot see.</p>
+</section>
+<section id="this-data-is-unfortunately-not-very-useful-for-answering-this-question" class="level2">
+<h2 class="anchored" data-anchor-id="this-data-is-unfortunately-not-very-useful-for-answering-this-question">This data is unfortunately not very useful for answering this question</h2>
+<p>This leaves us in kind of an unsatisfying place. The sample composition is apparently volatile–as shown by the surge and collapse of senior class respondents–and the weighted series simply mirrors what the researchers at FIRE have assumed about the population of nonbinary identifying college students.</p>
+<p>I don’t have a strong prior belief about the direction and size of the change in proportion of trans-identifying young adults from 2023 to 2025 and am not aware of existing evidence that speaks convincingly about it one way or another (this is not to say such evidence does not exist). However, the FIRE dataset was not designed to serve this purpose, let alone as the basis of a strong claim about massive cultural shifts.</p>
 <hr>
 <p><em>Human-authored. Code for the analysis described in this post is available <a href="https://gist.github.com/jcblsn/41cc277699da0d89dced5d5310423331">here</a>.</em></p>
 
 
 </section>
-</section>
 
- ]]></description>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I intended the phrase ‘shows a different trend’ in my original first paragraph was not an endorsement of that different trend, but an illustration of how different the respondent mix is from the FIRE researchers’ beliefs about the population.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
   <category>surveys</category>
   <guid>https://jacobeliason.com/posts/2025-10-14-fire-survey-analysis-correction/</guid>
   <pubDate>Tue, 14 Oct 2025 04:00:00 GMT</pubDate>
@@ -103,7 +112,7 @@
 <section id="transfer" class="level3">
 <h3 class="anchored" data-anchor-id="transfer">Transfer</h3>
 <p>After some frustrating trial and error, I set a large external hard drive as the root directory for my Dropbox Mac client’s backup in order to download my cloud storage files without harming their metadata. I then connected the drive to the NAS and used the following from my personal computer to copy files from the drive to the destination file system:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">nohup</span> caffeinate <span class="at" style="color: #657422;
 background-color: null;
@@ -131,10 +140,11 @@ font-style: inherit;">"/source"</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"/target"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">&amp;</span></span></code></pre></div>
+font-weight: bold;
+font-style: inherit;">&amp;</span></span></code></pre></div></div>
 <p>The <code>caffeinate</code> command prevents my Mac from sleeping during the transfer.</p>
 <p>To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/bin/bash</span></span>
 <span id="cb2-2"></span>
@@ -174,10 +184,12 @@ font-style: inherit;">$($RSYNC</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--version</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">grep</span> version <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">awk</span> <span class="st" style="color: #20794D;
@@ -195,8 +207,10 @@ font-style: inherit;">"3.1.0"</span></span>
 <span id="cb2-11"></span>
 <span id="cb2-12"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">[[</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$(</span><span class="bu" style="color: null;
@@ -215,12 +229,14 @@ font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20
 background-color: null;
 font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sort</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-V</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span> <span class="at" style="color: #657422;
@@ -237,8 +253,10 @@ font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20
 background-color: null;
 font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-13">  <span class="bu" style="color: null;
 background-color: null;
@@ -263,6 +281,7 @@ background-color: null;
 font-style: inherit;">exit</span> 1</span>
 <span id="cb2-16"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-17"></span>
 <span id="cb2-18"><span class="co" style="color: #5E5E5E;
@@ -270,6 +289,7 @@ background-color: null;
 font-style: inherit;"># check if the pairs file exists</span></span>
 <span id="cb2-19"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -286,8 +306,10 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-20">    <span class="bu" style="color: null;
 background-color: null;
@@ -299,6 +321,7 @@ background-color: null;
 font-style: inherit;">exit</span> 1</span>
 <span id="cb2-22"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-23"></span>
 <span id="cb2-24"><span class="co" style="color: #5E5E5E;
@@ -306,6 +329,7 @@ background-color: null;
 font-style: inherit;"># read each line from the pairs file</span></span>
 <span id="cb2-25"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">while</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">IFS</span><span class="op" style="color: #5E5E5E;
@@ -319,6 +343,7 @@ background-color: null;
 font-style: inherit;">line</span></span>
 <span id="cb2-26"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">do</span></span>
 <span id="cb2-27">    <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -382,6 +407,7 @@ background-color: null;
 font-style: inherit;"># check if source and destination are provided</span></span>
 <span id="cb2-33">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -396,6 +422,7 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">||</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
@@ -410,8 +437,10 @@ font-style: inherit;">"</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">then</span></span>
 <span id="cb2-34">        <span class="bu" style="color: null;
 background-color: null;
@@ -424,9 +453,11 @@ background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb2-35">        <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">continue</span></span>
 <span id="cb2-36">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">fi</span></span>
 <span id="cb2-37"></span>
 <span id="cb2-38">    <span class="bu" style="color: null;
@@ -491,6 +522,7 @@ background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb2-44"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;</span> <span class="st" style="color: #20794D;
@@ -509,7 +541,7 @@ font-style: inherit;">"All operations completed. Check </span><span class="va" s
 background-color: null;
 font-style: inherit;">$LOG_FILE</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> for details."</span></span></code></pre></div>
+font-style: inherit;"> for details."</span></span></code></pre></div></div>
 <p>Because I was setting up a new directory structure, I used a file containing pairs of one source and one destination directory at a time to copy files over.</p>
 <!-- ### Configuration -->
 </section>
@@ -804,10 +836,10 @@ Note
 <p><img src="https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/goat.jpeg" class="img-fluid"></p>
 <p>I’ll let the <a href="https://www.goatcounter.com/">GoatCounter site</a> speak for itself if you haven’t heard of it, but the gist is that it’s a lightweight, privacy-respecting analytics service. It’s open source and free for small sites.</p>
 <p>And, it turns out, it’s also easy to configure with Quarto. After you create an account, you’re presented with a snippet of JavaScript to embed in your site:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource {javascript} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1">&lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
-<span id="cb1-2">async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource {javascript} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1">&lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
+<span id="cb1-2">async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div></div>
 <p>Quarto <a href="https://quarto.org/docs/reference/formats/html.html#includes">provides</a> the option to fairly easily embed custom JavasSript in each of the site’s HTML documents. To add tracking functionality to my site, I included the Javascript in my project’s <code>_quarto.yml</code> file as follows:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"># ...</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"># ...</span>
 <span id="cb2-2">format:</span>
 <span id="cb2-3">  html:</span>
 <span id="cb2-4">    theme: </span>
@@ -816,7 +848,7 @@ Note
 <span id="cb2-7">    include-in-header: </span>
 <span id="cb2-8">      - text: |</span>
 <span id="cb2-9">          &lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
-<span id="cb2-10">          async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
+<span id="cb2-10">          async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div></div>
 <p>From there, all that was left was re-rendering the site with <code>quarto render</code>, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.</p>
 
 
@@ -855,7 +887,7 @@ Note
 <p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. Building the wrapper involved mapping the API’s HTTP-based interface into R functions. It required careful parsing of the API’s responses and ensuring that each function performed its corresponding API request effectively. This involved considerable error checking and handling to ensure robustness. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
 <p>For example, we can retrieve user information by their unique username (in this case, the official account <code>@ManifoldMarkets</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># devtools::install_github("jcblsn/manifoldr")</span></span>
 <span id="cb1-2"></span>
@@ -874,11 +906,11 @@ background-color: null;
 font-style: inherit;">request_type =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"GET"</span></span>
-<span id="cb1-6">)</span></code></pre></div>
+<span id="cb1-6">)</span></code></pre></div></div>
 </div>
 <p>A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as <code>clean_manifold_content()</code>, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using <code>manifoldr::get_manifold_api_key()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">manifoldr<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">manifoldr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -893,7 +925,7 @@ font-style: inherit;">|&gt;</span> </span>
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
+font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div></div>
 </div>
 <p>The package includes implementations of standard unit testing and code coverage tools using <a href="https://covr.r-lib.org"><code>covr</code></a>, <a href="https://testthat.r-lib.org"><code>testthat</code></a>, and <a href="https://github.com/r-lib/actions">Github Actions</a>.</p>
 </section>
@@ -976,11 +1008,11 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <section id="some-of-my-favorite-recent-textures" class="level2">
 <h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
 <p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
-<p></p><div id="tweet-42151"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-42151").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-40107"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-40107").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-89583"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-89583").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-73125"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-73125").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-41250"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-41250").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-20750"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-20750").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-37309"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-37309").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-54116"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-54116").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-88796"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-88796").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-30791"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-30791").innerHTML = tweet["html"];</script><p></p>
 
 
 </section>
@@ -1039,7 +1071,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 22%">
@@ -1198,7 +1230,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>We can produce much more accurate estimates by using new weights for the Mormon respondents that are based on these population targets. Using a “simple raking technique” (in my case, using the <code>survey</code> package in R), I <a href="https://github.com/jcblsn/jacobeliason-dot-com/blob/main/content/post/2021-06-25-how-many-young-mormons-are-queer/produce-mormon-weights-for-nationscape.R">bring</a> the sample characteristics of the Mormon survey respondents more or less into alignment with what we understand the population characteristics of Mormons to really be. Here’s what the new weighted estimates and the population targets look like side by side.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 30%">
@@ -1335,7 +1367,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>These obviously are a much closer match. Going one step further, I highlight the “performance” of these different schemes by taking the difference between each set of estimates and the population targets. Using those differences, I compute the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">root-mean-square error</a> for each scheme overall (where a higher number is more error and “worse”).<sup>1</sup></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Method</th>
@@ -1366,7 +1398,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p>That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for “Do you identify as [straight/gay/lesbian/bisexual/other]” by generation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Generation</th>
@@ -1422,7 +1454,7 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <p><img src="https://latex.codecogs.com/png.latex?V(%5Chat%7B%5Ctheta%7D)%20=%20(1%20+%20%7Bs%5E2%7D_%7Bw%7D)%5Chat%7B%5Ctheta%7D(1-%5Chat%7B%5Ctheta%7D)"> where <img src="https://latex.codecogs.com/png.latex?s_w"> is the standard deviation of the weights</p>
 <p>My interpretation of Rivers and Bailey follows code like this. I include it here because I’d love to hear feedback if this is a misunderstanding of that recommendation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">sd_w_mormon <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">sd_w_mormon <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1485,7 +1517,7 @@ font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>est))<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span>wt_n))</span></code></pre></div>
+font-style: inherit;">/</span>wt_n))</span></code></pre></div></div>
 </div>
 <p>Using these confidence intervals (and corresponding calculations for the general population), I show the following final result:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1545,7 +1577,7 @@ font-style: inherit;">/</span>wt_n))</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="s2">2. Unpacking <code>.gpx</code> and <code>.fit.gz</code> files</h2>
 <p>I start by installing the Github packages and loading those along with the <code>tidyverse</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># devtools::install_github("grimbough/FITfileR")</span></span>
 <span id="cb1-2"><span class="co" style="color: #5E5E5E;
@@ -1560,11 +1592,11 @@ background-color: null;
 font-style: inherit;">library</span>(trackeR)</span>
 <span id="cb1-6"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 </div>
 <p>A few more lines help with setup and prepare for reading the activity files.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">PATH <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">PATH <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1602,14 +1634,14 @@ font-style: inherit;">sample</span>(activity_names, <span class="dv" style="colo
 background-color: null;
 font-style: inherit;">3</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># check to make sure I got the correct file path</span></span></code></pre></div>
+font-style: inherit;"># check to make sure I got the correct file path</span></span></code></pre></div></div>
 </div>
 <p>As I look at the file names, the first thing that becomes apparent is that I have some extra work to do as a result of my alternately using my phone and a Garmin watch to record activities. Those two devices produce the two different file extensions I observe and require different steps for unpacking.</p>
 <section id="s2-read-fit" class="level3">
 <h3 class="anchored" data-anchor-id="s2-read-fit">Uncompressing and reading files from my fitness watch (<code>.fit.gz</code>)</h3>
 <p>The <code>.fit.gz</code> files are <a href="https://en.wikipedia.org/wiki/Gzip">compressed</a> and need to be uncompressed to <code>.fit</code> before I can use the <code>FITfileR</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">compressed_record_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">compressed_record_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1629,8 +1661,10 @@ font-style: inherit;">"fit.gz"</span>]</span>
 <span id="cb3-2"></span>
 <span id="cb3-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1650,11 +1684,11 @@ font-style: inherit;">str_c</span>(PATH_ACTIVITIES, compressed_record_names[i]),
 background-color: null;
 font-style: inherit;">remove =</span> F</span>
 <span id="cb3-7">  )</span>
-<span id="cb3-8">}</span></code></pre></div>
+<span id="cb3-8">}</span></code></pre></div></div>
 </div>
 <p>Having unzipped the files, I again collect names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">activity_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">activity_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1677,19 +1711,21 @@ font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"fit"</span>] <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># want exact match to .fit only, no .fit.gz</span></span></code></pre></div>
+font-style: inherit;"># want exact match to .fit only, no .fit.gz</span></span></code></pre></div></div>
 </div>
 <p>Now, using <code>FITfileR::records()</code>, I transform the files into tidy, rectangular datasets.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">list.fit <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">list.fit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb5-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1717,6 +1753,7 @@ font-style: inherit;">records</span>()</span>
 <span id="cb5-6">  </span>
 <span id="cb5-7">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(record) <span class="sc" style="color: #5E5E5E;
@@ -1755,14 +1792,14 @@ font-style: inherit;">bind_rows</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div>
+font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-read-gpx" class="level3">
 <h3 class="anchored" data-anchor-id="s2-read-gpx">Reading files recorded from my iPhone (<code>.gpx</code>)</h3>
 <p>I turn my attention back to the <code>.gpx</code> files. Fortunately, these files don’t require much beyond a simple pass from the <code>trackeR</code> function. I do some additional housekeeping along the way, but this part is pretty straightforward.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">gpx_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">gpx_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1787,8 +1824,10 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb6-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1831,14 +1870,14 @@ font-style: inherit;">cadence =</span> cadence_running</span>
 <span id="cb6-13">  list.gpx[[i]] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> record</span>
-<span id="cb6-14">}</span></code></pre></div>
+<span id="cb6-14">}</span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-combine" class="level3">
 <h3 class="anchored" data-anchor-id="s2-combine">Combine both record types</h3>
 <p>I add my two datasets together and with that, I’m ready to Learn Things.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">records <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">records <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1860,14 +1899,14 @@ background-color: null;
 font-style: inherit;"># colnames(records)</span></span>
 <span id="cb7-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># nrow(records)</span></span></code></pre></div>
+font-style: inherit;"># nrow(records)</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-summary" class="level3">
 <h3 class="anchored" data-anchor-id="s2-summary">Straightening out the summary information in <code>activities.csv</code></h3>
 <p>One last thing I’ll do before I finish up is make some tweaks to the <code>activities.csv</code> file I got in my original download. I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> </span>
 <span id="cb8-2">  activities <span class="sc" style="color: #5E5E5E;
@@ -1908,11 +1947,11 @@ font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">is.na</span>(filename)) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># drop rows with empty file names</span></span></code></pre></div>
+font-style: inherit;"># drop rows with empty file names</span></span></code></pre></div></div>
 </div>
 <p>I also make a variety of mostly trivial changes for my own convenience and then I’m good to go!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">KM_TO_MI <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">KM_TO_MI <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -1942,6 +1981,7 @@ font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"elevation"</span>)), <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x){x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> x<span class="sc" style="color: #5E5E5E;
@@ -2184,7 +2224,7 @@ font-style: inherit;">round</span>(.x, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>)) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># round numeric variables</span></span></code></pre></div>
+font-style: inherit;"># round numeric variables</span></span></code></pre></div></div>
 </div>
 <p>Now, for each run, I have information on granular location data and summary information in datasets <code>records</code> and <code>record_key</code> respectively. The interesting stuff pretty much all comes after this point, but I’ll save that for another post.</p>
 
