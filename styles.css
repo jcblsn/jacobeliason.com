@@ -24,13 +24,59 @@ body {
   font-size: 0.925em; /* 1 increment smaller than the default (1em) */
 }
 
-/* space out contents on home page */
-.about-entity {
-  margin-right: 2rem; /* Adjust the value as desired */
+/* The about page repeats the site name, which is already in the navbar.
+   It was previously hidden by the global white h1 rule, which left it
+   occupying vertical space; remove it from the layout instead. */
+div.quarto-about-trestles .about-entity .quarto-title h1.title {
+  display: none;
 }
 
-.level2 {
-  margin-left: 1.5rem; /* Adjust the value as desired */
+/* gap between the two columns on the home page; no columns when stacked */
+@media (min-width: 768px) {
+  .about-entity {
+    margin-right: 2rem;
+  }
+}
+
+/* Quarto sets the headshot to 20em inline. Once the two-column layout stacks
+   on narrow screens that fills most of the first screen, so cap it there only.
+   max-width beats the inline width without needing !important. */
+@media (max-width: 767.98px) {
+  .quarto-about-trestles .about-image {
+    max-width: 12em;
+  }
+
+  /* the stacked layout puts the headshot flush against the navbar */
+  .quarto-about-trestles .about-entity {
+    padding-top: 1.5rem;
+  }
+
+  /* The theme stacks these full-width on mobile (flex-direction:column;
+     width:100%), which costs ~190px for three links. Selector shape matches
+     the theme's so our later-loading stylesheet wins on cascade order. */
+  div.quarto-about-trestles .about-entity .about-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    column-gap: 0.6em;
+    row-gap: 0.5em;
+    padding-bottom: 1em;
+  }
+
+  div.quarto-about-trestles .about-entity .about-link {
+    width: auto;
+    font-size: 0.9em;
+    padding: 0.35em 0.7em;
+  }
+}
+
+/* indent was written for the home page's two-column layout; only apply it
+   where that layout exists (about page, desktop widths) so posts stay symmetric */
+@media (min-width: 768px) {
+  .quarto-about-trestles .level2 {
+    margin-left: 1.5rem;
+  }
 }
 
 .description {
