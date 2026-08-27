@@ -1,0 +1,11 @@
+{
+  "hash": "4983a6709c06355a7a5650020da00790",
+  "result": {
+    "markdown": "---\ntitle: \"Privacy-friendly web analytics for Quarto\"\ndescription: 'Configuring GoatCounter on my personal site.'\ncategories: [quarto, meta]\nauthor: \"Jacob Eliason\"\ndate: \"2023-11-06\"\ndraft: false\nexecute:\n  freeze: auto  # re-render only when source changes\n---\n\nThe following is mostly to pin this solution for my future self.\n\nI've set up Google Analytics on a personal site before but I've never bothered to do anything with the resultant data. I'm interested in knowing whether the site is receiving visitors but I'm also pretty sympathetic to high privacy standards. GoatCounter turned out to be a nice fit for this combination of preferences.\n\n![](goat.jpeg)\n\nI'll let the [GoatCounter site](https://www.goatcounter.com/) speak for itself if you haven't heard of it, but the gist is that it's a lightweight, privacy-respecting analytics service. It's open source and free for small sites.\n\nAnd, it turns out, it's also easy to configure with Quarto. After you create an account, you're presented with a snippet of JavaScript to embed in your site:\n\n\n```{javascript}\n<script data-goatcounter=\"https://[your-code].goatcounter.com/count\" \nasync src=\"//gc.zgo.at/count.js\"></script>\n```\n\n\nQuarto [provides](https://quarto.org/docs/reference/formats/html.html#includes) the option to fairly easily embed custom JavasSript in each of the site's HTML documents. To add tracking functionality to my site, I included the Javascript in my project's `_quarto.yml` file as follows:\n\n\n```{yaml}\n# ...\nformat:\n  html:\n    theme: \n    # ...\n    css: styles.css\n    include-in-header: \n      - text: |\n          <script data-goatcounter=\"https://[your-code].goatcounter.com/count\" \n          async src=\"//gc.zgo.at/count.js\"></script>\n```\n\n\nFrom there, all that was left was re-rendering the site with `quarto render`, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -4,7 +4,7 @@ description: 'Configuring GoatCounter on my personal site.'
 categories: [quarto, meta]
 author: "Jacob Eliason"
 date: "2023-11-06"
-draft: false
+draft: true
 execute:
   freeze: auto  # re-render only when source changes
 ---
@@ -19,14 +19,14 @@ I'll let the [GoatCounter site](https://www.goatcounter.com/) speak for itself i
 
 And, it turns out, it's also easy to configure with Quarto. After you create an account, you're presented with a snippet of JavaScript to embed in your site:
 
-```{javascript}
+```js
 <script data-goatcounter="https://[your-code].goatcounter.com/count" 
 async src="//gc.zgo.at/count.js"></script>
 ```
 
 Quarto [provides](https://quarto.org/docs/reference/formats/html.html#includes) the option to fairly easily embed custom JavasSript in each of the site's HTML documents. To add tracking functionality to my site, I included the Javascript in my project's `_quarto.yml` file as follows:
 
-```{yaml}
+```yaml
 # ...
 format:
   html:

@@ -27,7 +27,7 @@ freeze: auto
 
 My background is in statistics. I work in measurement: A/B tests, causal inference, and survey methods. Trying to be less wrong. 
 
-Interested in remote sensing, sports, and elections data.
+Also interested in remote sensing, sports, and elections data.
 
 I enjoy running marathons and film photography.
 
@@ -37,7 +37,7 @@ I enjoy running marathons and film photography.
 # <!-- <br> -->
 # <!-- <br> -->
 # <!-- <br> -->
-# 
+#
 # <!-- <p><small>Last updated `r lubridate::today()`</small></p> -->
 ```
 
@@ -50,9 +50,9 @@ I enjoy running marathons and film photography.
 
 # list names of post folders
 posts <- list.dirs(
-  path = here::here("posts"),
-  full.names = FALSE,
-  recursive = FALSE
+    path = here::here("posts"),
+    full.names = FALSE,
+    recursive = FALSE
 )
 
 # extract the slugs, remove date
@@ -63,9 +63,9 @@ redirects <- paste0("/", slugs, " ", "/posts/", posts)
 
 # add cv
 redirects <- c(
-  redirects, 
-  paste0("/cv /files/jacob-eliason-cv.pdf"),
-  paste0("/resume /files/jacob-eliason-resume.pdf")
+    redirects,
+    paste0("/cv /files/jacob-eliason-cv.pdf"),
+    paste0("/resume /files/jacob-eliason-resume.pdf")
 )
 
 # write the _redirect file into both the rendered site and repo root so redirects stay fresh

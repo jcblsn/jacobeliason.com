@@ -1,12 +1,12 @@
 ---
 title: "Re-weighting to estimate population characteristics within a subset of a survey sample"
-description: "Exploring a surprising claim about demographic change."
+description: "Exploring a surprising claim"
 author: "Jacob Eliason"
 categories: [surveys, demography]
 date: "2021-06-25"
 draft: false
 execute:
-  freeze: auto
+  freeze: true
 ---
 
 ```{r, include = F, message = F, warning = F}

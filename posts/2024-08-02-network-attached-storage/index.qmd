@@ -4,7 +4,7 @@ description: "Notes on transitioning to a NAS for personal file storage and back
 categories: ["servers"]
 author: "Jacob Eliason"
 date: "2024-08-02"
-draft: false
+draft: true
 execute:
   freeze: auto  # re-render only when source changes
 ---

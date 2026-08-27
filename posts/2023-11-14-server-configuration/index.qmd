@@ -4,7 +4,7 @@ description: "The steps I followed to configure a HP ProDesk 600 G5 Mini as a mo
 categories: [linux, servers, process write-up]
 author: "Jacob Eliason"
 date: "2023-11-14"
-draft: false
+draft: true
 execute:
   freeze: auto  # re-render only when source changes
 ---

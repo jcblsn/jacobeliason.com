@@ -60,3 +60,6 @@ _book/
 */2023-05-25-glm/*
 */2023-05-25-pedagogy-statistics/*
 **/*.quarto_ipynb
+
+notes/
+.archive/

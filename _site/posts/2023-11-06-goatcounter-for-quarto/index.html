@@ -216,17 +216,17 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <p><img src="goat.jpeg" class="img-fluid"></p>
 <p>I’ll let the <a href="https://www.goatcounter.com/">GoatCounter site</a> speak for itself if you haven’t heard of it, but the gist is that it’s a lightweight, privacy-respecting analytics service. It’s open source and free for small sites.</p>
 <p>And, it turns out, it’s also easy to configure with Quarto. After you create an account, you’re presented with a snippet of JavaScript to embed in your site:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {javascript} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>&lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
-<span id="cb1-2"><a href="#cb1-2"></a>async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&lt;</span>script data<span class="op">-</span>goatcounter<span class="op">=</span><span class="st">"https://[your-code].goatcounter.com/count"</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">async</span> src<span class="op">=</span><span class="st">"//gc.zgo.at/count.js"</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Quarto <a href="https://quarto.org/docs/reference/formats/html.html#includes">provides</a> the option to fairly easily embed custom JavasSript in each of the site’s HTML documents. To add tracking functionality to my site, I included the Javascript in my project’s <code>_quarto.yml</code> file as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a># ...</span>
-<span id="cb2-2"><a href="#cb2-2"></a>format:</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  html:</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    theme: </span>
-<span id="cb2-5"><a href="#cb2-5"></a>    # ...</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    css: styles.css</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    include-in-header: </span>
-<span id="cb2-8"><a href="#cb2-8"></a>      - text: |</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># ...</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    # ...</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">      - </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a>          &lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
 <span id="cb2-10"><a href="#cb2-10"></a>          async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>From there, all that was left was re-rendering the site with <code>quarto render</code>, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.</p>

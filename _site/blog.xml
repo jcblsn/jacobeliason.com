@@ -10,7 +10,111 @@
 <atom:link href="https://jacobeliason.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.549</generator>
-<lastBuildDate>Tue, 14 Oct 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 27 Aug 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>There Aren’t Really 30 Million Vegetarians in Brazil</title>
+  <dc:creator>Jacob Eliason</dc:creator>
+  <link>https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="someone-is-wrong-on-the-internet" class="level2">
+<h2 class="anchored" data-anchor-id="someone-is-wrong-on-the-internet">Someone is wrong on the internet</h2>
+<p>I often compete with my family for the highest score in various daily geography quiz games. I recently took second place to my brother in one game by giving what was apparently a massive underestimate for how many people in Brazil are vegetarian. The game claimed that Brazil is the third-most vegetarian country in the world. While I was admittedly motivated by the sting of losing, this was very surprising to me.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/2026-08-27-someone-is-wrong-on-the-internet.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="xkcd comic 386: a person at a keyboard answers someone off-panel who has asked if they are coming to bed, saying they cannot because someone is wrong on the internet."></p>
+<figcaption><a href="https://xkcd.com/386/">xkcd 386</a></figcaption>
+</figure>
+</div>
+<p>Fully expecting to find that the game had made an error, I was even more surprised to see Wikipedia’s <a href="https://en.wikipedia.org/w/index.php?title=Vegetarianism_by_country&amp;oldid=1363164359">Vegetarianism by country</a> table claim the “prevalence of dietary vegetarianism” in Brazil is 14%, or 29.3 million people.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/2026-08-27-wikipedia-vegetarianism-by-country.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Wikipedia's Vegetarianism by country summary table. The Brazil row lists 14% of the population, about 29,260,000 people, for 2018, above Mexico at 19% and below India at 20 to 39%."></p>
+</figure>
+</div>
+<p>Other sources affirmed some version of this claim: the New York Times <a href="https://archive.ph/kEDc3">in December 2020</a> asserted that self-declared vegetarianism in Brazil had, remarkably, nearly doubled in just six years before reaching 14% of Brazilians in 2018. <a href="https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Brazil%27s%20Plant-Based%20Food%20Trends_Sao%20Paulo%20ATO_Brazil_05-16-2020">A 2020 report</a> from the USDA’s Foreign Agricultural Service similarly stated that “30 million people in Brazil consider themselves vegetarians.”</p>
+<p>A <a href="https://www.sciencedirect.com/science/article/abs/pii/S0743016719305637">peer-reviewed paper</a> in the Journal of Rural Studies and a 2022 Brazilian Senate hearing <a href="https://archive.ph/FoM2j">transcript</a> both go further, with the latter claiming “almost 30 million Brazilians…do not use meat in their diet.”</p>
+<p>This claimed rate stands out in part because it is much higher than the corresponding rate for vegetarianism in the US.<sup>1</sup> In 2023, Gallup had <a href="https://archive.ph/YMXR4">4%</a> of Americans as vegetarian-identifying. With respect to dietary vegetarianism, an older <a href="https://doi.org/10.1093/ajcn/78.3.626S">study</a> found that more than half of vegetarian-identifying Americans still reported eating meat on at least one recall day; only 0.9% of the full sample both identified as vegetarian and reported eating no meat.</p>
+<p>These large differences between estimates of vegetarian identity and actual dietary practice point towards a pedantic-sounding but important question central to understanding what’s going on here: what is a vegetarian? In different contexts, “vegetarian” is used to describe many different points on a broad spectrum of both behaviors and beliefs.</p>
+</section>
+<section id="partial-vegetarians" class="level2">
+<h2 class="anchored" data-anchor-id="partial-vegetarians">Partial vegetarians?</h2>
+<p>As it turns out, the prominent versions of this particular claim all come from the same place. In 2018, IBOPE Inteligência, a well-regarded Brazilian polling and market-research company,<sup>2</sup> surveyed 2,002 Brazilians aged 16 and older “to understand perceptions of the population about vegetarianism.” The <a href="https://svb.org.br/wp-content/uploads/2026/07/JOB_0416_VEGETARIANISMO-Relatorio-de-tabelas.pdf">survey</a> was commissioned by Sociedade Vegetariana Brasileira (SVB), a national vegetarian advocacy organization, but I didn’t see any obvious signs that the work was compromised by this affiliation. It at least appears to have been conducted using reasonable methodological choices—the sample is said to have been derived from the Brazilian census and a three-stage cluster design; interviews were conducted in person. I used to work on the sampling frame for a household survey at the US Census Bureau and, while I wouldn’t characterize this effort as gold standard (they used some kind of quota selection at the final stage), nothing jumped off the page to me as obviously disqualifying.</p>
+<p>However, the survey focused on attitudes related to vegetarianism, not actual dietary practices. The questionnaire included a section where respondents were presented with a number of statements, including “I am vegetarian,” and asked about the extent to which they agreed or disagreed.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Response to “I am vegetarian”</th>
+<th style="text-align: left;">Share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Totally disagree</td>
+<td style="text-align: left;">66%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Partly disagree</td>
+<td style="text-align: left;">15%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Neither agree nor disagree</td>
+<td style="text-align: left;">5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Partly agree</strong></td>
+<td style="text-align: left;"><strong>6%</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Totally agree</strong></td>
+<td style="text-align: left;"><strong>8%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Adding the totals from “Partly agree” and “Totally agree” (see <a href="https://svb.org.br/wp-content/uploads/2026/07/JOB_0416_VEGETARIANISMO-Relatorio-de-tabelas.pdf">page 17</a>) yields 14%, which matches the figure cited widely today.</p>
+<p>This immediately presents at least one eyebrow-raising conclusion. Almost half of Brazil’s purported vegetarian population only “partly” agreed that they are vegetarian. Given the binary nature of both the formal and popular understanding of the term—“<a href="https://www.merriam-webster.com/dictionary/vegetarian">a person who does not eat meat</a>”—I suspect most people would find a “partial” vegetarian better characterized as an “omnivore” who perhaps only eats certain kinds of meat, or who eats meat less often than average. However, such a person might still be of interest if you are studying the market for plant-based foods, so using a gradient isn’t a completely unreasonable choice in this setting, provided the estimate is reported with sufficient context.<sup>3</sup></p>
+<p>This makes the survey itself look less like a bad attempt to estimate vegetarian prevalence than a survey answering a different question. However, the way it has been referenced over time is quite problematic.</p>
+</section>
+<section id="error-cascade" class="level2">
+<h2 class="anchored" data-anchor-id="error-cascade">Error cascade</h2>
+<p>After the survey was completed, topline estimates began changing almost as soon as they were first reported. <a href="https://archive.ph/t8WzK">Contemporary reporting</a> translated 14% of Brazilians over 16 to about 22 million people, but <a href="https://archive.ph/51YlH">other sources</a> commonly applied 14% to the country’s entire population, producing roughly 30 million.</p>
+<p>In 2020, the New York Times reported that 30 million people self-identified as vegetarian or vegan, even though these respondents were never asked about vegan identification. In the same article, this share is also said to have “nearly doubled” by comparing it to 2012 results from a separate <a href="https://archive.ph/Mmet0">study</a> whose respondents were 18 or older, had made a purchase in the previous 30 days, and were interviewed primarily in metropolitan regions (a population not comparable to IBOPE’s in 2018).</p>
+<p>The same kinds of errors are present in many other online publications, including peer-reviewed academic papers. Versions of the statistic are prevalent enough that GPT 5.6 Sol-High, with web search enabled, regurgitates without qualification the version that conflates “Partly agree” with “identify as vegetarian.”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/2026-08-27-gpt-response.png" class="img-border img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="A chatbot answering how many people in Brazil are vegetarian. It reports that about 14% of Brazilians identify as vegetarian, that a 2018 IBOPE survey put this at roughly 22 million Brazilians aged 16 and over, and concludes with that 22 million figure."></p>
+</figure>
+</div>
+</section>
+<section id="so-how-many-are-there" class="level2">
+<h2 class="anchored" data-anchor-id="so-how-many-are-there">So how many are there?</h2>
+<p>I haven’t seen a nationally representative survey from Brazil that defines vegetarianism behaviorally. However, in May and June 2018, Faunalytics, an animal-advocacy research organization, surveyed 1,027 Brazilians as part of a <a href="https://archive.ph/Vf8RM">cross-country study</a>. Instead of asking whether respondents identified as vegetarian, it asked which types of food they had eaten during the previous year. People who reported eating none of the listed meat categories were classified as vegetarian or vegan. In Brazil, the study estimated that share at 1%, the same as in Russia and China. The US had 4% and India had 31%. This wasn’t a probability survey, but the instrument’s framing in terms of recalled food consumption is much better suited to characterizing the prevalence of dietary vegetarianism, and provides a useful comparison between the rate in Brazil and in other countries.</p>
+<p>These results are also more consistent with other data points. Brazil’s 2017–18 Household Budget Survey asked 46,164 respondents from a representative sample about their diet during two non-consecutive 24-hour periods; <a href="https://doi.org/10.3390/ijerph21121625">a later analysis found</a> that 98% consumed some meat on the reported days, meaning 2% consumed none.</p>
+<p>Contemporary research based on narrower subsets of the country also land in the same neighborhood. In ELSA-Brasil, <a href="https://doi.org/10.1016/j.jad.2022.09.059">only 0.6%</a> of mostly middle-aged white collar employees and retirees reported no meat consumption. A larger share—<a href="https://archive.ph/IEyMj">6.4%</a><sup>4</sup>—of first-year students at a southern Brazilian university self-classified as vegetarian.</p>
+<p>This is all to say that we don’t know exactly, but if I had to bet—or, more realistically, make a guess as part of another online geography quiz game—I’d estimate the share of Brazilians who actually abstain from meat in the low single digits.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I’d guess that if meat-abstainers were an order of magnitude more common in Brazil than in the US, this demographic fact would bleed into perceptions about the country’s overall identity as it has for India, where Pew and other high-quality surveys find that around <a href="https://archive.ph/wukZA">four-tenths</a> of the population identifies as vegetarian. If anything, characterizations of dietary attitudes and behavior seem more likely to characterize Brazil as a “<a href="https://archive.ph/4iyM0">meaty</a>” country where barbecue is a “<a href="https://archive.ph/LfGZg">way of life</a>.” Per capita meat consumption in Brazil <a href="https://ourworldindata.org/grapher/per-capita-meat-consumption-by-type-kilograms-per-year?tab=table&amp;country=~BRA">ranks among the highest in the world</a>.↩︎</p></li>
+<li id="fn2"><p>Per <a href="https://en.wikipedia.org/w/index.php?title=IBOPE&amp;oldid=1364939082">Wikipedia</a>, “the name IBOPE is listed in the Brazilian dictionary as a synonym of audience ratings research.”↩︎</p></li>
+<li id="fn3"><p>This isn’t trivial though; there are real issues with suggesting this question measures “vegetarianism” for the 8% who “totally agree.” Regardless of how the two groups are combined, I suspect meat-eating is a case where <a href="https://archive.ph/sQolb">acquiescence bias</a> is relevant in interpreting these results (especially with in-person interviewers). I’d also pause at transforming any agreement gradient like this one into a binary yes-no estimate, like many sources did with “partly or totally = is vegetarian.”↩︎</p></li>
+<li id="fn4"><p>Nominally higher but consistent with <a href="https://archive.ph/iNr92">research</a> in other settings that finds young people report higher rates of vegetarianism.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>surveys</category>
+  <category>demography</category>
+  <guid>https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/</guid>
+  <pubDate>Thu, 27 Aug 2026 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Methodological issues in Kaufmann’s analysis of FIRE gender identity data</title>
   <dc:creator>Jacob Eliason</dc:creator>
@@ -67,875 +171,7 @@
   <pubDate>Tue, 14 Oct 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>How I’m Storing Files</title>
-  <dc:creator>Jacob Eliason</dc:creator>
-  <link>https://jacobeliason.com/posts/2024-08-02-network-attached-storage/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This post serves as documentation of my current NAS setup. As usual, it primarily serves as personal documentation. I’ll update it as my system evolves or if I encounter and resolve new issues.</p>
-<p><img src="https://jacobeliason.com/posts/2024-08-02-network-attached-storage/storage-unsplash.jpg" class="img-fluid"></p>
-<section id="why-a-nas" class="level2">
-<h2 class="anchored" data-anchor-id="why-a-nas">Why a NAS</h2>
-<p>My previous solution for file storage involved external hard drives, Dropbox, and my computer’s hard drive. This setup was fragmented, making file access difficult and leaving data unversioned and not properly backed up. I have approximately one terabyte of photos from my digital camera and film scans, plus iPhone photos from the last decade. I also maintain a copy of my family’s photos, adding another terabyte. This amount is too large to store on my personal computer, and I wanted some access to these files without relying on cloud downloads.</p>
-<p>Cloud storage solutions caused some unease, as I couldn’t fully account for my files or ensure their integrity. I disliked the idea of an internet account being a single point of failure for my most valuable digital possessions.</p>
-<p>My personal computer’s hard drive was filled with datasets and code assets. I wanted a Dropbox-style ability to offload from local storage when not in use.</p>
-<p>A NAS allows me to consolidate what was previously spread across my computer’s hard drive, Dropbox, and two external hard drives into one place. For files previously stored only on external hard drives, it reduces the worry about drive failure.</p>
-<p>Additional benefits include:</p>
-<ul>
-<li>More precise control over backup and storage for files that require or don’t require an additional copy</li>
-<li>Versioning</li>
-<li>Potential long-term cost savings</li>
-</ul>
-</section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<section id="hardware" class="level3">
-<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
-<p>I chose the <a href="https://www.synology.com/en-us/products/DS224+">Synology DS224+</a> with two 8-terabyte drives.</p>
-</section>
-<section id="backup" class="level3">
-<h3 class="anchored" data-anchor-id="backup">Backup</h3>
-<p>I implemented a multi-tiered backup strategy:</p>
-<ol type="1">
-<li><a href="https://www.synology.com/en-global/dsm/feature/hyper_backup">Hyper Backup</a> to <a href="https://c2.synology.com/en-us">Synology C2</a></li>
-<li>Hyper Backup to an external drive (though I’m considering switching to Cloud Sync to have a full backup available as a regular file structure)</li>
-<li><a href="https://www.synology.com/en-global/dsm/feature/snapshot_replication">Snapshots</a></li>
-</ol>
-<p>Synology’s C2 allows file browsing from the Mac Hyper Backup client app without needing a Synology device. Pricing is similar to alternatives, with the main difference being whole TB increments versus continuous rate pricing.</p>
-<p>Snapshots are lightweight operations that can run frequently without causing issues. They offer a sophisticated retention schedule and a legible file structure.</p>
-<p>In this setup, Hyper Backup provides long-term protection, while snapshots offer short-term protection.</p>
-</section>
-<section id="transfer" class="level3">
-<h3 class="anchored" data-anchor-id="transfer">Transfer</h3>
-<p>After some frustrating trial and error, I set a large external hard drive as the root directory for my Dropbox Mac client’s backup in order to download my cloud storage files without harming their metadata. I then connected the drive to the NAS and used the following from my personal computer to copy files from the drive to the destination file system:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">nohup</span> caffeinate <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-s</span> rsync <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-avz</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--progress</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--checksum</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--partial</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--delete</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--stats</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--human-readable</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--log-file</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>~/rsync_log.txt <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/source"</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/target"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&amp;</span></span></code></pre></div>
-<p>The <code>caffeinate</code> command prevents my Mac from sleeping during the transfer.</p>
-<p>To safely move files from my Mac to the NAS, I used the following script, co-authored with Claude:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#!/bin/bash</span></span>
-<span id="cb2-2"></span>
-<span id="cb2-3"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">RSYNC</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/opt/homebrew/bin/rsync"</span></span>
-<span id="cb2-4"></span>
-<span id="cb2-5"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">PAIRS_FILE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pairs.txt"</span></span>
-<span id="cb2-6"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">LOG_FILE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"rsync_log.txt"</span></span>
-<span id="cb2-7"></span>
-<span id="cb2-8"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># use Homebrew-installed rsync (required for created date compatibility)</span></span>
-<span id="cb2-9"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">RSYNC_VERSION</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$($RSYNC</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--version</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span> version <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">awk</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'{ print $3 }'</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="cb2-10"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">REQUIRED_VERSION</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"3.1.0"</span></span>
-<span id="cb2-11"></span>
-<span id="cb2-12"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">[[</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-e</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$RSYNC_VERSION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">\n</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sort</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-V</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-n1</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">!=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">then</span></span>
-<span id="cb2-13">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Your rsync version </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$RSYNC_VERSION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> is less than the required </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$REQUIRED_VERSION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-14">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Please upgrade rsync using Homebrew: brew install rsync"</span></span>
-<span id="cb2-15">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">exit</span> 1</span>
-<span id="cb2-16"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">fi</span></span>
-<span id="cb2-17"></span>
-<span id="cb2-18"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># check if the pairs file exists</span></span>
-<span id="cb2-19"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">!</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$PAIRS_FILE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">then</span></span>
-<span id="cb2-20">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Error: Pairs file does not exist."</span></span>
-<span id="cb2-21">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">exit</span> 1</span>
-<span id="cb2-22"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">fi</span></span>
-<span id="cb2-23"></span>
-<span id="cb2-24"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># read each line from the pairs file</span></span>
-<span id="cb2-25"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">while</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">IFS</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">read</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-r</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">line</span></span>
-<span id="cb2-26"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">do</span></span>
-<span id="cb2-27">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># split the line into source and destination</span></span>
-<span id="cb2-28">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">read</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-ra</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">ADDR</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;&lt;&lt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$line</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-29">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">SOURCE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${ADDR</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-30">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">DESTINATION</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">${ADDR</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">[</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">]</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">}</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-31"></span>
-<span id="cb2-32">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># check if source and destination are provided</span></span>
-<span id="cb2-33">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">||</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">then</span></span>
-<span id="cb2-34">        <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Skipping invalid line: </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$line</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-35">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">continue</span></span>
-<span id="cb2-36">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">fi</span></span>
-<span id="cb2-37"></span>
-<span id="cb2-38">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Starting rsync from </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> to </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-39">    </span>
-<span id="cb2-40">    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># perform sync</span></span>
-<span id="cb2-41">    <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$RSYNC</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-avhP</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--delete</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--crtimes</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--times</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--log-file</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$LOG_FILE</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-42"></span>
-<span id="cb2-43">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Completed rsync for </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$SOURCE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> to </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$DESTINATION</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-44"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">done</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$PAIRS_FILE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-45"></span>
-<span id="cb2-46"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"All operations completed. Check </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$LOG_FILE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> for details."</span></span></code></pre></div>
-<p>Because I was setting up a new directory structure, I used a file containing pairs of one source and one destination directory at a time to copy files over.</p>
-<!-- ### Configuration -->
-</section>
-</section>
-<section id="file-sharing" class="level2">
-<h2 class="anchored" data-anchor-id="file-sharing">File Sharing</h2>
-<p>I use Synology Drive’s Mac client, which functions pretty similarly to Dropbox’s Mac client. This has made it easier to move all my MacBook work into the NAS and to archive or offload large projects once completed.</p>
-<p>One note worth considering is that Synology Drive sometimes has issues with other sync services. I pay for Obsidian Sync and prefer that standalone service for my notes. I had to disable Drive’s sync service for the directory containing my Obsidian vault to avoid conflicts. This is surprisingly unintuitive, as the client doesn’t have a user-friendly way to pause syncing for a specific directory.</p>
-<p>However, on a Mac you can do this by navigating to</p>
-<blockquote class="blockquote">
-<p><code>~/Library/Application Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf</code></p>
-</blockquote>
-<p>And editing <code>filter</code> and <code>filter-v4150</code> to include the directory name you want to exclude from syncing under the <code>[Directory]</code> section of each. If successful, files created under such a directory will be marked as “ignored” in the Drive client. This is acceptable to me because such files will still be backed up by Hyper Backup and Snapshots, and Obsidian Sync provides a superior sync experience for what I need.</p>
-</section>
-<section id="alternatives-considered" class="level2">
-<h2 class="anchored" data-anchor-id="alternatives-considered">Alternatives Considered</h2>
-<ul>
-<li>Cloud sync with Dropbox: I tested this but found issues with slow propagation from Dropbox to NAS and metadata inconsistencies.</li>
-<li>Building a custom NAS with a Raspberry Pi: While cheaper, I prioritized reliability and chose Synology as a more supported solution.</li>
-<li>Cloud-only storage: I subjectively prefer having at least one local copy of my files.</li>
-<li>Local copy at home backed up to a PC at another location: This seemed too labor-intensive.</li>
-</ul>
-</section>
-<section id="additional-use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="additional-use-cases">Additional Use Cases</h2>
-<section id="zotero" class="level3">
-<h3 class="anchored" data-anchor-id="zotero">Zotero</h3>
-<p>Thanks to <a href="https://www.reddit.com/r/zotero/comments/15b5kay/tutorial_for_synology_nas_storage/">this post</a>, I figured out how to store all PDF files on the Synology, share using WebDAV, connect using <a href="https://tailscale.com/">Tailscale</a>, and access using <a href="https://www.zotero.org/">Zotero</a> on any device. This provides unlimited storage and sync for my personal library.</p>
-</section>
-<section id="time-machine" class="level3">
-<h3 class="anchored" data-anchor-id="time-machine">Time Machine</h3>
-<p>I set up a shared folder on the NAS for Time Machine backups, which run automatically when I’m on the network.</p>
-</section>
-<section id="photos" class="level3">
-<h3 class="anchored" data-anchor-id="photos">Photos</h3>
-<p>For Apple Photos, I unchecked “Copy items to the Photos library” in Preferences &gt; General to keep photos on the NAS.</p>
-</section>
-<section id="file-system" class="level3">
-<h3 class="anchored" data-anchor-id="file-system">File System</h3>
-<p>I’m using the <a href="https://johnnydecimal.com/">Johnny Decimal system</a> for file organization.</p>
-</section>
-</section>
-<section id="to-do" class="level2">
-<h2 class="anchored" data-anchor-id="to-do">To Do</h2>
-<p>Create additional shared folders to host backups for other devices and family members’ data.</p>
-</section>
-<section id="troubleshooting-notes" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting-notes">Troubleshooting Notes</h2>
-<p>For slow SMB connections to NAS from Mac Finder:</p>
-<ul>
-<li>Navigate to DSM &gt; Control Panel &gt; File Services &gt; SMB Settings &gt; Advanced Settings</li>
-<li>Clear SMB Cache</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>servers</category>
-  <guid>https://jacobeliason.com/posts/2024-08-02-network-attached-storage/</guid>
-  <pubDate>Fri, 02 Aug 2024 04:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Documenting my home server setup</title>
-  <dc:creator>Jacob Eliason</dc:creator>
-  <link>https://jacobeliason.com/posts/2023-11-14-server-configuration/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="intro" class="level2">
-<h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>You may or may not want to set up your own server at home. I did, mostly for learning purposes and for data science projects.</p>
-<p>The following is a description of the process I followed for future reference. It’s fairly procedural as it’s only a lightly edited version of the iCloud note I kept along the way.</p>
-<p>To start with, I bought a HP ProDesk 600 G5 Mini (Intel i5-9500T, 16GB RAM, 512GB HDD) on eBay for ~$150. This seemed like a <a href="https://www.ebay.com/sch/i.html?_from=R40&amp;_nkw=HP+ProDesk+600+G5+Mini&amp;_sacat=0&amp;RAM%2520Size=16%2520GB&amp;Processor=Intel%2520Core%2520i5%25209th%2520Gen%252E&amp;_oaa=1&amp;LH_Sold=1&amp;LH_Complete=1&amp;rt=nc&amp;Hard%2520Drive%2520Capacity=512%2520GB&amp;_dcat=179">reasonable price</a> for a minimally capable machine that’s small and energy efficient. There are obviously many options; I was looking for something more powerful than a Raspberry Pi and less expensive than a workstation.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<!-- ## Peripherals -->
-<p>Besides the server itself, I needed the following peripherals to get started, all of which I had already.</p>
-<ul>
-<li>monitor for initial setup</li>
-<li>keyboard for initial setup</li>
-<li>Ethernet cable</li>
-<li>power cable</li>
-<li>flash drive for Ubuntu installer</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="definitions" class="level2">
-<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
-<p>The following were some concepts I unfamiliar with or only somewhat familiar with before starting. This part isn’t meant to be a comprehensive guide as much as it is a subset of what I personally learned this weekend (primarily via ChatGPT).</p>
-<section id="networking" class="level3">
-<h3 class="anchored" data-anchor-id="networking">Networking</h3>
-<ul>
-<li>DHCP (Dynamic Host Configuration Protocol): A server protocol that automatically assigns IP addresses to devices on a network, ensuring they can communicate effectively without address conflicts.</li>
-<li>IPv4 vs IPv6: These are versions of the Internet Protocol. IPv4 uses a 32-bit address space, while IPv6 uses 128 bits, allowing for a vast number of unique addresses.</li>
-<li>Nameservers: These are the internet’s equivalent of a phone book, translating human-readable domain names to IP addresses.</li>
-<li>DNS (Domain Name System): This system translates domain names like www.example.com into IP addresses that network devices use to identify each other.</li>
-<li>Subnet: A subdivision of an IP network that can segment a large network into smaller, more manageable pieces.</li>
-<li>Nameservers: Specialized servers that translate domain names into IP addresses, allowing browsers to load internet resources.</li>
-</ul>
-</section>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
-<ul>
-<li>BIOS (Basic Input/Output System): Firmware that initializes hardware during the boot process and provides runtime services for the operating system.</li>
-<li>NTP (Network Time Protocol): A networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.</li>
-<li>LUKS (Linux Unified Key Setup): A disk encryption specification that provides a platform-independent standard on-disk-format for use in various tools.</li>
-<li>LVM (Logical Volume Manager): A device mapper target that provides logical volume management for the Linux kernel.</li>
-</ul>
-<p><img src="https://jacobeliason.com/posts/2023-11-14-server-configuration/penguin.jpg" class="img-fluid"></p>
-</section>
-</section>
-<section id="process" class="level2">
-<h2 class="anchored" data-anchor-id="process">Process</h2>
-<p>As noted above, the following is mostly just my process notes.</p>
-<ul>
-<li>Power on HP ProDesk 600 G5 Mini</li>
-<li>Boot Windows and make note of Windows product key</li>
-<li>Using my MacBook and a flash drive, create a bootable Ubuntu 22.04.3 LTS installer:
-<ul>
-<li><code>diskutil list</code> to list disks</li>
-<li><code>diskutil unmountDisk /dev/disk[number corresponding to flash drive from output previous command]</code> i.e.&nbsp;<code>diskutil unmountDisk /dev/disk4</code> to unmount flash drive</li>
-<li><code>sudo dd if=/local/path/to/ubuntu-22.04.3-live-server-amd64.iso of=/dev/rdisk[number from above] bs=1m</code> to copy iso to flash drive (be very careful to use the right disk number! also note ‘r’ in <code>of</code> path)</li>
-</ul></li>
-<li>Update BIOS settings on ProDesk to allow booting from USB:
-<ul>
-<li><code>F10</code> (varies by machine) to enter BIOS settings</li>
-<li>Make sure USB Storage Boot is enabled and set to top of boot order</li>
-</ul></li>
-<li>Plug in flash drive to ProDesk and boot from USB:
-<ul>
-<li>Cycle power; if BIOS settings were reconfigured correctly, you should see a screen with options to try or install Ubuntu</li>
-</ul></li>
-<li>Follow prompts to install Ubuntu
-<ul>
-<li>Select “Try or Install Ubuntu Server”</li>
-<li>Configure network connections
-<ul>
-<li>Select interface</li>
-<li>IPv4: “Manual”</li>
-<li>Subnet: Given in router settings</li>
-<li>Address: Chosen based on router settings—find DHCP range and choose a number outside that range</li>
-<li>Gateway: Given in router settings (usually same as address but with 1 as last number)</li>
-<li>Name servers: Usually Google’s or Cloudflare’s, i.e.&nbsp;<code>1.1.1.1, 1.0.0.1</code></li>
-<li>Search domains: “home”</li>
-</ul></li>
-<li>Configure proxy:
-<ul>
-<li>I skipped this to start with</li>
-</ul></li>
-<li>Storage configuration:
-<ul>
-<li>Use entire disk</li>
-<li>LUKS encryption</li>
-<li>LVM</li>
-</ul></li>
-<li>Create user
-<ul>
-<li>Choose a username and password</li>
-</ul></li>
-<li>Install OpenSSH server</li>
-<li>Install updates</li>
-<li>Reboot</li>
-</ul></li>
-<li>Set up firewall
-<ul>
-<li><code>sudo ufw enable</code> to enable firewall</li>
-<li><code>sudo ufw default deny incoming</code> to block all incoming traffic</li>
-<li><code>sudo ufw default deny outgoing</code> to block all outgoing traffic</li>
-<li><code>sudo ufw allow ssh</code> to allow ssh</li>
-<li><code>sudo ufw allow [port number]</code> to allow ssh from a safer port than the default</li>
-<li><code>sudo ufw allow out 80</code> to allow outgoing HTTP requests</li>
-<li><code>sudo ufw allow out 443</code> to allow outgoing HTTPS requests</li>
-<li><code>sudo ufw allow out 53</code> to allow outgoing DNS requests</li>
-<li><code>sudo ufw allow from any to any port 123 proto udp</code> to allow NTP (for time synchronization)</li>
-<li><code>sudo ufw status verbose</code> to check status</li>
-</ul></li>
-<li>Configure ssh
-<ul>
-<li><code>sudo apt update</code> to update package lists</li>
-<li><code>sudo apt install openssh-server</code> to make sure ssh server is installed (should have been already from installer)</li>
-<li><code>sudo systemctl status ssh</code> to verify status</li>
-<li><code>sudo nano /etc/ssh/sshd_config</code> to edit config file; add:
-<ul>
-<li>Port [port number]</li>
-<li>PermitRootLogin no</li>
-<li>AllowUsers [username]</li>
-<li>PubkeyAuthentication yes</li>
-</ul></li>
-<li><code>sudo systemctl restart ssh</code> to apply changes</li>
-<li>On MacBook:
-<ul>
-<li><code>ssh-keygen -t rsa</code> to generate key pair
-<ul>
-<li>Choose default location</li>
-<li>Enter passphrase</li>
-</ul></li>
-<li><code>ssh-copy-id -i ~/.ssh/id_rsa.pub -p [port number] [username]@[ip address]</code> to copy public key to server</li>
-</ul></li>
-</ul></li>
-<li>Configure fail2ban
-<ul>
-<li><code>sudo apt install fail2ban</code></li>
-<li><code>sudo cp /etc/fail2ban/jail.{conf,local}</code></li>
-<li><code>sudo nano /etc/fail2ban/jail.local</code> to add desired settings to config file</li>
-<li><code>sudo systemctl start fail2ban</code></li>
-<li><code>sudo systemctl enable fail2ban</code></li>
-<li><code>sudo fail2ban-client status sshd</code></li>
-<li><code>sudo tail -f /var/log/fail2ban.log</code> to monitor logs</li>
-</ul></li>
-<li>SSH into live, configured server:
-<ul>
-<li><code>ssh -p [port number] [username]@[ip address]</code></li>
-<li>Look around to make sure everything looks good</li>
-</ul></li>
-<li>Set up server in long-term physical location
-<ul>
-<li>Unplug server from monitor and plug into router via Ethernet</li>
-<li>Power on</li>
-<li>Plug in keyboard</li>
-<li>Enter LUKS password with spare keyboard (blindly)</li>
-<li>Wait for a couple minutes</li>
-</ul></li>
-<li>SSH in from MacBook again</li>
-</ul>
-</section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<ul>
-<li>Install <a href="https://fig.io/user-manual/autocomplete/ssh">Fig</a>, a command-line tool with lots of useful features like autocomplete and aliases
-<ul>
-<li>on MacBook: <code>fig integrations install ss</code></li>
-<li>on server: <code>curl -fSsL https://repo.fig.io/scripts/install-headless.sh | bash</code></li>
-<li>on server: <code>exec bash --norc</code> to reset shell</li>
-</ul></li>
-<li>Set timezone and sync (note: after a surprisingly long time fiddling with this, I punted on syncing and settled on setting the timezone using my location string)</li>
-<li>Install <code>glances</code> for monitoring
-<ul>
-<li><code>sudo apt install glances</code></li>
-<li><code>glances</code></li>
-</ul></li>
-<li>Expand volume size
-<ul>
-<li><code>lvextend -L+156G /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
-<li><code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>This is all fairly boilerplate stuff but I just want to hedge again that this post is primarily to keep track of what I did for future reference and not an authoritative guide. That said, if you see something in this post that you think departs from best practices, I would love to hear about it—please comment below or reach out.</p>
-<!-- testing performance
-<!-- jacob@cheniston:~$ sysbench cpu --cpu-max-prime=200000 run --threads=6 -->
-<!-- jacob@cheniston:~$ sysbench memory --memory-total-size=32G run -->
-<!-- tailscale -->
-<!-- https://tailscale.com/kb/1077/secure-server-ubuntu-18-04 -->
-
-
-</section>
-
- ]]></description>
-  <category>linux</category>
-  <category>servers</category>
-  <category>process write-up</category>
-  <guid>https://jacobeliason.com/posts/2023-11-14-server-configuration/</guid>
-  <pubDate>Tue, 14 Nov 2023 05:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Privacy-friendly web analytics for Quarto</title>
-  <dc:creator>Jacob Eliason</dc:creator>
-  <link>https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>The following is mostly to pin this solution for my future self.</p>
-<p>I’ve set up Google Analytics on a personal site before but I’ve never bothered to do anything with the resultant data. I’m interested in knowing whether the site is receiving visitors but I’m also pretty sympathetic to high privacy standards. GoatCounter turned out to be a nice fit for this combination of preferences.</p>
-<p><img src="https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/goat.jpeg" class="img-fluid"></p>
-<p>I’ll let the <a href="https://www.goatcounter.com/">GoatCounter site</a> speak for itself if you haven’t heard of it, but the gist is that it’s a lightweight, privacy-respecting analytics service. It’s open source and free for small sites.</p>
-<p>And, it turns out, it’s also easy to configure with Quarto. After you create an account, you’re presented with a snippet of JavaScript to embed in your site:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource {javascript} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1">&lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
-<span id="cb1-2">async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
-<p>Quarto <a href="https://quarto.org/docs/reference/formats/html.html#includes">provides</a> the option to fairly easily embed custom JavasSript in each of the site’s HTML documents. To add tracking functionality to my site, I included the Javascript in my project’s <code>_quarto.yml</code> file as follows:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource {yaml} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"># ...</span>
-<span id="cb2-2">format:</span>
-<span id="cb2-3">  html:</span>
-<span id="cb2-4">    theme: </span>
-<span id="cb2-5">    # ...</span>
-<span id="cb2-6">    css: styles.css</span>
-<span id="cb2-7">    include-in-header: </span>
-<span id="cb2-8">      - text: |</span>
-<span id="cb2-9">          &lt;script data-goatcounter="https://[your-code].goatcounter.com/count" </span>
-<span id="cb2-10">          async src="//gc.zgo.at/count.js"&gt;&lt;/script&gt;</span></code></pre></div>
-<p>From there, all that was left was re-rendering the site with <code>quarto render</code>, pushing my changes to GitHub to trigger a new Netlify build, and checking the GoatCounter dashboard to confirm that everything was working.</p>
-
-
-
- ]]></description>
-  <category>quarto</category>
-  <category>meta</category>
-  <guid>https://jacobeliason.com/posts/2023-11-06-goatcounter-for-quarto/</guid>
-  <pubDate>Mon, 06 Nov 2023 05:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Writing an R wrapper for a prediction market’s API</title>
-  <dc:creator>Jacob Eliason</dc:creator>
-  <link>https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>I recently wrote an R wrapper for an online prediction market’s API.</p>
-<section id="why" class="level4">
-<h4 class="anchored" data-anchor-id="why">Why?</h4>
-<ul>
-<li>After stumbling upon the platform, I was interested in finding an easier way to exploit potential market inefficiencies programmatically</li>
-<li>It had been a while since I’d written code for an R package and I wanted to refresh my memory</li>
-</ul>
-</section>
-<section id="manifold-markets" class="level4">
-<h4 class="anchored" data-anchor-id="manifold-markets">Manifold Markets</h4>
-<p>The prediction market is called <a href="https://manifold.markets/home">Manifold Markets</a>. Manifold has been described as a “<a href="https://help.manifold.markets/#block-fe58c63c18e04014b7ae47c8b5de53de">play-money prediction market platform where you can bet on anything</a>,” an “<a href="https://ftxfuturefund.org/all-grants/?_organization_name=manifold-markets">experiment for enabling effective forecasters to direct altruistic donations</a>,” and “<a href="https://twitter.com/ESYudkowsky/status/1592040000652455938">like Wikipedia for things that nobody knows yet but will be observable later</a>.” It’s something like <a href="https://www.predictit.org">PredictIt</a> without real money. The platform is still pretty new and the community is still pretty small, but it’s worth checking out.</p>
-<p><img src="https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/uncut-gems.png" class="img-fluid"></p>
-</section>
-<section id="my-contribution" class="level4">
-<h4 class="anchored" data-anchor-id="my-contribution">My contribution</h4>
-<p>The wrapper is called <a href="https://github.com/jcblsn/manifoldr"><code>manifoldr</code></a>. Building the wrapper involved mapping the API’s HTTP-based interface into R functions. It required careful parsing of the API’s responses and ensuring that each function performed its corresponding API request effectively. This involved considerable error checking and handling to ensure robustness. It provides a fairly straightforward way to make API calls to Manifold via R functions. The main package function is <code>manifold_api()</code>, from which all of the API endpoints can be accessed successfully as of November 2022.</p>
-<p>For example, we can retrieve user information by their unique username (in this case, the official account <code>@ManifoldMarkets</code>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># devtools::install_github("jcblsn/manifoldr")</span></span>
-<span id="cb1-2"></span>
-<span id="cb1-3">manifoldr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">manifold_api</span>(</span>
-<span id="cb1-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">endpoint =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/v0/user/ManifoldMarkets"</span>, </span>
-<span id="cb1-5">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">request_type =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"GET"</span></span>
-<span id="cb1-6">)</span></code></pre></div>
-</div>
-<p>A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as <code>clean_manifold_content()</code>, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using <code>manifoldr::get_manifold_api_key()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">manifoldr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">get_market</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">market_id_or_slug =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"will-the-los-angeles-lakers-make-th-8cbc520d8ca6"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|&gt;</span> </span>
-<span id="cb2-2">  manifoldr<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
-</div>
-<p>The package includes implementations of standard unit testing and code coverage tools using <a href="https://covr.r-lib.org"><code>covr</code></a>, <a href="https://testthat.r-lib.org"><code>testthat</code></a>, and <a href="https://github.com/r-lib/actions">Github Actions</a>.</p>
-</section>
-<section id="illustration" class="level4">
-<h4 class="anchored" data-anchor-id="illustration">Illustration</h4>
-<p>To demonstrate the package tools, I made a new account on the platform called “Manifold NBA” and programmatically set up prediction markets for all 30 American professional basketball teams’ playoff odds. Feel free to check those out <a href="https://manifold.markets/NBA?tab=markets">here</a>.</p>
-<p><img src="https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/manifold-nba.png" class="img-fluid"></p>
-</section>
-<section id="feedback" class="level4">
-<h4 class="anchored" data-anchor-id="feedback">Feedback</h4>
-<p>The API is still in alpha, so I haven’t built out convenience functions for every endpoint yet. I do plan to continue maintaining and updating the package though, so if you have any suggestions or feedback, please let me know in the comment section below or by opening up an <a href="https://github.com/jcblsn/manifoldr/issues">issue inside the package repository</a>.</p>
-</section>
-<section id="resources" class="level4">
-<h4 class="anchored" data-anchor-id="resources">Resources</h4>
-<p>Finally, I’ve made a short list of resources that were helpful to me while I worked on this.</p>
-<ul>
-<li>A <a href="https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html">vignette</a> on “Best practices for API packages” found in the <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> package documentation</li>
-<li>Hadley Wickham and Jenny Bryan’s comprehensive “<a href="https://r-pkgs.org">R Packages</a>”</li>
-<li>Another <a href="https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management">vignette</a> from <a href="https://cran.r-project.org/web/packages/httr/"><code>httr</code></a> on secret management, which was necessary in order to implement unit testing for endpoints that require authentication</li>
-</ul>
-
-
-</section>
-
- ]]></description>
-  <category>r</category>
-  <category>r packages</category>
-  <category>forecasting</category>
-  <guid>https://jacobeliason.com/posts/2022-11-27-writing-manifoldr-wrapper/</guid>
-  <pubDate>Sun, 27 Nov 2022 05:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Deploying a Twitter bot from RStudio</title>
+  <title>Posting randomly selected satellite imagery chunks from my home state</title>
   <dc:creator>Jacob Eliason</dc:creator>
   <link>https://jacobeliason.com/posts/2021-11-11-setting-up-a-twitter-bot/</link>
   <description><![CDATA[ 
@@ -985,11 +221,11 @@ font-style: inherit;">clean_manifold_content</span>()</span></code></pre></div>
 <section id="some-of-my-favorite-recent-textures" class="level2">
 <h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
 <p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
-<p></p><div id="tweet-36211"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-36211").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-33698"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-33698").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-22914"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-22914").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-33382"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-33382").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-30968"></div><script>tweet={"url":"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/twitter.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/twitter.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/twitter.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-30968").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-21424"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-21424").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-32709"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-32709").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-73909"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-73909").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-96779"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-96779").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-89233"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-89233").innerHTML = tweet["html"];</script><p></p>
 
 
 </section>
@@ -1581,9 +817,9 @@ font-style: inherit;">str_c</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_remove</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">getwd</span>(),<span class="st" style="color: #20794D;
+font-style: inherit;">getwd</span>(), <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"</span>),<span class="st" style="color: #20794D;
+font-style: inherit;">"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"</span>), <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"/personal-projects/strava"</span>)</span>
 <span id="cb2-2">export_date <span class="ot" style="color: #003B4F;
@@ -1597,7 +833,7 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_c</span>(PATH, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"/DATA/"</span>,export_date,<span class="st" style="color: #20794D;
+font-style: inherit;">"/DATA/"</span>, export_date, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"/activities/"</span>)</span>
 <span id="cb2-4">activity_names <span class="ot" style="color: #003B4F;
@@ -1622,11 +858,11 @@ font-style: inherit;"># check to make sure I got the correct file path</span></s
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">str_sub</span>(activity_names, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">6</span>,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">6</span>, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1638,7 +874,7 @@ font-style: inherit;">"fit.gz"</span>]</span>
 <span id="cb3-2"></span>
 <span id="cb3-3"><span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1646,19 +882,19 @@ font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">length</span>(compressed_record_names)){</span>
-<span id="cb3-4">  R.utils<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">length</span>(compressed_record_names)) {</span>
+<span id="cb3-4">    R.utils<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">gunzip</span>(</span>
-<span id="cb3-5">    <span class="fu" style="color: #4758AB;
+<span id="cb3-5">        <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_c</span>(PATH_ACTIVITIES, compressed_record_names[i]),</span>
-<span id="cb3-6">    <span class="at" style="color: #657422;
+<span id="cb3-6">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">remove =</span> F</span>
-<span id="cb3-7">  )</span>
+<span id="cb3-7">    )</span>
 <span id="cb3-8">}</span></code></pre></div>
 </div>
 <p>Having unzipped the files, I again collect names.</p>
@@ -1672,11 +908,11 @@ font-style: inherit;">list.files</span>(PATH_ACTIVITIES)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">str_sub</span>(activity_names, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">3</span>, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1697,7 +933,7 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb5-2"><span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1706,63 +942,67 @@ background-color: null;
 font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(uncompressed_fit_names)) {</span>
-<span id="cb5-3">  record <span class="ot" style="color: #003B4F;
+<span id="cb5-3">    record <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> FITfileR<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">readFitFile</span>(</span>
-<span id="cb5-4">    <span class="fu" style="color: #4758AB;
+<span id="cb5-4">        <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_c</span>(PATH_ACTIVITIES, uncompressed_record_names[i])</span>
-<span id="cb5-5">  ) <span class="sc" style="color: #5E5E5E;
+<span id="cb5-5">    ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> FITfileR<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">records</span>()</span>
-<span id="cb5-6">  </span>
-<span id="cb5-7">  <span class="cf" style="color: #003B4F;
+<span id="cb5-6"></span>
+<span id="cb5-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">if</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(record) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>) {</span>
-<span id="cb5-8">    record <span class="ot" style="color: #003B4F;
+<span id="cb5-8">        record <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> record <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-9">            <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bind_rows</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-10">            <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">activity_id =</span> i, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">filename =</span> uncompressed_fit_names[i])</span>
-<span id="cb5-9">  }</span>
-<span id="cb5-10">  </span>
-<span id="cb5-11">  list.fit[[i]] <span class="ot" style="color: #003B4F;
+<span id="cb5-11">    }</span>
+<span id="cb5-12"></span>
+<span id="cb5-13">    list.fit[[i]] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> record</span>
-<span id="cb5-12">}</span>
-<span id="cb5-13">fit_records <span class="ot" style="color: #003B4F;
+<span id="cb5-14">}</span>
+<span id="cb5-15">fit_records <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> list.fit <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-16">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bind_rows</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-17">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div>
 </div>
@@ -1775,11 +1015,11 @@ font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div>
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">str_sub</span>(activity_names,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">str_sub</span>(activity_names, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">3</span>,<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">3</span>, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1796,7 +1036,7 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb6-4"><span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -1805,7 +1045,7 @@ background-color: null;
 font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(gpx_names)) {</span>
-<span id="cb6-5">  record <span class="ot" style="color: #003B4F;
+<span id="cb6-5">    record <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> trackeR<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1815,29 +1055,29 @@ font-style: inherit;">readGPX</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_c</span>(PATH_ACTIVITIES, gpx_names[i])) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-6">    <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-6">        <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as_tibble</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-7">    <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-7">        <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rename</span>(</span>
-<span id="cb6-8">      <span class="at" style="color: #657422;
+<span id="cb6-8">            <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">timestamp =</span> time, </span>
-<span id="cb6-9">      <span class="at" style="color: #657422;
+font-style: inherit;">timestamp =</span> time,</span>
+<span id="cb6-9">            <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">position_lat =</span> latitude, </span>
-<span id="cb6-10">      <span class="at" style="color: #657422;
+font-style: inherit;">position_lat =</span> latitude,</span>
+<span id="cb6-10">            <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">position_long =</span> longitude, </span>
-<span id="cb6-11">      <span class="at" style="color: #657422;
+font-style: inherit;">position_long =</span> longitude,</span>
+<span id="cb6-11">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cadence =</span> cadence_running</span>
-<span id="cb6-12">    )</span>
-<span id="cb6-13">  list.gpx[[i]] <span class="ot" style="color: #003B4F;
+<span id="cb6-12">        )</span>
+<span id="cb6-13">    list.gpx[[i]] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> record</span>
 <span id="cb6-14">}</span></code></pre></div>
@@ -1852,8 +1092,8 @@ background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bind_rows</span>(</span>
-<span id="cb7-2">  fit_records,</span>
-<span id="cb7-3">  list.gpx <span class="sc" style="color: #5E5E5E;
+<span id="cb7-2">    fit_records,</span>
+<span id="cb7-3">    list.gpx <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1878,11 +1118,11 @@ font-style: inherit;"># nrow(records)</span></span></code></pre></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">&lt;-</span> </span>
-<span id="cb8-2">  activities <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">&lt;-</span></span>
+<span id="cb8-2">    activities <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb8-3">  janitor<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb8-3">    janitor<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1891,7 +1131,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># helper function for column names</span></span>
-<span id="cb8-4">  janitor<span class="sc" style="color: #5E5E5E;
+<span id="cb8-4">    janitor<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1900,7 +1140,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># drop empty rows</span></span>
-<span id="cb8-5">  <span class="fu" style="color: #4758AB;
+<span id="cb8-5">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(filename, <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1909,7 +1149,7 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># reorder columns</span></span>
-<span id="cb8-6">  <span class="fu" style="color: #4758AB;
+<span id="cb8-6">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1936,12 +1176,11 @@ font-style: inherit;">3.28084</span></span>
 background-color: null;
 font-style: inherit;">&lt;-</span> record_key_raw <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-5">  </span>
-<span id="cb9-6">  <span class="co" style="color: #5E5E5E;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-5">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># change units for elevation variables</span></span>
-<span id="cb9-7">  <span class="fu" style="color: #4758AB;
+<span id="cb9-6">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1951,66 +1190,68 @@ font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"elevation"</span>)), <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">function</span>(x){x <span class="ot" style="color: #003B4F;
+font-style: inherit;">function</span>(x) {</span>
+<span id="cb9-7">        x <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">&lt;-</span> x<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">&lt;-</span> x <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">*</span>M_TO_FT}) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">*</span> M_TO_FT</span>
+<span id="cb9-8">    }) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-8">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-9">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(</span>
-<span id="cb9-9">    </span>
-<span id="cb9-10">  <span class="co" style="color: #5E5E5E;
+<span id="cb9-10"></span>
+<span id="cb9-11">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># units #</span></span>
-<span id="cb9-11">    <span class="at" style="color: #657422;
+<span id="cb9-12">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">distance =</span> distance<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">distance =</span> distance <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">*</span>KM_TO_MI,</span>
-<span id="cb9-12">    <span class="at" style="color: #657422;
+font-style: inherit;">*</span> KM_TO_MI,</span>
+<span id="cb9-13">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">duration =</span> elapsed_time<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">duration =</span> elapsed_time <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">60</span>,</span>
-<span id="cb9-13">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">duration_moving =</span> moving_time<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">60</span>,</span>
-<span id="cb9-14">    <span class="at" style="color: #657422;
+<span id="cb9-14">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">pace =</span> (duration<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">duration_moving =</span> moving_time <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span>distance) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>,</span>
+<span id="cb9-15">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pace =</span> (duration <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> distance) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>),</span>
-<span id="cb9-15">    <span class="at" style="color: #657422;
+<span id="cb9-16">        <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">pace_moving =</span> (duration_moving<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">pace_moving =</span> (duration_moving <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span>distance) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">/</span> distance) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>),</span>
-<span id="cb9-16">    </span>
-<span id="cb9-17">  <span class="co" style="color: #5E5E5E;
+<span id="cb9-17"></span>
+<span id="cb9-18">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># ids #</span></span>
-<span id="cb9-18">    <span class="at" style="color: #657422;
+<span id="cb9-19">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">filename =</span> filename <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2027,21 +1268,21 @@ background-color: null;
 font-style: inherit;">"fit.gz"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"fit"</span>),</span>
-<span id="cb9-19">    <span class="at" style="color: #657422;
+<span id="cb9-20">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">activity_id =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.character</span>(activity_id),</span>
-<span id="cb9-20">    <span class="at" style="color: #657422;
+<span id="cb9-21">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tolower</span>(activity_type),</span>
-<span id="cb9-21">    </span>
-<span id="cb9-22">  <span class="co" style="color: #5E5E5E;
+<span id="cb9-22"></span>
+<span id="cb9-23">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># incorrectly coded activities #</span></span>
-<span id="cb9-23">    <span class="at" style="color: #657422;
+<span id="cb9-24">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2051,8 +1292,8 @@ font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"1812636545.gpx"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"hike"</span>, activity_type), </span>
-<span id="cb9-24">    <span class="at" style="color: #657422;
+font-style: inherit;">"hike"</span>, activity_type),</span>
+<span id="cb9-25">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">activity_type =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2062,13 +1303,12 @@ font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"3324264305.fit"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"walk"</span>, activity_type), </span>
-<span id="cb9-25">    </span>
-<span id="cb9-26">    </span>
-<span id="cb9-27">  <span class="co" style="color: #5E5E5E;
+font-style: inherit;">"walk"</span>, activity_type),</span>
+<span id="cb9-26"></span>
+<span id="cb9-27">        <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># dates #</span></span>
-<span id="cb9-28">    <span class="at" style="color: #657422;
+<span id="cb9-28">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rdatetime_utc =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2083,7 +1323,7 @@ background-color: null;
 font-style: inherit;">tz =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"UTC"</span>),</span>
-<span id="cb9-29">    <span class="at" style="color: #657422;
+<span id="cb9-29">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rdatetime_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2094,59 +1334,57 @@ background-color: null;
 font-style: inherit;">tz =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"America/New_York"</span>),</span>
-<span id="cb9-30">    <span class="at" style="color: #657422;
+<span id="cb9-30">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rdate_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">as_date</span>(rdatetime_et), </span>
-<span id="cb9-31">    </span>
-<span id="cb9-32">    <span class="at" style="color: #657422;
+font-style: inherit;">as_date</span>(rdatetime_et),</span>
+<span id="cb9-31">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rday =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">day</span>(rdate_et),</span>
-<span id="cb9-33">    <span class="at" style="color: #657422;
+<span id="cb9-32">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rmonth =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">month</span>(rdate_et),</span>
-<span id="cb9-34">    <span class="at" style="color: #657422;
+<span id="cb9-33">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">ryear =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">year</span>(rdate_et),</span>
-<span id="cb9-35">    <span class="at" style="color: #657422;
+<span id="cb9-34">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rhour_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">hour</span>(rdatetime_et),</span>
-<span id="cb9-36">    <span class="at" style="color: #657422;
+<span id="cb9-35">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rminute_et =</span> lubridate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">minute</span>(rdatetime_et)</span>
-<span id="cb9-37"></span>
-<span id="cb9-38">  ) <span class="sc" style="color: #5E5E5E;
+<span id="cb9-36">    ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-39">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-37">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>( <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># drop empty variables</span></span>
-<span id="cb9-40">    <span class="sc" style="color: #5E5E5E;
+<span id="cb9-38">        <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2165,7 +1403,7 @@ background-color: null;
 font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"wind"</span>),</span>
-<span id="cb9-41">    <span class="sc" style="color: #5E5E5E;
+<span id="cb9-39">        <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>apparent_temperature, <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2180,14 +1418,14 @@ background-color: null;
 font-style: inherit;">-</span>cloud_cover, <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>uv_index</span>
-<span id="cb9-42">  ) <span class="sc" style="color: #5E5E5E;
+<span id="cb9-40">    ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-43">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-41">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate_if</span>(is.numeric, <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">~</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">round</span>(.x, <span class="dv" style="color: #AD0000;
 background-color: null;

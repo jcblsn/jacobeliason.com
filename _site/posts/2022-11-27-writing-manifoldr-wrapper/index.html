@@ -233,14 +233,14 @@ gtag('config', 'G-W5T2MB639Z', { 'anonymize_ip': true});
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># devtools::install_github("jcblsn/manifoldr")</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>manifoldr<span class="sc">::</span><span class="fu">manifold_api</span>(</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">endpoint =</span> <span class="st">"/v0/user/ManifoldMarkets"</span>, </span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">request_type =</span> <span class="st">"GET"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="at">endpoint =</span> <span class="st">"/v0/user/ManifoldMarkets"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="at">request_type =</span> <span class="st">"GET"</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A number of convenience functions are also provided. These include functions which correspond to specific endpoints along with others such as <code>clean_manifold_content()</code>, which will return output as a data frame with clean variable names. Users can also authenticate with the platform using <code>manifoldr::get_manifold_api_key()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>manifoldr<span class="sc">::</span><span class="fu">get_market</span>(<span class="at">market_id_or_slug =</span> <span class="st">"will-the-los-angeles-lakers-make-th-8cbc520d8ca6"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2"></a>  manifoldr<span class="sc">::</span><span class="fu">clean_manifold_content</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>manifoldr<span class="sc">::</span><span class="fu">get_market</span>(<span class="at">market_id_or_slug =</span> <span class="st">"will-the-los-angeles-lakers-make-th-8cbc520d8ca6"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    manifoldr<span class="sc">::</span><span class="fu">clean_manifold_content</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The package includes implementations of standard unit testing and code coverage tools using <a href="https://covr.r-lib.org"><code>covr</code></a>, <a href="https://testthat.r-lib.org"><code>testthat</code></a>, and <a href="https://github.com/r-lib/actions">Github Actions</a>.</p>
 </section>

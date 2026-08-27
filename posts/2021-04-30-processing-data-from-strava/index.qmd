@@ -1,6 +1,6 @@
 ---
 title: "Preparing data from Strava for analysis"
-description: "How I clean my workout data."
+description: "Cleaning my workout data"
 author: 'Jacob Eliason' 
 date: '2021-04-30'
 categories: [r, sports, process write-up] 
@@ -41,9 +41,9 @@ A few more lines help with setup and prepare for reading the activity files.
 
 ```{r}
 #| eval: false
-PATH <- str_c(str_remove(getwd(),"/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"),"/personal-projects/strava")
+PATH <- str_c(str_remove(getwd(), "/jacobeliason.com/posts/2021-04-30-processing-data-from-strava"), "/personal-projects/strava")
 export_date <- "2021-04-29"
-PATH_ACTIVITIES <- str_c(PATH, "/DATA/",export_date,"/activities/")
+PATH_ACTIVITIES <- str_c(PATH, "/DATA/", export_date, "/activities/")
 activity_names <- list.files(PATH_ACTIVITIES)
 sample(activity_names, 3) # check to make sure I got the correct file path
 ```
@@ -56,13 +56,13 @@ The `.fit.gz` files are [compressed](https://en.wikipedia.org/wiki/Gzip) and nee
 
 ```{r}
 #| eval: false
-compressed_record_names <- activity_names[str_sub(activity_names,-6,-1) == "fit.gz"]
+compressed_record_names <- activity_names[str_sub(activity_names, -6, -1) == "fit.gz"]
 
-for(i in 1:length(compressed_record_names)){
-  R.utils::gunzip(
-    str_c(PATH_ACTIVITIES, compressed_record_names[i]),
-    remove = F
-  )
+for (i in 1:length(compressed_record_names)) {
+    R.utils::gunzip(
+        str_c(PATH_ACTIVITIES, compressed_record_names[i]),
+        remove = F
+    )
 }
 ```
 
@@ -71,7 +71,7 @@ Having unzipped the files, I again collect names.
 ```{r}
 #| eval: false
 activity_names <- list.files(PATH_ACTIVITIES)
-uncompressed_fit_names <- activity_names[str_sub(activity_names,-3,-1) == "fit"] # want exact match to .fit only, no .fit.gz
+uncompressed_fit_names <- activity_names[str_sub(activity_names, -3, -1) == "fit"] # want exact match to .fit only, no .fit.gz
 ```
 
 Now, using `FITfileR::records()`, I transform the files into tidy, rectangular datasets.
@@ -79,18 +79,22 @@ Now, using `FITfileR::records()`, I transform the files into tidy, rectangular d
 ```{r}
 #| eval: false
 list.fit <- list()
-for(i in 1:length(uncompressed_fit_names)) {
-  record <- FITfileR::readFitFile(
-    str_c(PATH_ACTIVITIES, uncompressed_record_names[i])
-  ) %>% FITfileR::records()
-  
-  if(length(record) > 1) {
-    record <- record %>% bind_rows() %>% mutate(activity_id = i, filename = uncompressed_fit_names[i])
-  }
-  
-  list.fit[[i]] <- record
+for (i in 1:length(uncompressed_fit_names)) {
+    record <- FITfileR::readFitFile(
+        str_c(PATH_ACTIVITIES, uncompressed_record_names[i])
+    ) %>% FITfileR::records()
+
+    if (length(record) > 1) {
+        record <- record %>%
+            bind_rows() %>%
+            mutate(activity_id = i, filename = uncompressed_fit_names[i])
+    }
+
+    list.fit[[i]] <- record
 }
-fit_records <- list.fit %>% bind_rows() %>% arrange(timestamp)
+fit_records <- list.fit %>%
+    bind_rows() %>%
+    arrange(timestamp)
 ```
 
 ### Reading files recorded from my iPhone (`.gpx`) {#s2-read-gpx}
@@ -99,19 +103,19 @@ I turn my attention back to the `.gpx` files. Fortunately, these files don't req
 
 ```{r}
 #| eval: false
-gpx_names <- activity_names[str_sub(activity_names,-3,-1) == "gpx"]
+gpx_names <- activity_names[str_sub(activity_names, -3, -1) == "gpx"]
 
 list.gpx <- list()
-for(i in 1:length(gpx_names)) {
-  record <- trackeR::readGPX(str_c(PATH_ACTIVITIES, gpx_names[i])) %>% 
-    as_tibble() %>% 
-    rename(
-      timestamp = time, 
-      position_lat = latitude, 
-      position_long = longitude, 
-      cadence = cadence_running
-    )
-  list.gpx[[i]] <- record
+for (i in 1:length(gpx_names)) {
+    record <- trackeR::readGPX(str_c(PATH_ACTIVITIES, gpx_names[i])) %>%
+        as_tibble() %>%
+        rename(
+            timestamp = time,
+            position_lat = latitude,
+            position_long = longitude,
+            cadence = cadence_running
+        )
+    list.gpx[[i]] <- record
 }
 ```
 
@@ -122,8 +126,8 @@ I add my two datasets together and with that, I'm ready to Learn Things.
 ```{r}
 #| eval: false
 records <- bind_rows(
-  fit_records,
-  list.gpx %>% bind_rows()
+    fit_records,
+    list.gpx %>% bind_rows()
 ) %>% arrange(timestamp)
 
 # colnames(records)
@@ -136,12 +140,12 @@ One last thing I'll do before I finish up is make some tweaks to the `activities
 
 ```{r}
 #| eval: false
-record_key_raw <- 
-  activities %>% 
-  janitor::clean_names() %>% # helper function for column names
-  janitor::remove_empty() %>% # drop empty rows
-  select(filename, everything()) %>% # reorder columns
-  filter(!is.na(filename)) # drop rows with empty file names
+record_key_raw <-
+    activities %>%
+    janitor::clean_names() %>% # helper function for column names
+    janitor::remove_empty() %>% # drop empty rows
+    select(filename, everything()) %>% # reorder columns
+    filter(!is.na(filename)) # drop rows with empty file names
 ```
 
 I also make a variety of mostly trivial changes for my own convenience and then I'm good to go!
@@ -151,46 +155,45 @@ I also make a variety of mostly trivial changes for my own convenience and then 
 KM_TO_MI <- 0.621371
 M_TO_FT <- 3.28084
 
-record_key <- record_key_raw %>% 
-  
-  # change units for elevation variables
-  mutate_at(vars(contains("elevation")), function(x){x <- x*M_TO_FT}) %>% 
-  mutate(
-    
-  # units #
-    distance = distance*KM_TO_MI,
-    duration = elapsed_time/60,
-    duration_moving = moving_time/60,
-    pace = (duration/distance) %>% round(2),
-    pace_moving = (duration_moving/distance) %>% round(2),
-    
-  # ids #
-    filename = filename %>% str_remove(., "activities/") %>% str_replace(., "fit.gz", "fit"),
-    activity_id = as.character(activity_id),
-    activity_type = tolower(activity_type),
-    
-  # incorrectly coded activities #
-    activity_type = ifelse(filename == "1812636545.gpx", "hike", activity_type), 
-    activity_type = ifelse(filename == "3324264305.fit", "walk", activity_type), 
-    
-    
-  # dates #
-    rdatetime_utc = lubridate::as_datetime(activity_date, format = "%b %d, %Y, %I:%M:%S %p", tz = "UTC"),
-    rdatetime_et = lubridate::as_datetime(rdatetime_utc, tz = "America/New_York"),
-    rdate_et = lubridate::as_date(rdatetime_et), 
-    
-    rday = lubridate::day(rdate_et),
-    rmonth = lubridate::month(rdate_et),
-    ryear = lubridate::year(rdate_et),
-    rhour_et = lubridate::hour(rdatetime_et),
-    rminute_et = lubridate::minute(rdatetime_et)
+record_key <- record_key_raw %>%
+    # change units for elevation variables
+    mutate_at(vars(contains("elevation")), function(x) {
+        x <- x * M_TO_FT
+    }) %>%
+    mutate(
 
-  ) %>% 
-  select( # drop empty variables
-    -contains("weather"), -contains("precipitation"), -contains("wind"),
-    -apparent_temperature, -sunrise_time, -sunset_time, -dewpoint, -humidity, -cloud_cover, -uv_index
-  ) %>% 
-  mutate_if(is.numeric, ~round(.x, 2)) # round numeric variables
+        # units #
+        distance = distance * KM_TO_MI,
+        duration = elapsed_time / 60,
+        duration_moving = moving_time / 60,
+        pace = (duration / distance) %>% round(2),
+        pace_moving = (duration_moving / distance) %>% round(2),
+
+        # ids #
+        filename = filename %>% str_remove(., "activities/") %>% str_replace(., "fit.gz", "fit"),
+        activity_id = as.character(activity_id),
+        activity_type = tolower(activity_type),
+
+        # incorrectly coded activities #
+        activity_type = ifelse(filename == "1812636545.gpx", "hike", activity_type),
+        activity_type = ifelse(filename == "3324264305.fit", "walk", activity_type),
+
+
+        # dates #
+        rdatetime_utc = lubridate::as_datetime(activity_date, format = "%b %d, %Y, %I:%M:%S %p", tz = "UTC"),
+        rdatetime_et = lubridate::as_datetime(rdatetime_utc, tz = "America/New_York"),
+        rdate_et = lubridate::as_date(rdatetime_et),
+        rday = lubridate::day(rdate_et),
+        rmonth = lubridate::month(rdate_et),
+        ryear = lubridate::year(rdate_et),
+        rhour_et = lubridate::hour(rdatetime_et),
+        rminute_et = lubridate::minute(rdatetime_et)
+    ) %>%
+    select( # drop empty variables
+        -contains("weather"), -contains("precipitation"), -contains("wind"),
+        -apparent_temperature, -sunrise_time, -sunset_time, -dewpoint, -humidity, -cloud_cover, -uv_index
+    ) %>%
+    mutate_if(is.numeric, ~ round(.x, 2)) # round numeric variables
 ```
 
 Now, for each run, I have information on granular location data and summary information in datasets `records` and `record_key` respectively. The interesting stuff pretty much all comes after this point, but I'll save that for another post.

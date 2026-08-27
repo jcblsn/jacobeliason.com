@@ -40,3 +40,20 @@ body {
 h1 {
   color: #fff;
 }
+/* opt-in 1px border for screenshots */
+.img-border {
+  border: 1px solid black;
+}
+
+/* figure captions: small, centered, muted */
+figcaption {
+  font-size: 0.8em;
+  text-align: center;
+  color: #6c757d;
+  margin-top: 0.4rem;
+}
+
+figcaption a {
+  color: inherit;
+  text-decoration: underline;
+}

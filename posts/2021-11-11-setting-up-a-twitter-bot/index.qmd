@@ -1,6 +1,6 @@
 ---
-title: "Deploying a Twitter bot from RStudio"
-description: "Into the mapbotverse."
+title: "Posting randomly selected satellite imagery chunks from my home state"
+description: "Utah is pretty empty"
 author: 'Jacob Eliason' 
 date: '2021-11-11'
 categories: [r, twitter, github actions]
