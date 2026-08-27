@@ -67,6 +67,10 @@ Contemporary research based on narrower subsets of the country also land in the 
 
 This is all to say that we don't know exactly, but if I had to bet—or, more realistically, make a guess as part of another online geography quiz game—I'd estimate the share of Brazilians who actually abstain from meat in the low single digits.
 
+---
+
+*Human-authored.*
+
 [^1]:  I'd guess that if meat-abstainers were an order of magnitude more common in Brazil than in the US, this demographic fact would bleed into perceptions about the country's overall identity as it has for India, where Pew and other high-quality surveys find that around [four-tenths](https://archive.ph/wukZA) of the population identifies as vegetarian. If anything, characterizations of dietary attitudes and behavior seem more likely to characterize Brazil as a "[meaty](https://archive.ph/4iyM0)" country where barbecue is a "[way of life](https://archive.ph/LfGZg)." Per capita meat consumption in Brazil [ranks among the highest in the world](https://ourworldindata.org/grapher/per-capita-meat-consumption-by-type-kilograms-per-year?tab=table&country=~BRA).
 
 [^2]:  Per [Wikipedia](https://en.wikipedia.org/w/index.php?title=IBOPE&oldid=1364939082), "the name IBOPE is listed in the Brazilian dictionary as a synonym of audience ratings research."
