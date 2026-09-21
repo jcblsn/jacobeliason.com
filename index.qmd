@@ -25,11 +25,7 @@ freeze: auto
 
 ## Bio
 
-My background is in statistics. I work in measurement: A/B tests, causal inference, and survey methods. Trying to be less wrong. 
-
-Also interested in remote sensing, sports, and elections data.
-
-I enjoy running marathons and film photography.
+ My background is in statistics. I work on experimentation, causal inference, and LLMs; I'm particularly interested in evaluation and measurement. Trying to be less wrong.
 
 ```{r}
 #| echo: false

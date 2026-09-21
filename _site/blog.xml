@@ -9,7 +9,7 @@
 <link>https://jacobeliason.com/blog.html</link>
 <atom:link href="https://jacobeliason.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.549</generator>
+<generator>quarto-1.9.38</generator>
 <lastBuildDate>Thu, 27 Aug 2026 04:00:00 GMT</lastBuildDate>
 <item>
   <title>There Aren’t Really 30 Million Vegetarians in Brazil</title>
@@ -26,7 +26,7 @@
 <p>I often compete with my family for the highest score in various daily geography quiz games. I recently took second place to my brother in one game by giving what was apparently a massive underestimate for how many people in Brazil are vegetarian. The game claimed that Brazil is the third-most vegetarian country in the world. While I was admittedly motivated by the sting of losing, this was very surprising to me.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/2026-08-27-someone-is-wrong-on-the-internet.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="xkcd comic 386: a person at a keyboard answers someone off-panel who has asked if they are coming to bed, saying they cannot because someone is wrong on the internet."></p>
+<p><img src="https://jacobeliason.com/posts/2026-08-27-vegetarians-in-brazil/2026-08-27-someone-is-wrong-on-the-internet.png" class="img-fluid figure-img" style="width:50.0%" alt="xkcd comic 386: a person at a keyboard answers someone off-panel who has asked if they are coming to bed, saying they cannot because someone is wrong on the internet."></p>
 <figcaption><a href="https://xkcd.com/386/">xkcd 386</a></figcaption>
 </figure>
 </div>
@@ -45,7 +45,7 @@
 <h2 class="anchored" data-anchor-id="partial-vegetarians">Partial vegetarians?</h2>
 <p>As it turns out, the prominent versions of this particular claim all come from the same place. In 2018, IBOPE Inteligência, a well-regarded Brazilian polling and market-research company,<sup>2</sup> surveyed 2,002 Brazilians aged 16 and older “to understand perceptions of the population about vegetarianism.” The <a href="https://svb.org.br/wp-content/uploads/2026/07/JOB_0416_VEGETARIANISMO-Relatorio-de-tabelas.pdf">survey</a> was commissioned by Sociedade Vegetariana Brasileira (SVB), a national vegetarian advocacy organization, but I didn’t see any obvious signs that the work was compromised by this affiliation. It at least appears to have been conducted using reasonable methodological choices—the sample is said to have been derived from the Brazilian census and a three-stage cluster design; interviews were conducted in person. I used to work on the sampling frame for a household survey at the US Census Bureau and, while I wouldn’t characterize this effort as gold standard (they used some kind of quota selection at the final stage), nothing jumped off the page to me as obviously disqualifying.</p>
 <p>However, the survey focused on attitudes related to vegetarianism, not actual dietary practices. The questionnaire included a section where respondents were presented with a number of statements, including “I am vegetarian,” and asked about the extent to which they agreed or disagreed.</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Response to “I am vegetarian”</th>
@@ -223,11 +223,11 @@
 <section id="some-of-my-favorite-recent-textures" class="level2">
 <h2 class="anchored" data-anchor-id="some-of-my-favorite-recent-textures">Some of my favorite recent textures</h2>
 <p>Note: recent changes to the Twitter API seem to have caused the images to no longer display inline.</p>
-<p></p><div id="tweet-82319"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-82319").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-32913"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-32913").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-59707"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-59707").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-80282"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-80282").innerHTML = tweet["html"];</script><p></p>
-<p></p><div id="tweet-41983"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-41983").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-83576"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1456781196319330307","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.1263, -113.3602\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Granite Peak Installation - 7.4 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/ODI4FztxYa\"\u003Ehttps:\/\/t.co\/ODI4FztxYa\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/REpGX3zh9r\"\u003Ehttps:\/\/t.co\/REpGX3zh9r\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/lifeelevated?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#lifeelevated\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AsoAtB6B9R\"\u003Epic.twitter.com\/AsoAtB6B9R\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1456781196319330307?ref_src=twsrc%5Etfw\"\u003ENovember 6, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-83576").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-96567"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455780540586496007","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.7156, -113.5968\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Beryl Junction, Utah - CDP in Utah, United States - 5.3 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/mNY9WmBO6x\"\u003Ehttps:\/\/t.co\/mNY9WmBO6x\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nTrmgILMGx\"\u003Ehttps:\/\/t.co\/nTrmgILMGx\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/landsat?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#landsat\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/vh0hNixHUC\"\u003Epic.twitter.com\/vh0hNixHUC\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455780540586496007?ref_src=twsrc%5Etfw\"\u003ENovember 3, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-96567").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-81526"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1455607736255746052","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.1025, -111.5024\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Lone Rock (Glen Canyon National Recreation Area) - 8.9 km away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/6SGKTMUyTz\"\u003Ehttps:\/\/t.co\/6SGKTMUyTz\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/nV93hvWAUc\"\u003Ehttps:\/\/t.co\/nV93hvWAUc\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/wikipedia?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#wikipedia\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/QXNeXUc92d\"\u003Epic.twitter.com\/QXNeXUc92d\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1455607736255746052?ref_src=twsrc%5Etfw\"\u003ENovember 2, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-81526").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-17881"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1452382882765238275","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 40.0148, -111.6805\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Elk Ridge, Utah - City in Utah, United States - 150 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/nOf3QawMd7\"\u003Ehttps:\/\/t.co\/nOf3QawMd7\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/qsASwKWtsp\"\u003Ehttps:\/\/t.co\/qsASwKWtsp\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/mapbox?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#mapbox\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/sSPuDb9C1b\"\u003Epic.twitter.com\/sSPuDb9C1b\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1452382882765238275?ref_src=twsrc%5Etfw\"\u003EOctober 24, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-17881").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-97717"></div><script>tweet={"url":"https:\/\/x.com\/texturesofut\/status\/1450825427593924610","author_name":"Textures of Utah \uD83E\uDD16","author_url":"https:\/\/x.com\/texturesofut","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCCD 37.4306, -113.1841\u003Cbr\u003E\u003Cbr\u003Eℹ️ Nearby point of interest: Timber Top Mountain - 860 m away\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDD17 \u003Ca href=\"https:\/\/t.co\/I8wCZNOXf5\"\u003Ehttps:\/\/t.co\/I8wCZNOXf5\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003E\uD83D\uDDFA \u003Ca href=\"https:\/\/t.co\/i0i1jgtFMC\"\u003Ehttps:\/\/t.co\/i0i1jgtFMC\u003C\/a\u003E\u003Ca href=\"https:\/\/x.com\/hashtag\/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#tidyverse\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/wbVGaEVv3B\"\u003Epic.twitter.com\/wbVGaEVv3B\u003C\/a\u003E\u003C\/p\u003E&mdash; Textures of Utah \uD83E\uDD16 (@texturesofut) \u003Ca href=\"https:\/\/x.com\/texturesofut\/status\/1450825427593924610?ref_src=twsrc%5Etfw\"\u003EOctober 20, 2021\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.x.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"X","provider_url":"https:\/\/x.com","version":"1.0"};document.getElementById("tweet-97717").innerHTML = tweet["html"];</script><p></p>
 
 
 </section>
@@ -286,7 +286,7 @@
 <p>Having compiled population targets from the sources given above, I show how both the unweighted estimates and the estimates produced using the original Nationscape weights fail to accurately represent the adult population of US Mormons.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 22%">
@@ -445,7 +445,7 @@
 <p>We can produce much more accurate estimates by using new weights for the Mormon respondents that are based on these population targets. Using a “simple raking technique” (in my case, using the <code>survey</code> package in R), I <a href="https://github.com/jcblsn/jacobeliason-dot-com/blob/main/content/post/2021-06-25-how-many-young-mormons-are-queer/produce-mormon-weights-for-nationscape.R">bring</a> the sample characteristics of the Mormon survey respondents more or less into alignment with what we understand the population characteristics of Mormons to really be. Here’s what the new weighted estimates and the population targets look like side by side.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 30%">
@@ -582,7 +582,7 @@
 <p>These obviously are a much closer match. Going one step further, I highlight the “performance” of these different schemes by taking the difference between each set of estimates and the population targets. Using those differences, I compute the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">root-mean-square error</a> for each scheme overall (where a higher number is more error and “worse”).<sup>1</sup></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Method</th>
@@ -613,7 +613,7 @@
 <p>That said, what difference do these new weights make with respect to our question at hand? Using the new weights on the sample of 3,881 Mormons, I show the following results for “Do you identify as [straight/gay/lesbian/bisexual/other]” by generation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Generation</th>
@@ -669,7 +669,7 @@
 <p><img src="https://latex.codecogs.com/png.latex?V(%5Chat%7B%5Ctheta%7D)%20=%20(1%20+%20%7Bs%5E2%7D_%7Bw%7D)%5Chat%7B%5Ctheta%7D(1-%5Chat%7B%5Ctheta%7D)"> where <img src="https://latex.codecogs.com/png.latex?s_w"> is the standard deviation of the weights</p>
 <p>My interpretation of Rivers and Bailey follows code like this. I include it here because I’d love to hear feedback if this is a misunderstanding of that recommendation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">sd_w_mormon <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1">sd_w_mormon <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -732,7 +732,7 @@ font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>est))<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">/</span>wt_n))</span></code></pre></div>
+font-style: inherit;">/</span>wt_n))</span></code></pre></div></div>
 </div>
 <p>Using these confidence intervals (and corresponding calculations for the general population), I show the following final result:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -792,7 +792,7 @@ font-style: inherit;">/</span>wt_n))</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="s2">2. Unpacking <code>.gpx</code> and <code>.fit.gz</code> files</h2>
 <p>I start by installing the Github packages and loading those along with the <code>tidyverse</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># devtools::install_github("grimbough/FITfileR")</span></span>
 <span id="cb1-2"><span class="co" style="color: #5E5E5E;
@@ -807,11 +807,11 @@ background-color: null;
 font-style: inherit;">library</span>(trackeR)</span>
 <span id="cb1-6"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span></code></pre></div>
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 </div>
 <p>A few more lines help with setup and prepare for reading the activity files.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">PATH <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1">PATH <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -849,14 +849,14 @@ font-style: inherit;">sample</span>(activity_names, <span class="dv" style="colo
 background-color: null;
 font-style: inherit;">3</span>) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># check to make sure I got the correct file path</span></span></code></pre></div>
+font-style: inherit;"># check to make sure I got the correct file path</span></span></code></pre></div></div>
 </div>
 <p>As I look at the file names, the first thing that becomes apparent is that I have some extra work to do as a result of my alternately using my phone and a Garmin watch to record activities. Those two devices produce the two different file extensions I observe and require different steps for unpacking.</p>
 <section id="s2-read-fit" class="level3">
 <h3 class="anchored" data-anchor-id="s2-read-fit">Uncompressing and reading files from my fitness watch (<code>.fit.gz</code>)</h3>
 <p>The <code>.fit.gz</code> files are <a href="https://en.wikipedia.org/wiki/Gzip">compressed</a> and need to be uncompressed to <code>.fit</code> before I can use the <code>FITfileR</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">compressed_record_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1">compressed_record_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -876,8 +876,10 @@ font-style: inherit;">"fit.gz"</span>]</span>
 <span id="cb3-2"></span>
 <span id="cb3-3"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -897,11 +899,11 @@ font-style: inherit;">str_c</span>(PATH_ACTIVITIES, compressed_record_names[i]),
 background-color: null;
 font-style: inherit;">remove =</span> F</span>
 <span id="cb3-7">    )</span>
-<span id="cb3-8">}</span></code></pre></div>
+<span id="cb3-8">}</span></code></pre></div></div>
 </div>
 <p>Having unzipped the files, I again collect names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">activity_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1">activity_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -924,19 +926,21 @@ font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"fit"</span>] <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># want exact match to .fit only, no .fit.gz</span></span></code></pre></div>
+font-style: inherit;"># want exact match to .fit only, no .fit.gz</span></span></code></pre></div></div>
 </div>
 <p>Now, using <code>FITfileR::records()</code>, I transform the files into tidy, rectangular datasets.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">list.fit <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1">list.fit <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb5-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -964,6 +968,7 @@ font-style: inherit;">records</span>()</span>
 <span id="cb5-6"></span>
 <span id="cb5-7">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">length</span>(record) <span class="sc" style="color: #5E5E5E;
@@ -1006,14 +1011,14 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb5-17">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div>
+font-style: inherit;">arrange</span>(timestamp)</span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-read-gpx" class="level3">
 <h3 class="anchored" data-anchor-id="s2-read-gpx">Reading files recorded from my iPhone (<code>.gpx</code>)</h3>
 <p>I turn my attention back to the <code>.gpx</code> files. Fortunately, these files don’t require much beyond a simple pass from the <code>trackeR</code> function. I do some additional housekeeping along the way, but this part is pretty straightforward.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">gpx_names <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1">gpx_names <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> activity_names[<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1038,8 +1043,10 @@ background-color: null;
 font-style: inherit;">list</span>()</span>
 <span id="cb6-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1082,14 +1089,14 @@ font-style: inherit;">cadence =</span> cadence_running</span>
 <span id="cb6-13">    list.gpx[[i]] <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> record</span>
-<span id="cb6-14">}</span></code></pre></div>
+<span id="cb6-14">}</span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-combine" class="level3">
 <h3 class="anchored" data-anchor-id="s2-combine">Combine both record types</h3>
 <p>I add my two datasets together and with that, I’m ready to Learn Things.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">records <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1">records <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1111,14 +1118,14 @@ background-color: null;
 font-style: inherit;"># colnames(records)</span></span>
 <span id="cb7-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># nrow(records)</span></span></code></pre></div>
+font-style: inherit;"># nrow(records)</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="s2-summary" class="level3">
 <h3 class="anchored" data-anchor-id="s2-summary">Straightening out the summary information in <code>activities.csv</code></h3>
 <p>One last thing I’ll do before I finish up is make some tweaks to the <code>activities.csv</code> file I got in my original download. I make some changes to the column names and order to taste, and I remove rows with empty file names. It turns out that those correspond with activities with no associated GPS data, such as treadmill or weightlifting workouts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1">record_key_raw <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
 <span id="cb8-2">    activities <span class="sc" style="color: #5E5E5E;
@@ -1159,11 +1166,11 @@ font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">is.na</span>(filename)) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># drop rows with empty file names</span></span></code></pre></div>
+font-style: inherit;"># drop rows with empty file names</span></span></code></pre></div></div>
 </div>
 <p>I also make a variety of mostly trivial changes for my own convenience and then I’m good to go!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">KM_TO_MI <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1">KM_TO_MI <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -1192,6 +1199,7 @@ font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"elevation"</span>)), <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x) {</span>
 <span id="cb9-7">        x <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1433,7 +1441,7 @@ font-style: inherit;">round</span>(.x, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>)) <span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># round numeric variables</span></span></code></pre></div>
+font-style: inherit;"># round numeric variables</span></span></code></pre></div></div>
 </div>
 <p>Now, for each run, I have information on granular location data and summary information in datasets <code>records</code> and <code>record_key</code> respectively. The interesting stuff pretty much all comes after this point, but I’ll save that for another post.</p>
 
